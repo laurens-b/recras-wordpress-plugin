@@ -11,7 +11,6 @@ notifications:
 
 php:
 #- 5.6 # TODO: this fails because of dev-dependencies that require PHP 7
-- 7.1
 - 7.2
 - 7.3
 - 7.4snapshot
