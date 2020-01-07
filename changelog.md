@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.2.2 (2020-01-07)
+* Fix pre-filling amounts form
+
 ## 3.2.1 (2019-12-18)
 * Update online booking library version: fix error when trying to book a product that has no material
 
