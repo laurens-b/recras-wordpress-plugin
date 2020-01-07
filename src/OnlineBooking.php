@@ -85,7 +85,7 @@ class OnlineBooking
             $extraOptions[] = "redirect_url: '" . $libraryOptions['redirect'] . "'";
         }
 
-        if (count($libraryOptions['preFillAmounts'])) {
+        if (isset($libraryOptions['preFillAmounts']) && count($libraryOptions['preFillAmounts']) > 0) {
             $extraOptions[] = 'productAmounts: ' . json_encode($libraryOptions['preFillAmounts']);
         }
 
