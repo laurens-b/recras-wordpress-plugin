@@ -26,24 +26,19 @@ class OnlineBooking
             $arrangementID = $_GET['package'];
         }
 
-        $enableResize = !isset($attributes['autoresize']) || (!!$attributes['autoresize'] === true);
-        $useNewLibrary = isset($attributes['use_new_library']) ? (!!$attributes['use_new_library']) : false;
+        $useJSLibrary = isset($attributes['use_new_library']) ? (!!$attributes['use_new_library']) : false;
 
-        $preFillAmounts = [];
-        if ($arrangementID && isset($attributes['product_amounts'])) {
-            $preFillAmounts = json_decode($attributes['product_amounts'], true);
-            if (!$preFillAmounts) {
-                return __('Error: "product_amounts" is invalid', Plugin::TEXT_DOMAIN);
-            }
+        if (!$useJSLibrary) {
+            $enableResize = !isset($attributes['autoresize']) || (!!$attributes['autoresize'] === true);
+            return self::generateIframe($subdomain, $arrangementID, $enableResize);
         }
 
         $libraryOptions = [
-            'preFillAmounts' => $preFillAmounts,
             'previewTimes' => isset($attributes['show_times']) ? (!!$attributes['show_times']) : false,
             'redirect' => isset($attributes['redirect']) ? $attributes['redirect'] : null,
         ];
 
-        if ($useNewLibrary && (int) $arrangementID === 0 && isset($attributes['package_list'])) {
+        if ((int) $arrangementID === 0 && isset($attributes['package_list'])) {
             if (is_string($attributes['package_list'])) {
                 $packages = json_decode($attributes['package_list']);
                 if (!$packages) {
@@ -60,11 +55,17 @@ class OnlineBooking
                 $libraryOptions['packageList'] = $attributes['package_list'];
             }
         }
-
-        if ($useNewLibrary) {
-            return self::generateBookingForm($subdomain, $arrangementID, $libraryOptions);
+        if ((int) $arrangementID !== 0 || (isset($libraryOptions['packageList'])) && count($libraryOptions['packageList']) === 1) {
+            if (isset($attributes['product_amounts'])) {
+                $preFillAmounts = json_decode($attributes['product_amounts'], true);
+                if (!$preFillAmounts) {
+                    return __('Error: "product_amounts" is invalid', Plugin::TEXT_DOMAIN);
+                }
+                $libraryOptions['preFillAmounts'] = $preFillAmounts;
+            }
         }
-        return self::generateIframe($subdomain, $arrangementID, $enableResize);
+
+        return self::generateBookingForm($subdomain, $arrangementID, $libraryOptions);
     }
 
 
