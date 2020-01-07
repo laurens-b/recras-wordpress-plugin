@@ -22,7 +22,7 @@ This plugin consists of the following "widgets". To use them, you first need to 
 Widgets can be added to your site in three ways. Using Gutenberg blocks (recommended, since WordPress 5.0 or using the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/)), using the buttons in the "classic editor", or by entering the shortcode manually (discouraged).
 
 ### Date/Time picker
-By default, date and time pickers in contact forms use whatever the browser has available. Currently (September 2019) Internet Explorer (all versions) and Safari (desktop) do not have native date/time pickers and only see a text field. We have included a modern looking date picker that you can enable on the Recras → Settings page. For time inputs, a proper fallback is included.
+By default, date and time pickers in contact forms use whatever the browser has available. Currently (January 2020) Internet Explorer (all versions) and Safari (desktop) do not have native date/time pickers and only see a text field. We have included a modern looking date picker that you can enable on the Recras → Settings page. For time inputs, a proper fallback is included.
 
 **Note**: this setting only applies to standalone contact forms, not to contact forms used during "new style" online booking.
 
