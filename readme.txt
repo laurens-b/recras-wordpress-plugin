@@ -70,6 +70,9 @@ We do not support page builders and have no plans to do so.
 = Does the plugin support network installations? =
 Yes it does. You can set different Recras names (all settings, for that matter) for each site.
 
+= Can the plugin be installed as "must use plugin" ? =
+No. "Must use" plugins don't appear in the update notifications nor show their update status on the plugins page (direct quote from the <a href="https://wordpress.org/support/article/must-use-plugins/">WordPress documentation</a>) which is reason enough for us not to support this.
+
 == Screenshots ==
 
 1. Example of a programme with the Twenty Fifteen theme
