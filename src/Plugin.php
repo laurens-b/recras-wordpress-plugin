@@ -57,7 +57,7 @@ class Plugin
     public function addMenuItems()
     {
         $mainPage = current_user_can('manage_options') ? 'recras' : Settings::PAGE_CACHE;
-        add_menu_page('Recras', 'Recras', 'edit_pages', $mainPage, '', plugin_dir_url(dirname(__FILE__)) . 'logo.svg', 58);
+        add_menu_page('Recras', 'Recras', 'edit_pages', $mainPage, '', plugin_dir_url(__DIR__) . 'logo.svg', 58);
 
         if (current_user_can('manage_options')) {
             add_submenu_page(
@@ -250,7 +250,7 @@ class Plugin
      */
     public function setBaseUrl()
     {
-        $this->baseUrl = rtrim(plugins_url('', dirname(__FILE__)), '/');
+        $this->baseUrl = rtrim(plugins_url('', __DIR__), '/');
     }
 
     public static function uninstall()

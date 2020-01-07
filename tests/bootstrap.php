@@ -8,7 +8,7 @@ if (!$_tests_dir) {
 require_once $_tests_dir . '/includes/functions.php';
 //require_once $_tests_dir . '/includes/testcase.php';
 require_once $_tests_dir . '/includes/bootstrap.php';
-require_once dirname(__FILE__) . '/WordPressUnitTestCase.php';
+require_once __DIR__ . '/WordPressUnitTestCase.php';
 require dirname(__DIR__) . '/recras-wordpress-plugin.php';
 
 update_option('recras_currency', '€');

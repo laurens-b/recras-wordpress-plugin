@@ -165,7 +165,7 @@ class Products
      */
     public static function showForm()
     {
-        require_once(dirname(__FILE__) . '/../editor/form-product.php');
+        require_once(__DIR__ . '/../editor/form-product.php');
     }
 
 }

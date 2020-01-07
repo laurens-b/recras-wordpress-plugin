@@ -147,10 +147,10 @@ class Vouchers
      */
     public static function showInfoForm()
     {
-        require_once(dirname(__FILE__) . '/../editor/form-voucher-info.php');
+        require_once(__DIR__ . '/../editor/form-voucher-info.php');
     }
     public static function showSalesForm()
     {
-        require_once(dirname(__FILE__) . '/../editor/form-voucher-sales.php');
+        require_once(__DIR__ . '/../editor/form-voucher-sales.php');
     }
 }
