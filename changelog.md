@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.3.0 (2020-01-23)
+* Update online booking library version:
+  - Don't fetch available days when no products have been selected
+  - Add missing error message for minimum amount
+  - Recheck vouchers when changing product amounts
+  - Improve interaction (particularly on mobile)
+
 ## 3.2.2 (2020-01-07)
 * Fix pre-filling amounts form
 
