@@ -4,7 +4,7 @@ Tags: recras, recreation, reservation
 Requires at least: 4.9
 Requires PHP: 5.6.0
 Tested up to: 5.3
-Stable tag: 3.2.2
+Stable tag: 3.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,13 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 3.3.0 =
+* Update online booking library version:
+  - Don't fetch available days when no products have been selected
+  - Add missing error message for minimum amount
+  - Recheck vouchers when changing product amounts
+  - Improve interaction (particularly on mobile)
 
 = 3.2.2 =
 * Fix pre-filling amounts form
