@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.3.1 (2020-01-30)
+* Update online booking library version: update event sending for Google Analytics
+
 ## 3.3.0 (2020-01-23)
 * Update online booking library version:
   - Don't fetch available days when no products have been selected
