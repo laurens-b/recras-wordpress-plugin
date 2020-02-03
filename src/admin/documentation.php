@@ -10,7 +10,7 @@
     <dt><?= __('Decimal separator', \Recras\Plugin::TEXT_DOMAIN);?></dt>
     <dd>Used in prices such as € 100,00. Set to , (comma) by default.</dd>
     <dt><?= __('Use calendar widget', \Recras\Plugin::TEXT_DOMAIN);?></dt>
-    <dd>By default, date and time pickers in contact forms use whatever the browser has available. Currently (January 2020) Internet Explorer (all versions) and Safari (desktop) do not have a native date picker and only see a text field. We have included a modern looking date picker that you can use.<br>
+    <dd>By default, date and time pickers in contact forms use whatever the browser has available. Currently (February 2020) Internet Explorer (all versions) and Safari (desktop) do not have a native date picker and only see a text field. We have included a modern looking date picker that you can use.<br>
         <strong>Note:</strong> this setting only applies to standalone contact forms, not to contact forms used during "new style" online booking.
     </dd>
     <dt><?= __('Theme for online booking', \Recras\Plugin::TEXT_DOMAIN);?></dt>

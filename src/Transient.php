@@ -35,6 +35,6 @@ class Transient
      */
     public function set($name, $value)
     {
-        return set_transient(self::BASE . $name, $value, DAY_IN_SECONDS);
+        return set_transient(self::BASE . $name, $value, HOUR_IN_SECONDS);
     }
 }
