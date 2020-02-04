@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.3.3 (2020-02-04)
+* Update online booking library version: update event sending for Google Analytics integrated through Google Tag Manager
+
 ## 3.3.2 (2020-02-03)
 * Update online booking library version: fix amount inputs in Firefox
 
