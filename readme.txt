@@ -81,6 +81,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= Unreleased =
+* Update online booking library version: limit buying vouchers to 100
+
 = 3.3.3 =
 * Update online booking library version: update event sending for Google Analytics integrated through Google Tag Manager
 

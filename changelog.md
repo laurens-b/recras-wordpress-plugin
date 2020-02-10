@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Update online booking library version: limit buying vouchers to 100
+
 ## 3.3.3 (2020-02-04)
 * Update online booking library version: update event sending for Google Analytics integrated through Google Tag Manager
 
