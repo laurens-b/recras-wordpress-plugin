@@ -110,20 +110,6 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Update online booking library version: show error when input is higher than allowed
 * It is now possible to show a selection of packages during online booking
 
-= 3.1.2 =
-* Support pre-filling package in contact forms using GET parameter "package"
-* Fix layout of contact form when presented as table without labels
-
-= 3.1.1 =
-* Fix whitespace in online booking/voucher sales causing problems in edge cases
-* Update online booking library version: this fixes 'require X per Y' requirements (instead of just 1 per Y)
-* Fix "Error: no ID set" when only having a single contact form/package/product/voucher template in Gutenberg blocks
-
-= 3.1.0 =
-* Support pre-filling package in online booking using GET parameter "package"
-* Improve online booking styling in Internet Explorer
-* When a contact form has a required package field, and there is only one package, pre-fill it
-
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
 
