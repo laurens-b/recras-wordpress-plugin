@@ -1,6 +1,6 @@
 {
   "name": "recras-wordpress-plugin",
-  "version": "2.3.4",
+  "version": "3.3.4",
   "description": "Recras WordPress plugin",
   "main": "index.js",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "po2json": "^1.0.0-alpha"
+    "po2json": "1.0.0-beta-2"
   },
   "scripts": {
     "i18n_nl": "po2json lang/recras-nl_NL.po lang/recras-nl_NL-recras-gutenberg-global.json -f jed",
