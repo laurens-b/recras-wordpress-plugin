@@ -4,7 +4,7 @@ Tags: recras, recreation, reservation
 Requires at least: 4.9
 Requires PHP: 5.6.0
 Tested up to: 5.4
-Stable tag: 3.3.3
+Stable tag: 3.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,7 +81,7 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
-= Unreleased =
+= 3.3.4 =
 * Update online booking library version: limit buying vouchers to 100
 
 = 3.3.3 =

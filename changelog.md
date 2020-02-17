@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 3.3.4 (2020-02-17)
 * Update online booking library version: limit buying vouchers to 100
 
 ## 3.3.3 (2020-02-04)
