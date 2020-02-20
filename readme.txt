@@ -81,6 +81,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= Unreleased =
+* Contact forms: prevent entering a booking date in the past
+
 = 3.3.4 =
 * Update online booking library version: limit buying vouchers to 100
 

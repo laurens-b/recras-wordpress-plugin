@@ -264,6 +264,7 @@ class ContactForm
                                 'autocomplete' => 'off',
                             ],
                             'class' => 'recras-input-date',
+                            'min' => date('Y-m-d'),
                             'pattern' => '[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])',
                             'placeholder' => __('yyyy-mm-dd', Plugin::TEXT_DOMAIN),
                             'type' => 'date',
