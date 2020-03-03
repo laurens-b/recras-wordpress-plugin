@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## 3.4.0 (2020-03-03)
 * Contact forms: prevent entering a booking date in the past
+* Update integration library: include amount in 'RedirectToPayment' events sent to Google Analytics
 
 ## 3.3.4 (2020-02-17)
 * Update online booking library version: limit buying vouchers to 100
