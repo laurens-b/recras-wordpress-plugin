@@ -46,6 +46,13 @@ class Plugin
         add_action('admin_post_clear_product_cache', [Products::class, 'clearCache']);
         add_action('admin_post_clear_voucher_template_cache', [Vouchers::class, 'clearCache']);
 
+        // Hook into cache plugins
+        add_action('w3tc_flush_objectcache', [$this, 'clearAllCaches'], 10, 0); // W3 Total Cache
+        add_action('after_rocket_clean_domain', [$this, 'clearAllCaches']); // WP Rocket
+        if (function_exists('add_cacheaction')) {
+            add_cacheaction('add_cacheaction', [$this, 'clearAllCaches']); // WP Super Cache
+        }
+
         $this->addShortcodes();
 
         register_uninstall_hook(__FILE__, [__CLASS__, 'uninstall']);
@@ -109,6 +116,15 @@ class Plugin
         add_shortcode('recras-product', [Products::class, 'renderProduct']);
         add_shortcode($this::SHORTCODE_VOUCHER_SALES, [Vouchers::class, 'renderVoucherSales']);
         add_shortcode($this::SHORTCODE_VOUCHER_INFO, [Vouchers::class, 'renderVoucherInfo']);
+    }
+
+
+    public static function clearAllCaches()
+    {
+        Arrangement::clearCache();
+        ContactForm::clearCache();
+        Products::clearCache();
+        Vouchers::clearCache();
     }
 
 
