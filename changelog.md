@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Delete caches when subdomain changes
+
 ## 3.4.0 (2020-03-03)
 * Contact forms: prevent entering a booking date in the past
 * Update integration library: include amount in 'RedirectToPayment' events sent to Google Analytics
