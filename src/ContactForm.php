@@ -135,7 +135,9 @@ class ContactForm
         foreach ($forms as $id) {
             $errors += self::deleteTransients($subdomain, $id);
         }
-        $errors += $recrasPlugin->transients->delete($subdomain . '_contactforms');
+        if ($recrasPlugin->transients->get($subdomain . '_contactforms')) {
+            $errors += $recrasPlugin->transients->delete($subdomain . '_contactforms');
+        }
 
         header('Location: ' . admin_url('admin.php?page=' . Settings::PAGE_CACHE . '&msg=' . Plugin::getStatusMessage($errors)));
         exit;
@@ -156,8 +158,10 @@ class ContactForm
 
         $errors = 0;
 
-        $errors += $recrasPlugin->transients->delete($subdomain . '_contactform_' . $formID . '_v2');
-        $errors += $recrasPlugin->transients->delete($subdomain . '_contactform_' . $formID . '_fields');
+        $name = $subdomain . '_contactform_' . $formID . '_v2';
+        if ($recrasPlugin->transients->get($name)) {
+            $errors += $recrasPlugin->transients->delete($name);
+        }
 
         return $errors;
     }

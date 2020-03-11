@@ -93,7 +93,10 @@ class Arrangement
 
         $arrangements = array_keys(self::getArrangements($subdomain));
         foreach ($arrangements as $id) {
-            $errors += $recrasPlugin->transients->delete($subdomain . '_arrangement_' . $id);
+            $name = $subdomain . '_arrangement_' . $id;
+            if ($recrasPlugin->transients->get($name)) {
+                $errors += $recrasPlugin->transients->delete($name);
+            }
         }
         $errors += $recrasPlugin->transients->delete($subdomain . '_arrangements');
 
