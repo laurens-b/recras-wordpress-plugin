@@ -76,7 +76,12 @@ class Products
         global $recrasPlugin;
 
         $subdomain = get_option('recras_subdomain');
-        return $recrasPlugin->transients->delete($subdomain . '_products_v2');
+        $errors = 0;
+        if ($recrasPlugin->transients->get($subdomain . '_products_v2')) {
+            $errors = $recrasPlugin->transients->delete($subdomain . '_products_v2');
+        }
+
+        return $errors;
     }
 
 
