@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2019-12-09 14:38+0100\n"
-"PO-Revision-Date: 2019-12-09 14:38+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2020-04-15 15:21+0200\n"
+"PO-Revision-Date: 2020-04-15 15:27+0200\n"
+"Last-Translator: Wiljon Bolten <wiljonbolten@gmail.com>\n"
 "Language-Team: Recras\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
@@ -33,11 +33,14 @@ msgid ""
 "presented on a website (via API)\" is enabled on the tab \"Extra settings\" "
 "of the package."
 msgstr ""
+"Wenn Sie bestimmte Pakete nicht sehen, stellen Sie sicher, dass in Recras "
+"\"Kann auf einer Website (über API)\" auf der Registerkarte \"Extra-"
+"Einstellungen\" des Pakets angezeigt werden."
 
 #: editor/form-arrangement.php:28 editor/form-product.php:24
 #: editor/form-voucher-info.php:24
 msgid "Show what?"
-msgstr ""
+msgstr "Zeigen Sie was?"
 
 #: editor/form-arrangement.php:30 editor/form-product.php:26
 #: js/gutenberg-package.js:99 js/gutenberg-product.js:96
@@ -46,12 +49,12 @@ msgstr "Titel"
 
 #: editor/form-arrangement.php:31 js/gutenberg-package.js:67
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: editor/form-arrangement.php:32 editor/form-product.php:29
 #: js/gutenberg-package.js:71 js/gutenberg-product.js:76
 msgid "Duration"
-msgstr ""
+msgstr "Dauer"
 
 #: editor/form-arrangement.php:33 js/gutenberg-package.js:95
 msgid "Starting location"
@@ -95,7 +98,7 @@ msgid "Start time"
 msgstr ""
 
 #: editor/form-arrangement.php:44 js/gutenberg-package.js:127
-#: src/ContactForm.php:285
+#: src/ContactForm.php:286
 msgid "hh:mm"
 msgstr "UU:MM"
 
@@ -138,8 +141,8 @@ msgstr ""
 msgid "Preview times in programme"
 msgstr ""
 
-#: editor/form-booking.php:38
-msgid "Packages to show initially (optional)"
+#: editor/form-booking.php:38 js/gutenberg-onlinebooking.js:245
+msgid "Package selection"
 msgstr ""
 
 #: editor/form-booking.php:39 editor/form-booking.php:41
@@ -364,10 +367,6 @@ msgid ""
 "styling in Recras via Settings → Other settings → Custom CSS."
 msgstr ""
 
-#: js/gutenberg-onlinebooking.js:245
-msgid "Package selection"
-msgstr ""
-
 #: js/gutenberg-onlinebooking.js:251
 msgid ""
 "If you select a single package, it will be pre-filled and will skip the "
@@ -463,19 +462,19 @@ msgstr ""
 msgid "Error: package is set, but contact form does not support packages"
 msgstr ""
 
-#: src/ContactForm.php:268
+#: src/ContactForm.php:269
 msgid "yyyy-mm-dd"
 msgstr ""
 
-#: src/ContactForm.php:301
+#: src/ContactForm.php:302
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: src/ContactForm.php:302
+#: src/ContactForm.php:303
 msgid "Male"
 msgstr "Mann"
 
-#: src/ContactForm.php:303
+#: src/ContactForm.php:304
 msgid "Female"
 msgstr "Frau"
 
@@ -515,12 +514,12 @@ msgstr ""
 msgid "Error: could not parse data from Recras. The error message was: %s"
 msgstr ""
 
-#: src/OnlineBooking.php:36
-msgid "Error: \"product_amounts\" is invalid"
+#: src/OnlineBooking.php:48 src/OnlineBooking.php:53
+msgid "Error: \"package_list\" is empty"
 msgstr ""
 
-#: src/OnlineBooking.php:53 src/OnlineBooking.php:58
-msgid "Error: \"package_list\" is empty"
+#: src/OnlineBooking.php:62
+msgid "Error: \"product_amounts\" is invalid"
 msgstr ""
 
 #: src/Plugin.php:65 src/Plugin.php:66

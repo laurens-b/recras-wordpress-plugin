@@ -11,8 +11,8 @@
     "po2json": "1.0.0-beta-2"
   },
   "scripts": {
-    "i18n_nl": "po2json lang/recras-nl_NL.po lang/recras-nl_NL-recras-gutenberg-global.json -f jed",
-    "i18n": "npm run i18n_nl"
+    "i18n": "po2json lang/recras-nl_NL.po lang/recras-nl_NL-recras-gutenberg-global.json -f jed;po2json lang/recras-de_DE.po lang/recras-de_DE-recras-gutenberg-global.json -f jed",
+    "i18n_run": "npm run i18n"
   },
   "repository": {
     "type": "git",
