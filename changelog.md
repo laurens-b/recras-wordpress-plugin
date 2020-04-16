@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.4.1 (2020-04-16)
+* Updated German translations, courtesy of Wiljon Bolten
+* Update integration library: use minimum quantity of a line, if it is set
+
 ## 3.4.0 (2020-03-03)
 * Contact forms: prevent entering a booking date in the past
 * Update integration library: include amount in 'RedirectToPayment' events sent to Google Analytics
