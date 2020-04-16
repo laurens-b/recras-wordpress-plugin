@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2019-12-09 14:04+0100\n"
-"PO-Revision-Date: 2019-12-09 14:04+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2020-04-15 15:20+0200\n"
+"PO-Revision-Date: 2020-04-15 15:20+0200\n"
+"Last-Translator: Wiljon Bolten <wiljonbolten@gmail.com>\n"
 "Language-Team: Recras\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
@@ -98,7 +98,7 @@ msgid "Start time"
 msgstr "Starttijd"
 
 #: editor/form-arrangement.php:44 js/gutenberg-package.js:127
-#: src/ContactForm.php:285
+#: src/ContactForm.php:286
 msgid "hh:mm"
 msgstr "uu:mm"
 
@@ -141,9 +141,9 @@ msgstr "iframe (gebruikt instelling uit jouw Recras)"
 msgid "Preview times in programme"
 msgstr "Toon voorbeeldtijden in programma"
 
-#: editor/form-booking.php:38
-msgid "Packages to show initially (optional)"
-msgstr "Arrangementen om te tonen (optioneel)"
+#: editor/form-booking.php:38 js/gutenberg-onlinebooking.js:245
+msgid "Package selection"
+msgstr "Arrangementselectie"
 
 #: editor/form-booking.php:39 editor/form-booking.php:41
 msgid "Sorry, this is only available using the Gutenberg editor."
@@ -381,10 +381,6 @@ msgstr ""
 "Eigen CSS.\n"
 "\"Recras."
 
-#: js/gutenberg-onlinebooking.js:245
-msgid "Package selection"
-msgstr "Arrangementselectie"
-
 #: js/gutenberg-onlinebooking.js:251
 msgid ""
 "If you select a single package, it will be pre-filled and will skip the "
@@ -490,19 +486,19 @@ msgstr ""
 "Fout: arrangement is ingesteld, maar contactformulier ondersteunt geen "
 "arrangementen"
 
-#: src/ContactForm.php:268
+#: src/ContactForm.php:269
 msgid "yyyy-mm-dd"
 msgstr "jjjj-mm-dd"
 
-#: src/ContactForm.php:301
+#: src/ContactForm.php:302
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: src/ContactForm.php:302
+#: src/ContactForm.php:303
 msgid "Male"
 msgstr "Man"
 
-#: src/ContactForm.php:303
+#: src/ContactForm.php:304
 msgid "Female"
 msgstr "Vrouw"
 
@@ -543,13 +539,13 @@ msgstr ""
 msgid "Error: could not parse data from Recras. The error message was: %s"
 msgstr "Fout: kon data uit Recras niet verwerken. De foutmelding was: %s"
 
-#: src/OnlineBooking.php:36
-msgid "Error: \"product_amounts\" is invalid"
-msgstr "Fout: \"product_amounts\" is ongeldig"
-
-#: src/OnlineBooking.php:53 src/OnlineBooking.php:58
+#: src/OnlineBooking.php:48 src/OnlineBooking.php:53
 msgid "Error: \"package_list\" is empty"
 msgstr "Fout: \"package_list\" is leeg"
+
+#: src/OnlineBooking.php:62
+msgid "Error: \"product_amounts\" is invalid"
+msgstr "Fout: \"product_amounts\" is ongeldig"
 
 #: src/Plugin.php:65 src/Plugin.php:66
 msgid "Settings"
@@ -864,6 +860,9 @@ msgstr "Wis tegoedbontemplatescache"
 #: src/admin/settings.php:7
 msgid "Save"
 msgstr "Opslaan"
+
+#~ msgid "Packages to show initially (optional)"
+#~ msgstr "Arrangementen om te tonen (optioneel)"
 
 #~ msgid ""
 #~ "Seamless integration takes the styling of your website. You can apply a "
