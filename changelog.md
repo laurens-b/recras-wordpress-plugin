@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 3.4.2 (2020-04-24)
 * Fix contact form placeholders generating invalid HTML
 * Email/Telephone fields in contact forms didn't get proper field type - fixed
 * Improve accessibility and styling of required field labels
