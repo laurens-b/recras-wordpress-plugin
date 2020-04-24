@@ -592,19 +592,17 @@ class ContactForm
      */
     private static function getPlaceholder($field, $options)
     {
-        $placeholder = '';
         if (is_string($options['placeholder'])) {
-            $placeholder = ' placeholder="' . $options['placeholder'] . '"';
-            if ($field->verplicht) {
-                $placeholder .= '*';
-            }
+            $txt = $options['placeholder'];
+            return ' placeholder="' . $txt . '"';
         } elseif ($options['placeholder']) {
-            $placeholder = ' placeholder="' . htmlentities($field->naam, ENT_COMPAT | ENT_HTML5) . '"';
+            $txt = htmlentities($field->naam, ENT_COMPAT | ENT_HTML5);
             if ($field->verplicht) {
-                $placeholder .= '*';
+                $txt .= '*';
             }
+            return ' placeholder="' .  $txt . '"';
         }
-        return $placeholder;
+        return '';
     }
 
 

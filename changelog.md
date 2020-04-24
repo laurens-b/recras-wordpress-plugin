@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Fix contact form placeholders generating invalid HTML
+
 ## 3.4.1 (2020-04-16)
 * Updated German translations, courtesy of Wiljon Bolten
 * Update integration library: use minimum quantity of a line, if it is set
