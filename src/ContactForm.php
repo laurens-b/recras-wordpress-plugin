@@ -221,9 +221,6 @@ class ContactForm
         foreach ($formFields as $field) {
             if ($options['showLabels'] && $field->soort_invoer !== 'header') {
                 $html .= self::generateLabel($options['element'], $field);
-                if ($field->verplicht) {
-                    $html .= '<span class="recras-required">*</span>';
-                }
             } else if ($options['element'] === 'table' && !$options['showLabels']) {
                 $html .= '<tr>';
             }
@@ -437,7 +434,11 @@ class ContactForm
                 $html .= '<td>';
                 break;
         }
-        $html .= '<label for="field' . $field->id . '">' . $field->naam . '</label>';
+        $html .= '<label for="field' . $field->id . '">' . $field->naam;
+        if ($field->verplicht) {
+            $html .= '<span class="recras-required" aria-label="' . __('(required)', Plugin::TEXT_DOMAIN) . '">*</span>';
+        }
+        $html .= '</label>';
 
         return $html;
     }
