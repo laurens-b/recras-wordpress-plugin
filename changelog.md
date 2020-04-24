@@ -2,6 +2,7 @@
 
 ## Unreleased
 * Fix contact form placeholders generating invalid HTML
+* Email/Telephone fields in contact forms didn't get proper field type - fixed
 
 ## 3.4.1 (2020-04-16)
 * Updated German translations, courtesy of Wiljon Bolten

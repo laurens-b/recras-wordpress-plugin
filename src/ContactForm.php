@@ -297,6 +297,20 @@ class ContactForm
                             'placeholder' => $options['placeholders'],
                         ]);
                     break;
+                case 'contactpersoon.email1':
+                    // Note: there is no email2 field for contact forms
+                    $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
+                        'placeholder' => $options['placeholders'],
+                        'type' => 'email',
+                    ]);
+                    break;
+                case 'contactpersoon.telefoon1':
+                case 'contactpersoon.telefoon2':
+                    $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
+                        'placeholder' => $options['placeholders'],
+                        'type' => 'tel',
+                    ]);
+                    break;
                 case 'contactpersoon.geslacht':
                     $html .= self::generateSubTag($options['element']) . self::generateSingleChoice($field, [
                         'onbekend' => __('Unknown', Plugin::TEXT_DOMAIN),
