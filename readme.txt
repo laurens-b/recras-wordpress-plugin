@@ -81,8 +81,13 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
-= 3.4.2 =
+= 3.4.3 =
 * Small styling adjustments for "Basic theme" and "Recras Blue" themes
+
+= 3.4.2 =
+* Fix contact form placeholders generating invalid HTML
+* Email/Telephone fields in contact forms didn't get proper field type - fixed
+* Improve accessibility and styling of required field labels
 
 = 3.4.1 =
 * Updated German translations, courtesy of Wiljon Bolten

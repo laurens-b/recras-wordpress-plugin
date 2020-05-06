@@ -221,9 +221,6 @@ class ContactForm
         foreach ($formFields as $field) {
             if ($options['showLabels'] && $field->soort_invoer !== 'header') {
                 $html .= self::generateLabel($options['element'], $field);
-                if ($field->verplicht) {
-                    $html .= '<span class="recras-required">*</span>';
-                }
             } else if ($options['element'] === 'table' && !$options['showLabels']) {
                 $html .= '<tr>';
             }
@@ -296,6 +293,20 @@ class ContactForm
                             'element' => $options['singleChoiceElement'],
                             'placeholder' => $options['placeholders'],
                         ]);
+                    break;
+                case 'contactpersoon.email1':
+                    // Note: there is no email2 field for contact forms
+                    $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
+                        'placeholder' => $options['placeholders'],
+                        'type' => 'email',
+                    ]);
+                    break;
+                case 'contactpersoon.telefoon1':
+                case 'contactpersoon.telefoon2':
+                    $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
+                        'placeholder' => $options['placeholders'],
+                        'type' => 'tel',
+                    ]);
                     break;
                 case 'contactpersoon.geslacht':
                     $html .= self::generateSubTag($options['element']) . self::generateSingleChoice($field, [
@@ -423,7 +434,11 @@ class ContactForm
                 $html .= '<td>';
                 break;
         }
-        $html .= '<label for="field' . $field->id . '">' . $field->naam . '</label>';
+        $html .= '<label for="field' . $field->id . '">' . $field->naam;
+        if ($field->verplicht) {
+            $html .= '<span class="recras-required" aria-label="' . __('(required)', Plugin::TEXT_DOMAIN) . '">*</span>';
+        }
+        $html .= '</label>';
 
         return $html;
     }
@@ -592,19 +607,17 @@ class ContactForm
      */
     private static function getPlaceholder($field, $options)
     {
-        $placeholder = '';
         if (is_string($options['placeholder'])) {
-            $placeholder = ' placeholder="' . $options['placeholder'] . '"';
-            if ($field->verplicht) {
-                $placeholder .= '*';
-            }
+            $txt = $options['placeholder'];
+            return ' placeholder="' . $txt . '"';
         } elseif ($options['placeholder']) {
-            $placeholder = ' placeholder="' . htmlentities($field->naam, ENT_COMPAT | ENT_HTML5) . '"';
+            $txt = htmlentities($field->naam, ENT_COMPAT | ENT_HTML5);
             if ($field->verplicht) {
-                $placeholder .= '*';
+                $txt .= '*';
             }
+            return ' placeholder="' .  $txt . '"';
         }
-        return $placeholder;
+        return '';
     }
 
 
