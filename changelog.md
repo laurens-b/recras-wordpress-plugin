@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.4.2 (2020-05-06)
+* Small styling adjustments for "Basic theme" and "Recras Blue" themes
+
 ## 3.4.1 (2020-04-16)
 * Updated German translations, courtesy of Wiljon Bolten
 * Update integration library: use minimum quantity of a line, if it is set

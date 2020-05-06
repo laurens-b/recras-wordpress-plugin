@@ -32,7 +32,7 @@
     content: '*';
 }
 
-.recras-product-dependency, .maximum-amount, .minimum-amount {
+.recras-product-dependency, .maximum-amount, .minimum-amount, .booking-error {
     color: #a00;
     display: block;
 }

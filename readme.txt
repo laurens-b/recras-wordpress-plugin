@@ -4,7 +4,7 @@ Tags: recras, recreation, reservation
 Requires at least: 4.9
 Requires PHP: 5.6.0
 Tested up to: 5.4
-Stable tag: 3.4.1
+Stable tag: 3.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,7 +27,7 @@ This plugin consists of the following "widgets". To use them, you first need to 
 Widgets can be added to your site in three ways. Using Gutenberg blocks (recommended, since WordPress 5.0 or using the [Gutenberg plugin](https://wordpress.org/plugins/gutenberg/)), using the buttons in the "classic editor", or by entering the shortcode manually (discouraged).
 
 = Date/Time picker =
-By default, date and time pickers in contact forms use whatever the browser has available. Currently (February 2020) Internet Explorer (all versions) and Safari (desktop) do not have native date/time pickers and only see a text field. We have included a modern looking date picker that you can enable on the Recras → Settings page. For time inputs, a proper fallback is included.
+By default, date and time pickers in contact forms use whatever the browser has available. Currently (May 2020) Internet Explorer (all versions) and Safari (desktop) do not have native date/time pickers and only see a text field. We have included a modern looking date picker that you can enable on the Recras → Settings page. For time inputs, a proper fallback is included.
 
 **Note**: this setting only applies to standalone contact forms, not to contact forms used during "new style" online booking.
 
@@ -80,6 +80,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 3.4.2 =
+* Small styling adjustments for "Basic theme" and "Recras Blue" themes
 
 = 3.4.1 =
 * Updated German translations, courtesy of Wiljon Bolten
