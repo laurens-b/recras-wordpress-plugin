@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.4.4 (2020-05-11)
+* "Thank you-pages" only showed 10 pages/posts. This has been increased to 100 of each.
+* "Thank you-pages" are now shown alphabetically
+* Fix potential conflict with React
+
 ## 3.4.3 (2020-05-06)
 * Small styling adjustments for "Basic theme" and "Recras Blue" themes
 
