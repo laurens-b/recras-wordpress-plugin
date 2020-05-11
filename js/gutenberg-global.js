@@ -233,13 +233,14 @@ const recrasStore = registerStore('recras/store', {
                 value: '',
             }];
 
-            let pages = yield recrasActions.fetchAPI('wp/v2/pages');
+            const params = '?per_page=100&orderby=title&order=asc';
+            let pages = yield recrasActions.fetchAPI('wp/v2/pages' + params);
             pages = pages.map(p => {
                 return mapPagesPosts(p, __('Page: ', TEXT_DOMAIN));
             });
             pagesPosts = pagesPosts.concat(pages);
 
-            let posts = yield recrasActions.fetchAPI('wp/v2/posts');
+            let posts = yield recrasActions.fetchAPI('wp/v2/posts' + params);
             posts = posts.map(p => {
                 return mapPagesPosts(p, __('Post: ', TEXT_DOMAIN));
             });
