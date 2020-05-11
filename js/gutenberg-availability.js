@@ -55,8 +55,8 @@ registerBlockType('recras/availability', {
         };
 
         retval.push(recrasHelper.elementText('Recras - ' + __('Availability calendar', TEXT_DOMAIN)));
-        retval.push(el(SelectControl, optionsPackageControl));
-        retval.push(el(ToggleControl, optionsAutoresizeControl));
+        retval.push(createEl(SelectControl, optionsPackageControl));
+        retval.push(createEl(ToggleControl, optionsAutoresizeControl));
         return retval;
     }),
 

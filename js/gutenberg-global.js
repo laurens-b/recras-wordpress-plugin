@@ -1,4 +1,4 @@
-const el = wp.element.createElement;
+const createEl = wp.element.createElement;
 const { registerBlockType } = wp.blocks;
 const {
     RadioControl,
@@ -22,14 +22,14 @@ const recrasHelper = {
     serverSideRender: () => null,
 
     elementInfo: (text) => {
-        return el(
+        return createEl(
             wp.element.RawHTML,
             null,
             '<p class="recrasInfoText">' + text + '</p>'
         );
     },
     elementLabel: (text) => {
-        return el(
+        return createEl(
             'label',
             {
                 class: 'components-base-control',
@@ -46,7 +46,7 @@ const recrasHelper = {
         ];
     },
     elementText: (text) => {
-        return el(
+        return createEl(
             'div',
             null,
             text

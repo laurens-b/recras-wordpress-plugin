@@ -236,7 +236,7 @@ registerBlockType('recras/onlinebooking', {
         }
 
         retval.push(recrasHelper.elementText('Recras - ' + __('Online booking', TEXT_DOMAIN)));
-        retval.push(el(RadioControl, optionsNewLibraryControl));
+        retval.push(createEl(RadioControl, optionsNewLibraryControl));
         retval.push(recrasHelper.elementInfo(
             __('Seamless integration uses the styling of your website. At Recras → Settings in the menu on the left, you can set an optional theme.', TEXT_DOMAIN) + '<br>' +
             __('iframe integration uses the styling set in your Recras. You can change the styling in Recras via Settings → Other settings → Custom CSS.', TEXT_DOMAIN)
@@ -244,26 +244,26 @@ registerBlockType('recras/onlinebooking', {
         if (use_new_library) {
             retval.push(recrasHelper.elementLabel(__('Package selection', TEXT_DOMAIN)));
             for (let ctrl of packageControls) {
-                retval.push(el(ToggleControl, ctrl));
+                retval.push(createEl(ToggleControl, ctrl));
             }
             retval.push(recrasHelper.elementInfo(
                 __('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN) + '<br>' +
                 __('If you select a single package, it will be pre-filled and will skip the package selection step.', TEXT_DOMAIN)
             ));
-            retval.push(el(ToggleControl, optionsShowTimesControl));
-            retval.push(el(ToggleControl, optionsPreFillControl));
+            retval.push(createEl(ToggleControl, optionsShowTimesControl));
+            retval.push(createEl(ToggleControl, optionsPreFillControl));
             if (preFillControls.length) {
                 preFillControls.forEach(ctrl => {
-                    retval.push(el(TextControl, ctrl));
+                    retval.push(createEl(TextControl, ctrl));
                 });
             }
-            retval.push(el(SelectControl, optionsRedirectControl));
+            retval.push(createEl(SelectControl, optionsRedirectControl));
         } else {
-            retval.push(el(SelectControl, optionsPackageControl));
+            retval.push(createEl(SelectControl, optionsPackageControl));
             retval.push(recrasHelper.elementInfo(
                 __('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN)
             ));
-            retval.push(el(ToggleControl, optionsAutoresizeControl));
+            retval.push(createEl(ToggleControl, optionsAutoresizeControl));
         }
         return retval;
     }),

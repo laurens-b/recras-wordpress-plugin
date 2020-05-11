@@ -74,8 +74,8 @@ registerBlockType('recras/voucher-info', {
         };
 
         retval.push(recrasHelper.elementText('Recras - ' + __('Voucher info', TEXT_DOMAIN)));
-        retval.push(el(SelectControl, optionsIDControl));
-        retval.push(el(SelectControl, optionsShowWhatControl));
+        retval.push(createEl(SelectControl, optionsIDControl));
+        retval.push(createEl(SelectControl, optionsShowWhatControl));
 
         return retval;
     }),

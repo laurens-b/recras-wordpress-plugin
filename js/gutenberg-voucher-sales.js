@@ -70,8 +70,8 @@ registerBlockType('recras/voucher-sales', {
         };
 
         retval.push(recrasHelper.elementText('Recras - ' + __('Voucher sales', TEXT_DOMAIN)));
-        retval.push(el(SelectControl, optionsIDControl));
-        retval.push(el(SelectControl, optionsRedirectControl));
+        retval.push(createEl(SelectControl, optionsIDControl));
+        retval.push(createEl(SelectControl, optionsRedirectControl));
 
         return retval;
     }),

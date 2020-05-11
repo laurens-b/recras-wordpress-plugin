@@ -177,19 +177,19 @@ registerBlockType('recras/contactform', {
 
         retval.push(recrasHelper.elementText('Recras - ' + __('Contact form', TEXT_DOMAIN)));
 
-        retval.push(el(SelectControl, optionsIDControl));
-        retval.push(el(ToggleControl, optionsShowTitleControl));
-        retval.push(el(ToggleControl, optionsShowLabelsControl));
-        retval.push(el(ToggleControl, optionsShowPlaceholdersControl));
-        retval.push(el(SelectControl, optionsPackageControl));
+        retval.push(createEl(SelectControl, optionsIDControl));
+        retval.push(createEl(ToggleControl, optionsShowTitleControl));
+        retval.push(createEl(ToggleControl, optionsShowLabelsControl));
+        retval.push(createEl(ToggleControl, optionsShowPlaceholdersControl));
+        retval.push(createEl(SelectControl, optionsPackageControl));
 
         retval.push(recrasHelper.elementInfo(__('Some packages may not be available for all contact forms. You can change this by editing your contact forms in Recras.', TEXT_DOMAIN)));
         retval.push(recrasHelper.elementInfo(__('If you are still missing packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN)));
 
-        retval.push(el(SelectControl, optionsElementControl));
-        retval.push(el(SelectControl, optionsSingleChoiceControl));
-        retval.push(el(TextControl, optionsSubmitTextControl));
-        retval.push(el(SelectControl, optionsRedirectControl));
+        retval.push(createEl(SelectControl, optionsElementControl));
+        retval.push(createEl(SelectControl, optionsSingleChoiceControl));
+        retval.push(createEl(TextControl, optionsSubmitTextControl));
+        retval.push(createEl(SelectControl, optionsRedirectControl));
         return retval;
     }),
 
