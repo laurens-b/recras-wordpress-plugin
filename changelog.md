@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.4.5 (2020-05-15)
+* Update integration library: prevent users submitting a form twice
+
 ## 3.4.4 (2020-05-11)
 * "Thank you-pages" only showed 10 pages/posts. This has been increased to 100 of each.
 * "Thank you-pages" are now shown alphabetically
