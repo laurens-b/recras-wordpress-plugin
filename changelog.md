@@ -1,5 +1,8 @@
 # Changelog
 
+## development (unreleased)
+* Fix a Dutch typo
+
 ## 3.4.5 (2020-05-15)
 * Update integration library: prevent users submitting a form twice
 
