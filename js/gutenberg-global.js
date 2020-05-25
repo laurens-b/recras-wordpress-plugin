@@ -1,6 +1,7 @@
 const createEl = wp.element.createElement;
 const { registerBlockType } = wp.blocks;
 const {
+    DatePicker,
     RadioControl,
     SelectControl,
     TextControl,
@@ -12,6 +13,8 @@ const {
     withSelect,
 } = wp.data;
 
+const dateSettings = wp.date.__experimentalGetSettings();
+
 const TEXT_DOMAIN = 'recras';
 const {
     __,
@@ -21,6 +24,14 @@ const {
 const recrasHelper = {
     serverSideRender: () => null,
 
+    DatePickerControl: (label, options) => {
+        return createEl(
+            'div',
+            null,
+            recrasHelper.elementLabel(label),
+            createEl(DatePicker, options)
+        );
+    },
     elementInfo: (text) => {
         return createEl(
             wp.element.RawHTML,

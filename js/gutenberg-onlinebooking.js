@@ -11,6 +11,8 @@ registerBlockType('recras/onlinebooking', {
             show_times: true,
             use_new_library: true,
             prefill_enabled: false,
+            prefill_date: null,
+            prefill_time: null,
             product_amounts: {},
         },
     },
@@ -23,6 +25,8 @@ registerBlockType('recras/onlinebooking', {
         show_times: recrasHelper.typeBoolean(false),
         use_new_library: recrasHelper.typeBoolean(false),
         prefill_enabled: recrasHelper.typeBoolean(false),
+        prefill_date: recrasHelper.typeString(),
+        prefill_time: recrasHelper.typeString(),
         product_amounts: recrasHelper.typeString(), // stored as JSON string
     },
 
@@ -42,6 +46,8 @@ registerBlockType('recras/onlinebooking', {
             redirect,
             show_times,
             autoresize,
+            prefill_date,
+            prefill_time,
         } = props.attributes;
         const {
             packages,
@@ -105,7 +111,9 @@ registerBlockType('recras/onlinebooking', {
             label: __('Integration method', TEXT_DOMAIN),
         };
         let optionsShowTimesControl;
-        let optionsPreFillControl;
+        let optionsPreFillAmountsControl;
+        let optionsPreFillDateControl;
+        let optionsPreFillTimeControl;
         let preFillControls = [];
         let optionsRedirectControl;
         let optionsAutoresizeControl;
@@ -128,6 +136,8 @@ registerBlockType('recras/onlinebooking', {
                         if (package_list.length !== 1) {
                             props.setAttributes({
                                 prefill_enabled: false,
+                                prefill_date: null,
+                                prefill_time: null,
                             });
                         }
 
@@ -147,7 +157,7 @@ registerBlockType('recras/onlinebooking', {
                 },
                 label: __('Preview times in programme', TEXT_DOMAIN),
             };
-            optionsPreFillControl = {
+            optionsPreFillAmountsControl = {
                 checked: prefill_enabled,
                 onChange: function(newVal) {
                     if (package_list.length !== 1) {
@@ -159,6 +169,35 @@ registerBlockType('recras/onlinebooking', {
                 },
                 disabled: package_list.length !== 1, // This doesn't work. We mimic it using `newVal = false` above
                 label: __('Pre-fill amounts (requires exactly 1 package selected)', TEXT_DOMAIN),
+            };
+            optionsPreFillDateControl = {
+                locale: dateSettings.l10n.locale,
+                value: prefill_date,
+                onChange: function(newVal) {
+                    if (package_list.length !== 1) {
+                        newVal = null;
+                    }
+                    props.setAttributes({
+                        prefill_date: moment(newVal).format('YYYY-MM-DD'),
+                    });
+                },
+                currentDate: prefill_date,
+                disabled: package_list.length !== 1, // This doesn't work. We mimic it using `newVal = null` above
+            };
+            optionsPreFillTimeControl = {
+                value: prefill_time,
+                onChange: function(newVal) {
+                    console.log(moment(newVal).format('HH:mm'));
+                    if (package_list.length !== 1) {
+                        newVal = null;
+                    }
+                    props.setAttributes({
+                        prefill_time: moment(newVal).format('HH:mm'),
+                    });
+                },
+                disabled: package_list.length !== 1, // This doesn't work. We mimic it using `newVal = null` above
+                label: __('Pre-fill time', TEXT_DOMAIN),
+                help: __('i.e. 14:00', TEXT_DOMAIN),
             };
             optionsRedirectControl = {
                 value: redirect,
@@ -251,12 +290,17 @@ registerBlockType('recras/onlinebooking', {
                 __('If you select a single package, it will be pre-filled and will skip the package selection step.', TEXT_DOMAIN)
             ));
             retval.push(createEl(ToggleControl, optionsShowTimesControl));
-            retval.push(createEl(ToggleControl, optionsPreFillControl));
+            retval.push(createEl(ToggleControl, optionsPreFillAmountsControl));
             if (preFillControls.length) {
                 preFillControls.forEach(ctrl => {
                     retval.push(createEl(TextControl, ctrl));
                 });
             }
+            retval.push(recrasHelper.DatePickerControl(
+                __('Pre-fill date', TEXT_DOMAIN),
+                optionsPreFillDateControl
+            ));
+            retval.push(createEl(TextControl, optionsPreFillTimeControl));
             retval.push(createEl(SelectControl, optionsRedirectControl));
         } else {
             retval.push(createEl(SelectControl, optionsPackageControl));

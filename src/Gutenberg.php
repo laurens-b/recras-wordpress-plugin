@@ -4,7 +4,7 @@ namespace Recras;
 class Gutenberg
 {
     const ENDPOINT_NAMESPACE = 'recras';
-    const GUTENBERG_SCRIPT_VERSION = '3.4.4';
+    const GUTENBERG_SCRIPT_VERSION = '3.5.0';
 
 
     public static function addBlocks()
@@ -14,11 +14,13 @@ class Gutenberg
         wp_register_script(
             $globalScriptName,
             plugins_url('js/gutenberg-global.js', __DIR__), [
-            'wp-blocks',
-            'wp-components',
-            'wp-element',
-            'wp-i18n',
-        ],
+                'moment',
+                'wp-blocks',
+                'wp-components',
+                'wp-date',
+                'wp-element',
+                'wp-i18n',
+            ],
             self::GUTENBERG_SCRIPT_VERSION,
             true
         );
@@ -48,7 +50,7 @@ class Gutenberg
             ],
             'onlinebooking' => [
                 'callback' => [OnlineBooking::class, 'renderOnlineBooking'],
-                'version' => '3.4.4',
+                'version' => '3.5.0',
             ],
             'package' => [
                 'callback' => [Arrangement::class, 'renderPackage'],

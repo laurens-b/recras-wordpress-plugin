@@ -33,9 +33,27 @@ class OnlineBooking
             return self::generateIframe($subdomain, $arrangementID, $enableResize);
         }
 
+        if (isset($attributes['prefill_date'])) {
+            if (!preg_match('/^\d{4}-([0]\d|1[0-2])-([0-2]\d|3[01])$/', $attributes['prefill_date'])) {
+                return __('Error: "prefill_date" is not a valid ISO 8601 string', Plugin::TEXT_DOMAIN);
+            }
+
+            $today = date('Y-m-d');
+            if ($attributes['prefill_date'] < $today) {
+                return __('Error: "prefill_date" is a date in the past', Plugin::TEXT_DOMAIN);
+            }
+        }
+        if (isset($attributes['prefill_time'])) {
+            if (!preg_match('/^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/', $attributes['prefill_time'])) {
+                return __('Error: "prefill_time" is not a valid time string (e.g. 14:30)', Plugin::TEXT_DOMAIN);
+            }
+        }
+
         $libraryOptions = [
             'previewTimes' => isset($attributes['show_times']) ? (!!$attributes['show_times']) : false,
             'redirect' => isset($attributes['redirect']) ? $attributes['redirect'] : null,
+            'prefillDate' => isset($attributes['prefill_date']) ? $attributes['prefill_date'] : null,
+            'prefillTime' => isset($attributes['prefill_time']) ? $attributes['prefill_time'] : null,
         ];
 
         if ((int) $arrangementID === 0 && isset($attributes['package_list'])) {
@@ -87,6 +105,12 @@ class OnlineBooking
 
         if (isset($libraryOptions['preFillAmounts']) && count($libraryOptions['preFillAmounts']) > 0) {
             $extraOptions[] = 'productAmounts: ' . json_encode($libraryOptions['preFillAmounts']);
+        }
+        if (isset($libraryOptions['prefillDate'])) {
+            $extraOptions[] = 'date: "' . $libraryOptions['prefillDate'] . '"';
+        }
+        if (isset($libraryOptions['prefillTime'])) {
+            $extraOptions[] = 'time: "' . $libraryOptions['prefillTime'] . '"';
         }
 
         if (Analytics::useAnalytics()) {
