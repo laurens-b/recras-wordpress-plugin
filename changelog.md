@@ -1,7 +1,10 @@
 # Changelog
 
-## development (unreleased)
+## 3.5.0 (2020-05-26)
 * Allow pre-filling of date and time of online booking
+* Update integration library:
+  - better calendar alignment on small screens
+  - fix attachments not being visible initially when pre-filling amounts
 * Fix a Dutch typo
 
 ## 3.4.5 (2020-05-15)
