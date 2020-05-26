@@ -39,6 +39,24 @@ $arrangements = $model->getArrangements($subdomain, true);
         <dd><strong><?php _e('Sorry, this is only available using the Gutenberg editor.', \Recras\Plugin::TEXT_DOMAIN); ?></strong>
     <dt><label><?php _e('Pre-fill amounts (requires pre-filled package)', \Recras\Plugin::TEXT_DOMAIN); ?></label>
         <dd><strong><?php _e('Sorry, this is only available using the Gutenberg editor.', \Recras\Plugin::TEXT_DOMAIN); ?></strong>
+    <dt><label for="prefill_date"><?php _e('Pre-fill time',\Recras\Plugin::TEXT_DOMAIN ); ?></label>
+        <dd><input
+            type="date"
+            id="prefill_date"
+            min="<?= date('Y-m-d') ?>"
+            pattern="<?= \Recras\ContactForm::PATTERN_DATE; ?>"
+            placeholder="<?= __('yyyy-mm-dd', \Recras\Plugin::TEXT_DOMAIN); ?>"
+            disabled
+        >
+    <dt><label for="prefill_time"><?php _e('Pre-fill time',\Recras\Plugin::TEXT_DOMAIN ); ?></label>
+        <dd><input
+            type="time"
+            id="prefill_time"
+            pattern="<?= \Recras\ContactForm::PATTERN_TIME; ?>"
+            step="300"
+            placeholder="<?= __('hh:mm', \Recras\Plugin::TEXT_DOMAIN); ?>"
+            disabled
+        >
     <dt><label for="redirect_page"><?php _e('Thank-you page', \Recras\Plugin::TEXT_DOMAIN); ?></label>
         <dd><select id="redirect_page">
             <option value=""><?php _e("Don't redirect", \Recras\Plugin::TEXT_DOMAIN); ?>
@@ -68,6 +86,11 @@ $arrangements = $model->getArrangements($subdomain, true);
             document.getElementById('show_times').disabled = !useLibrary;
         });
     });
+    document.getElementById('arrangement_id').addEventListener('change', function() {
+        var hasPackage = this.value > 0;
+        document.getElementById('prefill_date').disabled = !hasPackage;
+        document.getElementById('prefill_time').disabled = !hasPackage;
+    });
 
     document.getElementById('booking_submit').addEventListener('click', function(){
         var arrangementID = document.getElementById('arrangement_id').value;
@@ -87,6 +110,15 @@ $arrangements = $model->getArrangements($subdomain, true);
         } else {
             if (!document.getElementById('auto_resize').checked) {
                 shortcode += ' autoresize=0';
+            }
+        }
+
+        if (document.getElementById('arrangement_id').value > 0) {
+            if (document.getElementById('prefill_date').value) {
+                shortcode += ' prefill_date="' + document.getElementById('prefill_date').value + '"';
+            }
+            if (document.getElementById('prefill_time').value) {
+                shortcode += ' prefill_time="' + document.getElementById('prefill_time').value + '"';
             }
         }
         shortcode += ']';

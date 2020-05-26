@@ -3,6 +3,8 @@ namespace Recras;
 
 class ContactForm
 {
+    const PATTERN_DATE = '[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])';
+    const PATTERN_TIME = '(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])';
     /**
      * Get a single contact form
      *
@@ -262,7 +264,7 @@ class ContactForm
                             ],
                             'class' => 'recras-input-date',
                             'min' => date('Y-m-d'),
-                            'pattern' => '[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])',
+                            'pattern' => self::PATTERN_DATE,
                             'placeholder' => __('yyyy-mm-dd', Plugin::TEXT_DOMAIN),
                             'type' => 'date',
                         ]);
@@ -279,7 +281,7 @@ class ContactForm
                 case 'boeking.starttijd':
                     $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
                             'class' => 'recras-input-time',
-                            'pattern' => '(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])',
+                            'pattern' => self::PATTERN_TIME,
                             'placeholder' => __('hh:mm', Plugin::TEXT_DOMAIN),
                             'raw' => [
                                 'step' => 300, // 300 seconds = 5 minutes
