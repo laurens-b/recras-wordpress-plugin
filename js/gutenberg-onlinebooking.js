@@ -187,12 +187,11 @@ registerBlockType('recras/onlinebooking', {
             optionsPreFillTimeControl = {
                 value: prefill_time,
                 onChange: function(newVal) {
-                    console.log(moment(newVal).format('HH:mm'));
                     if (package_list.length !== 1) {
                         newVal = null;
                     }
                     props.setAttributes({
-                        prefill_time: moment(newVal).format('HH:mm'),
+                        prefill_time: newVal,
                     });
                 },
                 disabled: package_list.length !== 1, // This doesn't work. We mimic it using `newVal = null` above
