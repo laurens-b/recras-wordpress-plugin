@@ -5,7 +5,7 @@
     "license": "MIT",
     "support": {
         "email": "sander@recras.nl",
-        "wiki": "https://www.recras.nl/wordpress-plugin/"
+        "wiki": "https://www.recras.nl/koppelingen/recras-wordpress-koppeling/"
     },
     "require": {
         "composer/installers": "1.9.0",

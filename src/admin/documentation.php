@@ -72,16 +72,18 @@
 <p>Online booking can be integrated using the Recras/Online booking block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-admin-site"></span> icon in the Classic Editor. You can also manually add the <kbd>recras-booking</kbd> shortcode.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
-    <li>Pre-filled package - entering a package here will skip the package selection step. Packages can also be pre-filled using the URL parameter <code>package</code>, i.e. <code>
+    <li>Integration method - choose seamless for a more modern experience. Choosing iframe uses the setting in your Recras.
+    <li>Pre-filled package - entering a single package here will skip the package selection step. Packages can also be pre-filled using the URL parameter <code>package</code>, i.e. <code>
         <?php
         $requestScheme = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http';
         echo $requestScheme . '://' . $_SERVER['HTTP_HOST'];
-        ?>/your-online-booking-page/?package=42</code> to pre-fill the package with ID 42.
-	<li>Integration method - choose seamless for a more modern experience. Choosing iframe uses the setting in your Recras.
-	<li>Preview times in programme - whether or not you want to preview times in the programme. Note: this is only available for the new online booking method.
-	<li>Pre-fill amounts - <strong>Note:</strong> this is only available for the new online booking method, and required a pre-filled package. When enabled, this gives you the ability to pre-fill the amounts form. This can be useful, for example, for packages where you always have a fixed amount.
-	<li>Thank-you page - a page/post that the user is redirected to, after booking successfully. Note: this is only available for the new online booking method.
-	<li>Auto resize iframe - enabled by default. Disable this if you have more than one Recras iframe on your page. Note: this is only available for the old online booking method.
+        ?>/your-online-booking-page/?package=42</code> to pre-fill the package with ID 42. You can also select multiple packages (seamless method only) to limit the package selection to those packages.
+	<li>Preview times in programme - whether or not you want to preview times in the programme. Note: this is only available for the seamless online booking method.
+	<li>Pre-fill amounts - <strong>Note:</strong> this is only available for the seamless online booking method, and required a pre-filled package. When enabled, this gives you the ability to pre-fill the amounts form. This can be useful, for example, for packages where you always have a fixed amount.
+    <li>Pre-fill date - <strong>Note:</strong> this is only available for the seamless online booking method, and required a pre-filled package. This allows you to pre-fill a certain date.
+    <li>Pre-fill time - <strong>Note:</strong> this is only available for the seamless online booking method, and required a pre-filled package. This allows you to pre-fill a certain time.
+    <li>Thank-you page - a page/post that the user is redirected to, after booking successfully. Note: this is only available for the new online booking method.
+	<li>Auto resize iframe - enabled by default. Disable this if you have more than one Recras iframe on your page. Note: this is only available for the old iframe booking method.
 </ol>
 
 <hr>

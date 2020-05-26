@@ -1,6 +1,7 @@
 # Changelog
 
 ## development (unreleased)
+* Allow pre-filling of date and time of online booking
 * Fix a Dutch typo
 
 ## 3.4.5 (2020-05-15)
