@@ -6,7 +6,7 @@ Description: Easily integrate your Recras data into your own site
 Author: Recras
 Text Domain: recras
 Domain Path: /lang
-Version: 3.4.5
+Version: 3.5.0
 
 Author URI: https://www.recras.nl/
 */

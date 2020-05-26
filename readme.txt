@@ -4,7 +4,7 @@ Tags: recras, recreation, reservation
 Requires at least: 4.9
 Requires PHP: 5.6.0
 Tested up to: 5.4
-Stable tag: 3.4.5
+Stable tag: 3.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,6 +81,13 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= 3.5.0 =
+* Allow pre-filling of date and time of online booking
+* Update integration library:
+  - better calendar alignment on small screens
+  - fix attachments not being visible initially when pre-filling amounts
+* Fix a Dutch typo
+
 = 3.4.5 =
 * Update integration library: prevent users submitting a form twice
 
@@ -104,25 +111,6 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 = 3.4.0 =
 * Contact forms: prevent entering a booking date in the past
 * Update integration library: include amount in 'RedirectToPayment' events sent to Google Analytics
-
-= 3.3.4 =
-* Update online booking library version: limit buying vouchers to 100
-
-= 3.3.3 =
-* Update online booking library version: update event sending for Google Analytics integrated through Google Tag Manager
-
-= 3.3.2 =
-* Update online booking library version: fix amount inputs in Firefox
-
-= 3.3.1 =
-* Update online booking library version: update event sending for Google Analytics
-
-= 3.3.0 =
-* Update online booking library version:
-  - Don't fetch available days when no products have been selected
-  - Add missing error message for minimum amount
-  - Recheck vouchers when changing product amounts
-  - Improve interaction (particularly on mobile)
 
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
