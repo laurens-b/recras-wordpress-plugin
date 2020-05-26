@@ -14,7 +14,6 @@ class Gutenberg
         wp_register_script(
             $globalScriptName,
             plugins_url('js/gutenberg-global.js', __DIR__), [
-                'moment',
                 'wp-blocks',
                 'wp-components',
                 'wp-date',

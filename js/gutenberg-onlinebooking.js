@@ -174,11 +174,15 @@ registerBlockType('recras/onlinebooking', {
                 locale: dateSettings.l10n.locale,
                 value: prefill_date,
                 onChange: function(newVal) {
-                    if (package_list.length !== 1) {
+                    if (package_list.length === 1) {
+                        let dateVal = new Date(newVal);
+                        dateVal.setHours(12); // Time on newVal is 00:00:00, toISOString converts this to UTC which causes an off-by-one error
+                        newVal = dateVal.toISOString().substr(0, 10);
+                    } else {
                         newVal = null;
                     }
                     props.setAttributes({
-                        prefill_date: moment(newVal).format('YYYY-MM-DD'),
+                        prefill_date: newVal,
                     });
                 },
                 currentDate: prefill_date,
@@ -195,7 +199,7 @@ registerBlockType('recras/onlinebooking', {
                     });
                 },
                 disabled: package_list.length !== 1, // This doesn't work. We mimic it using `newVal = null` above
-                label: __('Pre-fill time', TEXT_DOMAIN),
+                label: __('Pre-fill time (requires exactly 1 package selected)', TEXT_DOMAIN),
                 help: __('i.e. 14:00', TEXT_DOMAIN),
             };
             optionsRedirectControl = {
@@ -296,7 +300,7 @@ registerBlockType('recras/onlinebooking', {
                 });
             }
             retval.push(recrasHelper.DatePickerControl(
-                __('Pre-fill date', TEXT_DOMAIN),
+                __('Pre-fill date (requires exactly 1 package selected)', TEXT_DOMAIN),
                 optionsPreFillDateControl
             ));
             retval.push(createEl(TextControl, optionsPreFillTimeControl));

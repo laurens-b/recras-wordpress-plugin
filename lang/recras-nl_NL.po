@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2020-05-26 11:19+0200\n"
-"PO-Revision-Date: 2020-05-26 11:20+0200\n"
+"POT-Creation-Date: 2020-05-26 15:04+0200\n"
+"PO-Revision-Date: 2020-05-26 15:05+0200\n"
 "Last-Translator: Sander <sander@ugoku.nl>\n"
 "Language-Team: Recras\n"
 "Language: nl_NL\n"
@@ -26,8 +26,8 @@ msgstr ""
 msgid "Package"
 msgstr "Arrangement"
 
-#: editor/form-arrangement.php:26 js/gutenberg-onlinebooking.js:289
-#: js/gutenberg-onlinebooking.js:308 js/gutenberg-package.js:144
+#: editor/form-arrangement.php:26 js/gutenberg-onlinebooking.js:292
+#: js/gutenberg-onlinebooking.js:311 js/gutenberg-package.js:144
 msgid ""
 "If you are not seeing certain packages, make sure in Recras \"May be "
 "presented on a website (via API)\" is enabled on the tab \"Extra settings\" "
@@ -141,7 +141,7 @@ msgstr "iframe (gebruikt instelling uit jouw Recras)"
 msgid "Preview times in programme"
 msgstr "Toon voorbeeldtijden in programma"
 
-#: editor/form-booking.php:38 js/gutenberg-onlinebooking.js:284
+#: editor/form-booking.php:38 js/gutenberg-onlinebooking.js:287
 msgid "Package selection"
 msgstr "Arrangementselectie"
 
@@ -154,7 +154,6 @@ msgid "Pre-fill amounts (requires pre-filled package)"
 msgstr "Aantallen vooraf invullen (vereist een vooraf ingevuld arrangement)"
 
 #: editor/form-booking.php:42 editor/form-booking.php:51
-#: js/gutenberg-onlinebooking.js:199
 msgid "Pre-fill time"
 msgstr "Tijd vooraf invullen"
 
@@ -316,11 +315,11 @@ msgid "No pre-filled template"
 msgstr "Geen vooraf ingevuld template"
 
 #: js/gutenberg-availability.js:2 js/gutenberg-availability.js:57
-#: src/admin/documentation.php:88
+#: src/admin/documentation.php:90
 msgid "Availability calendar"
 msgstr "Beschikbaarheidskalender"
 
-#: js/gutenberg-availability.js:54 js/gutenberg-onlinebooking.js:273
+#: js/gutenberg-availability.js:54 js/gutenberg-onlinebooking.js:276
 msgid "Auto resize iframe"
 msgstr "iframe automatisch schalen"
 
@@ -328,12 +327,12 @@ msgstr "iframe automatisch schalen"
 msgid "Package (optional)"
 msgstr "Arrangement (optioneel)"
 
-#: js/gutenberg-contactform.js:173 js/gutenberg-onlinebooking.js:210
+#: js/gutenberg-contactform.js:173 js/gutenberg-onlinebooking.js:213
 #: js/gutenberg-voucher-sales.js:68
 msgid "i.e. https://www.recras.com/thanks/"
 msgstr "bijv. https://www.recras.nl/bedankt/"
 
-#: js/gutenberg-contactform.js:174 js/gutenberg-onlinebooking.js:211
+#: js/gutenberg-contactform.js:174 js/gutenberg-onlinebooking.js:214
 #: js/gutenberg-voucher-sales.js:69
 msgid "Thank-you page (optional, leave empty to not redirect)"
 msgstr "Bedanktpagina (optioneel, laat leeg om niet door te sturen)"
@@ -355,7 +354,7 @@ msgstr "Pagina: "
 msgid "Post: "
 msgstr "Bericht: "
 
-#: js/gutenberg-onlinebooking.js:2 js/gutenberg-onlinebooking.js:277
+#: js/gutenberg-onlinebooking.js:2 js/gutenberg-onlinebooking.js:280
 #: src/Plugin.php:93 src/Plugin.php:149 src/admin/documentation.php:71
 msgid "Online booking"
 msgstr "Online boeking"
@@ -364,19 +363,23 @@ msgstr "Online boeking"
 msgid "Pre-fill amounts (requires exactly 1 package selected)"
 msgstr "Aantallen vooraf invullen (vereist exact 1 arrangement geselecteerd)"
 
-#: js/gutenberg-onlinebooking.js:200
+#: js/gutenberg-onlinebooking.js:202
+msgid "Pre-fill time (requires exactly 1 package selected)"
+msgstr "Tijd vooraf invullen (vereist een vooraf ingevuld arrangement)"
+
+#: js/gutenberg-onlinebooking.js:203
 msgid "i.e. 14:00"
 msgstr "bijv. 14:00"
 
-#: js/gutenberg-onlinebooking.js:263
+#: js/gutenberg-onlinebooking.js:266
 msgid "Pre-filled package"
 msgstr "Vooraf ingevuld arrangement"
 
-#: js/gutenberg-onlinebooking.js:264
+#: js/gutenberg-onlinebooking.js:267
 msgid "Pre-filled package (optional)"
 msgstr "Vooraf ingevuld arrangement (optioneel)"
 
-#: js/gutenberg-onlinebooking.js:280
+#: js/gutenberg-onlinebooking.js:283
 msgid ""
 "Seamless integration uses the styling of your website. At Recras → Settings "
 "in the menu on the left, you can set an optional theme."
@@ -384,7 +387,7 @@ msgstr ""
 "Naadloze integratie gebruikt de styling van je website. Via Recras → "
 "Instellingen in het menu aan de linkerkant kun een optioneel thema instellen."
 
-#: js/gutenberg-onlinebooking.js:281
+#: js/gutenberg-onlinebooking.js:284
 msgid ""
 "iframe integration uses the styling set in your Recras. You can change the "
 "styling in Recras via Settings → Other settings → Custom CSS."
@@ -393,7 +396,7 @@ msgstr ""
 "kunt de styling in Recras aanpassen via Beheer → Overige instellingen → "
 "Eigen CSS."
 
-#: js/gutenberg-onlinebooking.js:290
+#: js/gutenberg-onlinebooking.js:293
 msgid ""
 "If you select a single package, it will be pre-filled and will skip the "
 "package selection step."
@@ -401,9 +404,9 @@ msgstr ""
 "Als je een enkel arrangement selecteert wordt deze vooraf ingevuld en wordt "
 "de arrangement-selectie-stap overgeslagen."
 
-#: js/gutenberg-onlinebooking.js:300
-msgid "Pre-fill date"
-msgstr "Datum vooraf invullen"
+#: js/gutenberg-onlinebooking.js:303
+msgid "Pre-fill date (requires exactly 1 package selected)"
+msgstr "Datum vooraf invullen (vereist een vooraf ingevuld arrangement)"
 
 #: js/gutenberg-package.js:114 js/gutenberg-product.js:99
 #: js/gutenberg-voucher-info.js:73
@@ -430,7 +433,7 @@ msgstr ""
 "\" van het product."
 
 #: js/gutenberg-voucher-info.js:2 js/gutenberg-voucher-info.js:76
-#: src/Plugin.php:96 src/Plugin.php:153 src/admin/documentation.php:106
+#: src/Plugin.php:96 src/Plugin.php:153 src/admin/documentation.php:108
 msgid "Voucher info"
 msgstr "Tegoedboninfo"
 
@@ -439,7 +442,7 @@ msgid "Voucher template"
 msgstr "Tegoedbon-template"
 
 #: js/gutenberg-voucher-sales.js:2 js/gutenberg-voucher-sales.js:72
-#: src/Plugin.php:95 src/Plugin.php:154 src/admin/documentation.php:97
+#: src/Plugin.php:95 src/Plugin.php:154 src/admin/documentation.php:99
 msgid "Voucher sales"
 msgstr "Tegoedbonverkoop"
 
@@ -888,6 +891,9 @@ msgstr "Wis tegoedbontemplatescache"
 #: src/admin/settings.php:7
 msgid "Save"
 msgstr "Opslaan"
+
+#~ msgid "Pre-fill date"
+#~ msgstr "Datum vooraf invullen"
 
 #~ msgid "Packages to show initially (optional)"
 #~ msgstr "Arrangementen om te tonen (optioneel)"
