@@ -28,7 +28,7 @@
 
 <hr>
 <h2><?php _e('Packages', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Packages can be added using the Recras/Package block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-clipboard"></span> icon in the Classic Editor. You can also manually add the <kbd>[recras-package]</kbd> shortcode.</p>
+<p>Packages can be added using the Recras/Package block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-clipboard"></span> icon in the Classic Editor.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
     <li>Package - <strong>required</strong> what package to use
@@ -53,7 +53,7 @@
 
 <hr>
 <h2><?php _e('Contact forms', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Contact forms can be added using the Recras/Contact form block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-email"></span> icon in the Classic Editor. You can also manually add the <kbd>[recras-contact]</kbd> shortcode.</p>
+<p>Contact forms can be added using the Recras/Contact form block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-email"></span> icon in the Classic Editor.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
 	<li>Contact form - <strong>required</strong> what form to use
@@ -69,7 +69,7 @@
 
 <hr>
 <h2><?php _e('Online booking', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Online booking can be integrated using the Recras/Online booking block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-admin-site"></span> icon in the Classic Editor. You can also manually add the <kbd>recras-booking</kbd> shortcode.</p>
+<p>Online booking can be integrated using the Recras/Online booking block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-admin-site"></span> icon in the Classic Editor.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
     <li>Integration method - choose seamless for a more modern experience. Choosing iframe uses the setting in your Recras.
@@ -88,7 +88,7 @@
 
 <hr>
 <h2><?php _e('Availability calendar', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Availability calendars can be added using the Recras/Availability calendar block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-calendar-alt"></span> icon in the Classic Editor. You can also manually add the <kbd>recras-availability</kbd> shortcode.</p>
+<p>Availability calendars can be added using the Recras/Availability calendar block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-calendar-alt"></span> icon in the Classic Editor.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
 	<li>Package - what package to use for the availability calendar
@@ -97,7 +97,7 @@
 
 <hr>
 <h2><?php _e('Voucher sales', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Voucher sales can be integrated using the Recras/Voucher sales block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-money"></span> icon in the Classic Editor. You can also manually add the <kbd>recras-vouchers</kbd> shortcode.</p>
+<p>Voucher sales can be integrated using the Recras/Voucher sales block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-money"></span> icon in the Classic Editor.</p>
 <p>The following options are available:</p>
 <ol class="recrasOptionsList">
 	<li>Voucher template - when selected, this will skip the template selection step
@@ -106,9 +106,10 @@
 
 <hr>
 <h2><?php _e('Voucher info', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
-<p>Voucher info can be integrated using the Recras/Voucher info block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-money"></span> icon in the Classic Editor. You can also manually add the <kbd>recras-voucher-info</kbd> shortcode.</p>
-<p>This widget has one option:</p>
+<p>Voucher info can be integrated using the Recras/Voucher info block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-money"></span> icon in the Classic Editor.</p>
+<p>The following options are available:</p>
 <ol class="recrasOptionsList">
+    <li>Voucher template - what voucher template to show the info of
 	<li>Property to show - <strong>required</strong> what property to show. This can be any of the following:<ol>
         <li>Name
         <li>Price

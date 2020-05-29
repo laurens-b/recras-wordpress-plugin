@@ -1,5 +1,8 @@
 # Changelog
 
+## development (unreleased)
+* Add shortcode documentation page
+
 ## 3.5.0 (2020-05-26)
 * Allow pre-filling of date and time of online booking
 * Update integration library:

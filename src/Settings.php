@@ -7,6 +7,7 @@ class Settings
     const OPTION_SECTION = 'recras';
     const PAGE_CACHE = 'recras-clear-cache';
     const PAGE_DOCS = 'recras-documentation';
+    const PAGE_SHORTCODES = 'recras-shortcodes';
 
 
     public static function addInputAnalytics($args)
@@ -126,6 +127,15 @@ class Settings
             wp_die(__('You do not have sufficient permissions to access this page.'));
         }
         require_once('admin/documentation.php');
+    }
+
+
+    public static function shortcodes()
+    {
+        if (!current_user_can('edit_pages')) {
+            wp_die(__('You do not have sufficient permissions to access this page.'));
+        }
+        require_once('admin/shortcodes.php');
     }
 
 

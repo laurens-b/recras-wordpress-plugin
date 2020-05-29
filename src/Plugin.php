@@ -86,6 +86,14 @@ class Plugin
             Settings::PAGE_DOCS,
             ['\Recras\Settings', 'documentation']
         );
+        add_submenu_page(
+            'recras',
+            __('Shortcodes', $this::TEXT_DOMAIN),
+            __('Shortcodes', $this::TEXT_DOMAIN),
+            'edit_pages',
+            Settings::PAGE_SHORTCODES,
+            ['\Recras\Settings', 'shortcodes']
+        );
 
         add_submenu_page(null, __('Package', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-arrangement', [Arrangement::class, 'showForm']);
         add_submenu_page(null, __('Package availability', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-package-availability', [Availability::class, 'showForm']);
