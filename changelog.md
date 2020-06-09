@@ -2,6 +2,7 @@
 
 ## development (unreleased)
 * Clearing "package" setting in a contact form sometimes gave an error - fixed
+* Contact forms weren't handling countries - fixed
 
 ## 3.5.1 (2020-06-09)
 * Update integration library: fix checking discount codes containing "special" characters, such as `#`

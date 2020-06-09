@@ -289,12 +289,29 @@ class ContactForm
                             'type' => 'time',
                         ]);
                     break;
+                case 'contact.landcode':
+                    $locale = get_locale();
+                    if (!file_exists(__DIR__ . '/countries/' . $locale . '.php')) {
+                        $locale = 'en_GB';
+                    }
+
+                    $matches = [];
+                    $selectOptions = [];
+                    if (preg_match('/[a-z]{2}_([A-Z]{2})/', $locale, $matches)) {
+                        $selectOptions['selected'] = $matches[1];
+                    }
+
+                    require_once(__DIR__ . '/countries/' . $locale . '.php');
+                    assert(is_array($countries));
+
+                    $html .= self::generateSubTag($options['element']) . self::generateSelect($field, $countries, $selectOptions);
+                    break;
                 case 'contact.soort_klant':
                     $keuzes = array_combine($field->mogelijke_keuzes, $field->mogelijke_keuzes);
                     $html .= self::generateSubTag($options['element']) . self::generateSingleChoice($field, $keuzes, [
-                            'element' => $options['singleChoiceElement'],
-                            'placeholder' => $options['placeholders'],
-                        ]);
+                        'element' => $options['singleChoiceElement'],
+                        'placeholder' => $options['placeholders'],
+                    ]);
                     break;
                 case 'contactpersoon.email1':
                     // Note: there is no email2 field for contact forms
