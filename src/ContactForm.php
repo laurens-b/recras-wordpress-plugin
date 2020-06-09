@@ -306,13 +306,7 @@ class ContactForm
 
                     $html .= self::generateSubTag($options['element']) . self::generateSelect($field, $countries, $selectOptions);
                     break;
-                case 'contact.soort_klant':
-                    $keuzes = array_combine($field->mogelijke_keuzes, $field->mogelijke_keuzes);
-                    $html .= self::generateSubTag($options['element']) . self::generateSingleChoice($field, $keuzes, [
-                        'element' => $options['singleChoiceElement'],
-                        'placeholder' => $options['placeholders'],
-                    ]);
-                    break;
+                //contact.soort_klant is handled below
                 case 'contactpersoon.email1':
                     // Note: there is no email2 field for contact forms
                     $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
@@ -358,6 +352,7 @@ class ContactForm
                     $html .= self::generateSubTag($options['element']) . self::generateChoices($field, $keuzes);
                     break;
                 case 'keuze_enkel':
+                case 'contact.soort_klant':
                     $keuzes = array_combine($field->mogelijke_keuzes, $field->mogelijke_keuzes);
                     $html .= self::generateSubTag($options['element']) . self::generateSingleChoice($field, $keuzes, [
                         'element' => $options['singleChoiceElement'],
