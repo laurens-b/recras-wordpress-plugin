@@ -85,7 +85,7 @@ class ContactForm
             $arrangementID = $_GET['package'];
         }
 
-        if (isset($arrangementID)) {
+        if ($arrangementID) {
             $arrangementID = (int) $arrangementID;
 
             // Check if the contact form supports setting a package
