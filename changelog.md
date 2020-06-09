@@ -1,6 +1,7 @@
 # Changelog
 
 ## development (unreleased)
+* Update integration library: fix checking discount codes containing "special" characters, such as `#`
 * Add shortcode documentation page
 
 ## 3.5.0 (2020-05-26)
