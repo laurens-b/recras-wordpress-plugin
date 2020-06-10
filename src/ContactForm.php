@@ -364,6 +364,17 @@ class ContactForm
                         'placeholder' => $options['placeholders'],
                     ]);
                     break;
+                case 'contact.website':
+                    /* We deliberately do not use `input[type=url]` because it's not very user friendly.
+                     * It requires a protocol and we cannot expect "regular people" to enter this.
+                     * Parsing a website (which can be a domain, a subdomain, or a page on a domain)
+                     *   is very tricky so we're just using a regular text field without any constraints
+                     */
+                    $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
+                        'autocomplete' => 'url',
+                        'placeholder' => $options['placeholders'],
+                    ]);
+                    break;
                 default:
                     $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
                         'placeholder' => $options['placeholders'],
