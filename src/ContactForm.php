@@ -5,6 +5,7 @@ class ContactForm
 {
     const PATTERN_DATE = '[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])';
     const PATTERN_TIME = '(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])';
+
     /**
      * Get a single contact form
      *
@@ -289,6 +290,38 @@ class ContactForm
                             'type' => 'time',
                         ]);
                     break;
+                case 'contact.extra':
+                    $html .= self::generateSubTag($options['element']);
+                    switch ($field->input_type) {
+                        case 'number':
+                            $html .= self::generateInput($field, [
+                                'raw' => [
+                                    'autocomplete' => 'off',
+                                ],
+                                'placeholder' => $options['placeholders'],
+                                'type' => 'number',
+                            ]);
+                            break;
+                        case 'date':
+                        case 'text':
+                            $html .= self::generateInput($field);
+                            break;
+                        case 'multiplechoice':
+                            $choices = array_combine($field->mogelijke_keuzes, $field->mogelijke_keuzes);
+                            //TODO: handle "required"
+                            $html .= self::generateChoices($field, $choices);
+                            break;
+                        case 'singlechoice':
+                            $choices = array_combine($field->mogelijke_keuzes, $field->mogelijke_keuzes);
+                            $html .= self::generateSingleChoice($field, $choices, [
+                                'element' => $options['singleChoiceElement'],
+                                'placeholder' => $options['placeholders'],
+                            ]);
+                            break;
+                        default:
+                            $html .= self::generateInput($field);
+                    }
+                    break;
                 case 'contact.landcode':
                     $locale = get_locale();
                     if (!file_exists(__DIR__ . '/countries/' . $locale . '.php')) {
@@ -349,6 +382,7 @@ class ContactForm
                     break;
                 case 'keuze':
                     $keuzes = array_combine($field->mogelijke_keuzes, $field->mogelijke_keuzes);
+                    //TODO: handle "required"
                     $html .= self::generateSubTag($options['element']) . self::generateChoices($field, $keuzes);
                     break;
                 case 'keuze_enkel':

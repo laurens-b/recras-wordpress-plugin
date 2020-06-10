@@ -130,3 +130,4 @@ We only support the plugin on the latest version of WordPress (which you should 
 == Credits ==
 * Icons from [Dashicons](https://github.com/WordPress/dashicons) by WordPress, released under the GPLv2 licence.
 * Date picker is [Pikaday](https://github.com/Pikaday/Pikaday), released under the BSD/MIT licence.
+* Country list is by [umpirsky](https://github.com/umpirsky/country-list), released under the MIT licence.
