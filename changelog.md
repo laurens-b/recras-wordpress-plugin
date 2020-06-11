@@ -1,9 +1,9 @@
 # Changelog
 
-## development (unreleased)
-* Clearing "package" setting in a contact form sometimes gave an error - fixed
-* Contact forms weren't handling countries - fixed
+## 3.6.0 (2020-06-11)
 * Handle extra customer fields in contact forms
+* Contact forms weren't handling countries - fixed
+* Clearing "package" setting in a contact form sometimes gave an error - fixed
 
 ## 3.5.1 (2020-06-09)
 * Update integration library: fix checking discount codes containing "special" characters, such as `#`
