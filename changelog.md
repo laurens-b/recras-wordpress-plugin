@@ -2,6 +2,7 @@
 
 ## 3.6.1 (2020-06-22)
 * Autoscrolling didn't work properly in all cases - disabled for now
+* Fix "window.ga.getAll is not a function" error in Firefox when Google Analytics integration is enabled
 
 ## 3.6.0 (2020-06-11)
 * Handle extra customer fields in contact forms
