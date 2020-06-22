@@ -94,7 +94,6 @@ class OnlineBooking
 
         if ($arrangementID) {
             $extraOptions[] = 'package_id: ' . $arrangementID;
-            $extraOptions[] = 'autoScroll: false';
         } else if (isset($libraryOptions['packageList'])) {
             $extraOptions[] = 'package_id: [' . join(',', $libraryOptions['packageList']) . ']';
         }
@@ -125,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
         recras_hostname: '" . $subdomain . ".recras.nl',
         element: document.getElementById('" . $generatedDivID . "'),
         locale: '" . Settings::externalLocale() . "',
+        autoScroll: false,
         previewTimes: " . ($libraryOptions['previewTimes'] ? 'true' : 'false') . ",
     " . join(",\n", $extraOptions) . "});
     new RecrasBooking(bookingOptions);
