@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.6.2 (2020-06-30)
+* Fix German "Voucher applied" translation during online booking
+
 ## 3.6.1 (2020-06-22)
 * Auto-scrolling to online booking form didn't work properly in all cases - disabled for now
 * Fix "window.ga.getAll is not a function" error in Firefox when Google Analytics integration is enabled
