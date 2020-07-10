@@ -10,15 +10,14 @@ notifications:
     secure: yL1BbckyxR20TXv825xZB/dmi+2VLoHAiSFfKgVNfYDFLF3Nfc8OKcum6QGbnGFE425bIwuaLrQ/Tx2JpwiZ4vayTOU8jnVxZ/UpAvSeJWlBkfqEQFimH67t15bnKiiVHbsi4bKBt7lJDe6VRlN7PGAQhlMqlosYe/9xNiYTfsnH3hbZGf9erVWguhBGAeTMBc6URWFKU/a/h+VX677oxhhX958z6jV6yVgMtx80VPXqHoX6nE7PvNZ7zkv/urYDefNlEzRuWoY6dnwibWzRgKgNqVP9lgtonTK8YfewQQUN0/MqI4NNwu4mK//c7wxfK6q58mgJ3cQicavhd5OStLyIGrPFa5G1mG884HJ4BZbokUTu8YQmgNLx51bO1L5szdDVTCWYiP5g562Gn6V5wItVVTCmPolZZ8ZthTy28wisE051O3ezRDIiI1Mxmz1fHk4UyHhHeEHX2RTVUlIdjoI3uOGxwno+VErHGqM4Nx7B/HG95gCz6nQHUYi59tR4jLj2zohG4HBXqT/ePGRLsTbnVN4nulw+RvhTY3FGeahop2x2NQS+ulzZKKjyAZnrS791DF1X48yFvQq97IH7fmJxKhZZ3I4840nvM1c30lx5ixKN4wnSrHusxZHlcUXbQvtUeKTfOZgdXb+LqrjamO4Yor13KaKsRVuVuaowgDw=
 
 php:
-#- 5.6 # TODO: this fails because of dev-dependencies that require PHP 7
 - 7.2
 - 7.3
-- 7.4snapshot
-#- nightly # PHP 8.0 - first alpha will be released in June
+- 7.4
+- nightly # PHP 8.0
 
-#matrix:
-#  allow_failures:
-#    - php: nightly
+matrix:
+  allow_failures:
+    - php: nightly
 
 env:
 - WP_VERSION=latest WP_MULTISITE=0
