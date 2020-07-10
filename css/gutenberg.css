@@ -15,7 +15,15 @@
 .components-base-control + .packageList,
 .packageList + .packageList,
 .packageList > .components-base-control__field {
-    margin-bottom: 0;
+    margin-bottom: 0.25em;
+}
+
+[data-type^="recras"] label.components-base-control,
+[data-type^="recras"] .components-base-control__field > label:not(.components-toggle-control__label) {
+    font-weight: bold;
+}
+[data-type^="recras"] select {
+    display: block;
 }
 
 /* Date picker */

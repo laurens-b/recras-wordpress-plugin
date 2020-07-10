@@ -35,7 +35,7 @@ class Gutenberg
             $globalStyleName,
             plugins_url('css/gutenberg.css', __DIR__),
             ['wp-edit-blocks'],
-            '3.4.0'
+            '3.6.3'
         );
 
         $gutenbergBlocks = [
