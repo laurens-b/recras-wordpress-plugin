@@ -1,37 +1,43 @@
+/**
+ * Disable arrangements that are not allowed for this contact form
+ *
+ * @param {Array} packageIDs List of package IDs
+ */
+function disableNotAllowed(packageIDs)
+{
+    let options = document.getElementById('arrangement_id').getElementsByTagName('option');
+    for (let i = 0; i < options.length; i++) {
+        options[i].disabled = (packageIDs.indexOf(parseInt(options[i].value,10)) === -1);
+    }
+}
+
+/*
+ * Get packages that are valid for a given contact form
+ *
+ * @param {Number} formID
+ * @param {String} subdomain
+ */
 function getContactFormArrangements(formID, subdomain)
 {
     if (!formID) {
         return false;
     }
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://' + subdomain + '.recras.nl/api2.php/contactformulieren/' + formID + '/arrangementen');
-    xhr.responseType = 'json';
-    xhr.send();
-    xhr.onreadystatechange = function(){
-        if (xhr.readyState === 4) {
-            if (!xhr.response) {
+    let lastResponse;
+    fetch(`https://${subdomain}.recras.nl/api2.php/contactformulieren/${formID}/arrangementen`)
+        .then(res => {
+            lastResponse = res;
+            return res.json();
+        })
+        .then(json => {
+            if (!lastResponse.ok) {
                 alert(recras_l10n.no_connection);
-            } else {
-                var contactFormArrangements = [];
-                xhr.response.forEach(function(item){
-                    contactFormArrangements.push(item.arrangement_id);
-                });
-                disableNotAllowed(contactFormArrangements);
+                return;
             }
-        }
-    };
-}
-
-/**
- * Disable arrangements that are not allowed for this contact form
- *
- * @param {Array} arrangementIDs
- */
-function disableNotAllowed(arrangementIDs)
-{
-    var options = document.getElementById('arrangement_id').getElementsByTagName('option');
-    for (var i = 0; i < options.length; i++) {
-        options[i].disabled = (arrangementIDs.indexOf(parseInt(options[i].value,10)) === -1);
-    }
+            let contactFormPackages = json.map(i => i.arrangement_id);
+            disableNotAllowed(contactFormPackages);
+        })
+        .catch(res => {
+            alert(recras_l10n.no_connection);
+        });
 }
