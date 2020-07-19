@@ -8,7 +8,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "po2json": "1.0.0-beta-2"
+    "po2json": "1.0.0-beta-3"
   },
   "scripts": {
     "i18n_de": "po2json lang/recras-de_DE.po lang/recras-de_DE-recras-gutenberg-global.json -f jed",
