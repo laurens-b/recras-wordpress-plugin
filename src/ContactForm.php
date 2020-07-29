@@ -430,6 +430,17 @@ class ContactForm
             "' . $options['redirect']. '"
         );
     });
+    var clearRadioEls = document.querySelectorAll(".clearRadioChoice");
+    if (clearRadioEls.length) {
+        for (var i = 0; i < clearRadioEls.length; i++) {
+            clearRadioEls[i].addEventListener("click", function() {
+                var radioElChecked = this.parentNode.querySelector("input[type=\'radio\']:checked");
+                if (radioElChecked) {
+                    radioElChecked.checked = false;
+                }
+            });
+        }
+    }
 });</script>';
 
         return $html;
@@ -524,6 +535,11 @@ class ContactForm
             }
             $html .= '<label><input type="radio" name="' . $field->field_identifier . '" value="' . $value . '"' . $required . $selText . '>' . $name . '</label>';
         }
+
+        if (!$field->verplicht) {
+            $html .= '<button type="button" class="clearRadioChoice">' . __('Clear choice', Plugin::TEXT_DOMAIN) . '</button>';
+        }
+
         return $html;
     }
 
