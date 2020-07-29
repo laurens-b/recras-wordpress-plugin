@@ -33,6 +33,8 @@ const recrasHelper = {
         );
     },
     elementInfo: (text) => {
+        // WP 5.5 has createInterpolateElement instead of RawHTML
+        // https://make.wordpress.org/core/2020/07/17/introducing-createinterpolateelement/
         return createEl(
             wp.element.RawHTML,
             null,
@@ -49,9 +51,7 @@ const recrasHelper = {
         );
     },
     elementNoRecrasName: () => {
-        // HTML doesn't work right now: https://github.com/WordPress/gutenberg/issues/9846
-        //const settingsLink = `<a href="${ recrasOptions.settingsPage }" target="_blank">${ __('Recras → Settings menu', TEXT_DOMAIN) }</a>`;
-        const settingsLink = __('Recras → Settings menu', TEXT_DOMAIN);
+        const settingsLink = `<a href="${ recrasOptions.settingsPage }" target="_blank">${ __('Recras → Settings menu', TEXT_DOMAIN) }</a>`;
         return [
             recrasHelper.elementInfo(sprintf(__('Please enter your Recras name in the %s before adding widgets.', TEXT_DOMAIN), settingsLink)),
         ];
