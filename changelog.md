@@ -3,6 +3,7 @@
 ## Development
 * Small styling fixes for WP 5.5
 * Allow clearing of non-required radio buttons
+* Required checkboxes now notify you before sending the form
 
 ## 3.6.2 (2020-06-30)
 * Fix German "Voucher applied" translation during online booking

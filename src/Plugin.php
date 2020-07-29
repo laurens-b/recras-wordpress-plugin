@@ -181,6 +181,7 @@ class Plugin
     public function loadScripts()
     {
         $localisation = [
+            'checkboxRequired' => __('At least one choice is required', $this::TEXT_DOMAIN),
             'loading' => __('Loading...', $this::TEXT_DOMAIN),
             'sent_success' => __('Your message was sent successfully', $this::TEXT_DOMAIN),
             'sent_error' => __('There was an error sending your message', $this::TEXT_DOMAIN),
@@ -247,7 +248,7 @@ class Plugin
 
         // Generic functionality & localisation script
         $scriptName = 'recras-frontend';
-        wp_register_script($scriptName, $this->baseUrl . '/js/recras.js', ['jquery'], '2.4.3', true);
+        wp_register_script($scriptName, $this->baseUrl . '/js/recras.js', ['jquery'], '3.6.2', true);
         wp_localize_script($scriptName, 'recras_l10n', $localisation);
         wp_enqueue_script($scriptName);
     }

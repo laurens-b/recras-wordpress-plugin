@@ -178,7 +178,8 @@ class ContactForm
     {
         $html = '';
         foreach ($options as $value => $name) {
-            $html .= '<label><input type="checkbox" name="' . $field->field_identifier . '" value="' . $value . '">' . $name . '</label>';
+            $dataRequired = $field->verplicht ? 'data-required="1"' : '';
+            $html .= '<label><input type="checkbox" name="' . $field->field_identifier . '" value="' . $value . '"' . $dataRequired . '>' . $name . '</label>';
         }
         return $html;
     }
@@ -382,7 +383,6 @@ class ContactForm
                     break;
                 case 'keuze':
                     $keuzes = array_combine($field->mogelijke_keuzes, $field->mogelijke_keuzes);
-                    //TODO: handle "required"
                     $html .= self::generateSubTag($options['element']) . self::generateChoices($field, $keuzes);
                     break;
                 case 'keuze_enkel':

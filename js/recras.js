@@ -24,6 +24,16 @@ function submitRecrasForm(formID, subdomain, basePath, redirect)
             } else if (formElements[i].type === 'checkbox') {
                 elements[formElements[i].name] = [];
                 var checked = document.querySelectorAll('input[name="' + formElements[i].name + '"]:checked');
+                if (checked.length === 0) {
+                    var isRequired = document.querySelector('input[name="' + formElements[i].name + '"][data-required="1"]');
+                    if (isRequired) {
+                        formEl
+                            .querySelector('[name="' + formElements[i].name + '"]')
+                            .parentNode
+                            .insertAdjacentHTML('beforeend', '<span class="recras-error">' + recras_l10n.checkboxRequired + '</span>');
+                        return false;
+                    }
+                }
                 for (var j = 0; j < checked.length; j++) {
                     elements[formElements[i].name].push(checked[j].value);
                 }
