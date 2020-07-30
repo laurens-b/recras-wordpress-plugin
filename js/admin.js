@@ -5,9 +5,9 @@
  */
 function disableNotAllowed(packageIDs)
 {
-    let options = document.getElementById('arrangement_id').getElementsByTagName('option');
-    for (let i = 0; i < options.length; i++) {
-        options[i].disabled = (packageIDs.indexOf(parseInt(options[i].value,10)) === -1);
+    let optionEls = document.getElementById('arrangement_id').getElementsByTagName('option');
+    for (let optionEl of optionEls) {
+        optionEl.disabled = !packageIDs.includes(parseInt(optionEl.value,10));
     }
 }
 
