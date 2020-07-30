@@ -1,9 +1,9 @@
 # Changelog
 
-## Development
-* Small styling fixes for WP 5.5
-* Allow clearing of non-required radio buttons
+## 4.0.0 (2020-07-30)
+* Allow clearing of non-required radio buttons. Since this adds a button to the list which may require styling, we consider this a breaking change.
 * Required checkboxes now notify you before sending the form
+* Small styling fixes for WP 5.5
 
 ## 3.6.2 (2020-06-30)
 * Fix German "Voucher applied" translation during online booking

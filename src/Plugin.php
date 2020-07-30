@@ -150,7 +150,7 @@ class Plugin
      */
     public function loadAdminScripts()
     {
-        wp_register_script('recras-admin', $this->baseUrl . '/js/admin.js', [], '3.6.2', true);
+        wp_register_script('recras-admin', $this->baseUrl . '/js/admin.js', [], '4.0.0', true);
         wp_localize_script('recras-admin', 'recras_l10n', [
             'contact_form' => __('Contact form', $this::TEXT_DOMAIN),
             'no_connection' => __('Could not connect to your Recras', $this::TEXT_DOMAIN),
@@ -248,7 +248,7 @@ class Plugin
 
         // Generic functionality & localisation script
         $scriptName = 'recras-frontend';
-        wp_register_script($scriptName, $this->baseUrl . '/js/recras.js', ['jquery'], '3.6.2', true);
+        wp_register_script($scriptName, $this->baseUrl . '/js/recras.js', ['jquery'], '4.0.0', true);
         wp_localize_script($scriptName, 'recras_l10n', $localisation);
         wp_enqueue_script($scriptName);
     }

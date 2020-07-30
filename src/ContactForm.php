@@ -309,7 +309,6 @@ class ContactForm
                             break;
                         case 'multiplechoice':
                             $choices = array_combine($field->mogelijke_keuzes, $field->mogelijke_keuzes);
-                            //TODO: handle "required"
                             $html .= self::generateChoices($field, $choices);
                             break;
                         case 'singlechoice':
