@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.0.1 (2020-08-05)
+* A message has been added to online booking when the selected date no longer has available time slots. This can occur when the availability cache is enabled.
+
 ## 4.0.0 (2020-07-30)
 * Allow clearing of non-required radio buttons. Since this adds a button to the list which may require styling, we consider this a breaking change.
 * Required checkboxes now notify you before sending the form
