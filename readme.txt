@@ -101,41 +101,6 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Contact forms weren't handling countries - fixed
 * Clearing "package" setting in a contact form sometimes gave an error - fixed
 
-= 3.5.1 =
-* Update integration library: fix checking discount codes containing "special" characters, such as `#`
-* Add shortcode documentation page
-
-= 3.5.0 =
-* Allow pre-filling of date and time of online booking
-* Update integration library:
-  - better calendar alignment on small screens
-  - fix attachments not being visible initially when pre-filling amounts
-* Fix a Dutch typo
-
-= 3.4.5 =
-* Update integration library: prevent users submitting a form twice
-
-= 3.4.4 =
-* "Thank you-pages" only showed 10 pages/posts. This has been increased to 100 of each.
-* "Thank you-pages" are now shown alphabetically
-* Fix potential conflict with React
-
-= 3.4.3 =
-* Small styling adjustments for "Basic theme" and "Recras Blue" themes
-
-= 3.4.2 =
-* Fix contact form placeholders generating invalid HTML
-* Email/Telephone fields in contact forms didn't get proper field type - fixed
-* Improve accessibility and styling of required field labels
-
-= 3.4.1 =
-* Updated German translations, courtesy of Wiljon Bolten
-* Update integration library: use minimum quantity of a line, if it is set
-
-= 3.4.0 =
-* Contact forms: prevent entering a booking date in the past
-* Update integration library: include amount in 'RedirectToPayment' events sent to Google Analytics
-
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
 
