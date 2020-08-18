@@ -305,7 +305,11 @@ class ContactForm
                             break;
                         case 'date':
                         case 'text':
-                            $html .= self::generateInput($field);
+                            $html .= self::generateInput($field, [
+                                'raw' => [
+                                    'maxlength' => 200,
+                                ],
+                            ]);
                             break;
                         case 'multiplechoice':
                             $choices = array_combine($field->mogelijke_keuzes, $field->mogelijke_keuzes);
@@ -351,6 +355,9 @@ class ContactForm
                 case 'contactpersoon.telefoon2':
                     $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
                         'placeholder' => $options['placeholders'],
+                        'raw' => [
+                            'maxlength' => 50,
+                        ],
                         'type' => 'tel',
                     ]);
                     break;
@@ -411,6 +418,9 @@ class ContactForm
                 default:
                     $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
                         'placeholder' => $options['placeholders'],
+                        'raw' => [
+                            'maxlength' => 50,
+                        ],
                     ]);
             }
             //$html .= print_r($field, true); //DEBUG

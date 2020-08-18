@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.0.2 (2020-08-18)
+* Fix max length of various contact form fields
+
 ## 4.0.1 (2020-08-05)
 * A message has been added to online booking when the selected date no longer has available time slots. This can occur when the availability cache is enabled.
 
