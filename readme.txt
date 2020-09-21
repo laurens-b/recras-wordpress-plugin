@@ -92,18 +92,6 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Required checkboxes now notify you before sending the form
 * Small styling fixes for WP 5.5
 
-= 3.6.2 =
-* Fix German "Voucher applied" translation during online booking
-
-= 3.6.1 =
-* Auto-scrolling to online booking form didn't work properly in all cases - disabled for now
-* Fix "window.ga.getAll is not a function" error in Firefox when Google Analytics integration is enabled
-
-= 3.6.0 =
-* Handle extra customer fields in contact forms
-* Contact forms weren't handling countries - fixed
-* Clearing "package" setting in a contact form sometimes gave an error - fixed
-
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
 
