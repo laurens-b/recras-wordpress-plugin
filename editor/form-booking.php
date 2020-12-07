@@ -48,7 +48,7 @@ $arrangements = $model->getArrangements($subdomain, true);
         <dd><strong><?php _e('Sorry, this is only available using the Gutenberg editor.', \Recras\Plugin::TEXT_DOMAIN); ?></strong>
     <dt><label><?php _e('Pre-fill amounts (requires pre-filled package)', \Recras\Plugin::TEXT_DOMAIN); ?></label>
         <dd><strong><?php _e('Sorry, this is only available using the Gutenberg editor.', \Recras\Plugin::TEXT_DOMAIN); ?></strong>
-    <dt><label for="prefill_date"><?php _e('Pre-fill time',\Recras\Plugin::TEXT_DOMAIN ); ?></label>
+    <dt><label for="prefill_date"><?php _e('Pre-fill date (requires exactly 1 package selected)',\Recras\Plugin::TEXT_DOMAIN ); ?></label>
         <dd><input
             type="date"
             id="prefill_date"
