@@ -9,19 +9,6 @@ $model = new \Recras\Arrangement;
 $arrangements = $model->getArrangements($subdomain, true);
 ?>
 <dl>
-    <dt><label for="arrangement_id"><?php _e('Package', \Recras\Plugin::TEXT_DOMAIN); ?></label>
-        <dd><?php if (is_string($arrangements)) { ?>
-            <input type="number" id="arrangement_id" min="0">
-            <?= $arrangements; ?>
-        <?php } elseif(is_array($arrangements)) { ?>
-            <?php unset($arrangements[0]); ?>
-            <select id="arrangement_id" required>
-                <option value="0"><?php _e('No pre-filled package', \Recras\Plugin::TEXT_DOMAIN); ?>
-                <?php foreach ($arrangements as $ID => $arrangement) { ?>
-                <option value="<?= $ID; ?>"><?= $arrangement->arrangement; ?>
-                <?php } ?>
-            </select>
-        <?php } ?>
     <dt><label><?php _e('Integration method', \Recras\Plugin::TEXT_DOMAIN); ?></label>
         <dd>
             <label>
@@ -42,10 +29,39 @@ $arrangements = $model->getArrangements($subdomain, true);
             _e('iframe integration uses the styling set in your Recras. You can change the styling in Recras via Settings → Other settings → Custom CSS.', \Recras\Plugin::TEXT_DOMAIN);
             ?>
         </p>
+
+    <dt id="pack_sel_label">
+        <label for="package_selection"><?php _e('Package selection', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dd id="pack_sel_input">
+        <?php unset($arrangements[0]); ?>
+        <select multiple id="package_selection">
+            <?php foreach ($arrangements as $ID => $arrangement) { ?>
+            <option value="<?= $ID; ?>"><?= $arrangement->arrangement; ?>
+            <?php } ?>
+        </select>
+        <p class="recras-notice">
+            <?php
+            _e('To (de)select multiple packages, hold Ctrl and click (Cmd on Mac)', \Recras\Plugin::TEXT_DOMAIN);
+            ?>
+        </p>
+    <dt id="pack_one_label" style="display: none;">
+        <label for="arrangement_id"><?php _e('Package', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dd id="pack_one_input" style="display: none;">
+        <?php if (is_string($arrangements)) { ?>
+            <input type="number" id="arrangement_id" min="0">
+            <?= $arrangements; ?>
+        <?php } elseif(is_array($arrangements)) { ?>
+            <?php unset($arrangements[0]); ?>
+            <select id="arrangement_id" required>
+                <option value="0"><?php _e('No pre-filled package', \Recras\Plugin::TEXT_DOMAIN); ?>
+                <?php foreach ($arrangements as $ID => $arrangement) { ?>
+                <option value="<?= $ID; ?>"><?= $arrangement->arrangement; ?>
+                <?php } ?>
+            </select>
+        <?php } ?>
+
     <dt><label for="show_times"><?php _e('Preview times in programme', \Recras\Plugin::TEXT_DOMAIN); ?></label>
         <dd><input type="checkbox" id="show_times">
-    <dt><label><?php _e('Package selection', \Recras\Plugin::TEXT_DOMAIN); ?></label>
-        <dd><strong><?php _e('Sorry, this is only available using the Gutenberg editor.', \Recras\Plugin::TEXT_DOMAIN); ?></strong>
     <dt><label><?php _e('Pre-fill amounts (requires pre-filled package)', \Recras\Plugin::TEXT_DOMAIN); ?></label>
         <dd><strong><?php _e('Sorry, this is only available using the Gutenberg editor.', \Recras\Plugin::TEXT_DOMAIN); ?></strong>
     <dt><label for="prefill_date"><?php _e('Pre-fill date (requires exactly 1 package selected)',\Recras\Plugin::TEXT_DOMAIN ); ?></label>
@@ -57,7 +73,7 @@ $arrangements = $model->getArrangements($subdomain, true);
             placeholder="<?= __('yyyy-mm-dd', \Recras\Plugin::TEXT_DOMAIN); ?>"
             disabled
         >
-    <dt><label for="prefill_time"><?php _e('Pre-fill time',\Recras\Plugin::TEXT_DOMAIN ); ?></label>
+    <dt><label for="prefill_time"><?php _e('Pre-fill time (requires exactly 1 package selected)',\Recras\Plugin::TEXT_DOMAIN ); ?></label>
         <dd><input
             type="time"
             id="prefill_time"
@@ -93,6 +109,11 @@ $arrangements = $model->getArrangements($subdomain, true);
             document.getElementById('auto_resize').disabled = useLibrary;
             document.getElementById('redirect_page').disabled = !useLibrary;
             document.getElementById('show_times').disabled = !useLibrary;
+
+            document.getElementById('pack_sel_label').style.display = useLibrary ? 'block' : 'none';
+            document.getElementById('pack_sel_input').style.display = useLibrary ? 'block' : 'none';
+            document.getElementById('pack_one_label').style.display = useLibrary ? 'none' : 'block';
+            document.getElementById('pack_one_input').style.display = useLibrary ? 'none' : 'block';
         });
     });
     document.getElementById('arrangement_id').addEventListener('change', function() {
@@ -100,15 +121,32 @@ $arrangements = $model->getArrangements($subdomain, true);
         document.getElementById('prefill_date').disabled = !hasPackage;
         document.getElementById('prefill_time').disabled = !hasPackage;
     });
+    document.getElementById('package_selection').addEventListener('change', function() {
+        var selectedPackages = document.querySelectorAll('#package_selection option:checked');
+        var hasPackage = selectedPackages.length === 1;
+        document.getElementById('prefill_date').disabled = !hasPackage;
+        document.getElementById('prefill_time').disabled = !hasPackage;
+    });
 
-    document.getElementById('booking_submit').addEventListener('click', function(){
-        var arrangementID = document.getElementById('arrangement_id').value;
+    document.getElementById('booking_submit').addEventListener('click', function() {
+        var useNewLibrary = document.getElementById('use_new_library_yes').checked;
+
+        var arrangementID;
+        var packageIDsMultiple;
+        var selectedPackages = document.querySelectorAll('#package_selection option:checked');
+        if (selectedPackages.length === 1) {
+            arrangementID = selectedPackages[0].value;
+        } else {
+            packageIDsMultiple = [...selectedPackages].map(el => el.value);
+        }
         var shortcode = '[<?= \Recras\Plugin::SHORTCODE_ONLINE_BOOKING; ?>';
-        if (arrangementID !== '0') {
+        if (packageIDsMultiple && useNewLibrary) {
+            shortcode += ' package_list="' + packageIDsMultiple.join(',') + '"';
+        } else if (arrangementID) {
             shortcode += ' id="' + arrangementID + '"';
         }
 
-        if (document.getElementById('use_new_library_yes').checked) {
+        if (useNewLibrary) {
             shortcode += ' use_new_library=1';
             if (document.getElementById('redirect_page').value !== '') {
                 shortcode += ' redirect="' + document.getElementById('redirect_page').value + '"';
@@ -122,7 +160,7 @@ $arrangements = $model->getArrangements($subdomain, true);
             }
         }
 
-        if (document.getElementById('arrangement_id').value > 0) {
+        if (arrangementID) {
             if (document.getElementById('prefill_date').value) {
                 shortcode += ' prefill_date="' + document.getElementById('prefill_date').value + '"';
             }

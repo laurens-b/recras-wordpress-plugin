@@ -3,6 +3,7 @@
 ## Unreleased
 * Fix potential conflict causing Gutenberg blocks not to load
 * Simplify clearing the Recras cache
+* Enable multiple package selection in classic (non-Gutenberg) editor
 
 ## 4.0.2 (2020-08-18)
 * Fix max length of various contact form fields

@@ -9,6 +9,9 @@
 #TB_window #wpcontent {
     margin-left: 0;
 }
+#TB_window dd {
+    margin-left: 1em;
+}
 
 .recrasOptionsList, .recrasOptionsList ol {
     list-style-type: disc;

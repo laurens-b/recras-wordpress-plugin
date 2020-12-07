@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Recras WordPress plugin\n"
-"POT-Creation-Date: 2020-12-07 12:24+0100\n"
-"PO-Revision-Date: 2020-12-07 12:25+0100\n"
+"POT-Creation-Date: 2020-12-07 14:44+0100\n"
+"PO-Revision-Date: 2020-12-07 14:48+0100\n"
 "Last-Translator: Sander <sander@ugoku.nl>\n"
 "Language-Team: Recras\n"
 "Language: nl_NL\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: vendor\n"
 "X-Poedit-SearchPathExcluded-1: tests\n"
 
-#: editor/form-arrangement.php:16 editor/form-booking.php:12
+#: editor/form-arrangement.php:16 editor/form-booking.php:48
 #: editor/form-contact.php:32 editor/form-package-availability.php:13
 #: js/gutenberg-availability.js:45 js/gutenberg-package.js:2
 #: js/gutenberg-package.js:50 js/gutenberg-package.js:141 src/Plugin.php:95
@@ -97,7 +97,7 @@ msgstr "Relatieve afbeelding-URL"
 msgid "Start time"
 msgstr "Starttijd"
 
-#: editor/form-arrangement.php:44 editor/form-booking.php:66
+#: editor/form-arrangement.php:44 editor/form-booking.php:82
 #: js/gutenberg-package.js:127 src/ContactForm.php:287
 msgid "hh:mm"
 msgstr "uu:mm"
@@ -114,30 +114,26 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nee"
 
-#: editor/form-arrangement.php:50 editor/form-booking.php:87
+#: editor/form-arrangement.php:50 editor/form-booking.php:103
 #: editor/form-contact.php:78 editor/form-package-availability.php:34
 #: editor/form-product.php:36 editor/form-voucher-info.php:31
 #: editor/form-voucher-sales.php:40
 msgid "Insert shortcode"
 msgstr "Voeg shortcode in"
 
-#: editor/form-booking.php:19
-msgid "No pre-filled package"
-msgstr "Geen vooraf ingevuld arrangement"
-
-#: editor/form-booking.php:25 js/gutenberg-onlinebooking.js:111
+#: editor/form-booking.php:12 js/gutenberg-onlinebooking.js:111
 msgid "Integration method"
 msgstr "Integratiemethode"
 
-#: editor/form-booking.php:29 js/gutenberg-onlinebooking.js:88
+#: editor/form-booking.php:16 js/gutenberg-onlinebooking.js:88
 msgid "Seamless (recommended)"
 msgstr "Naadloos (aanbevolen)"
 
-#: editor/form-booking.php:34 js/gutenberg-onlinebooking.js:92
+#: editor/form-booking.php:21 js/gutenberg-onlinebooking.js:92
 msgid "iframe (uses setting in your Recras)"
 msgstr "iframe (gebruikt instelling uit jouw Recras)"
 
-#: editor/form-booking.php:38 js/gutenberg-onlinebooking.js:283
+#: editor/form-booking.php:25 js/gutenberg-onlinebooking.js:283
 msgid ""
 "Seamless integration uses the styling of your website. At Recras → Settings "
 "in the menu on the left, you can set an optional theme."
@@ -145,7 +141,7 @@ msgstr ""
 "Naadloze integratie gebruikt de styling van je website. Via Recras → "
 "Instellingen in het menu aan de linkerkant kun een optioneel thema instellen."
 
-#: editor/form-booking.php:42 js/gutenberg-onlinebooking.js:284
+#: editor/form-booking.php:29 js/gutenberg-onlinebooking.js:284
 msgid ""
 "iframe integration uses the styling set in your Recras. You can change the "
 "styling in Recras via Settings → Other settings → Custom CSS."
@@ -154,51 +150,65 @@ msgstr ""
 "kunt de styling in Recras aanpassen via Beheer → Overige instellingen → "
 "Eigen CSS."
 
-#: editor/form-booking.php:45 js/gutenberg-onlinebooking.js:158
-msgid "Preview times in programme"
-msgstr "Toon voorbeeldtijden in programma"
-
-#: editor/form-booking.php:47 js/gutenberg-onlinebooking.js:287
+#: editor/form-booking.php:34 js/gutenberg-onlinebooking.js:287
 msgid "Package selection"
 msgstr "Arrangementselectie"
 
-#: editor/form-booking.php:48 editor/form-booking.php:50
+#: editor/form-booking.php:44
+msgid "To (de)select multiple packages, hold Ctrl and click (Cmd on Mac)"
+msgstr ""
+"Om meerdere arrangementen te (de)selecteren, houd Ctrl ingedrukt en klik "
+"(Cmd op Mac)"
+
+#: editor/form-booking.php:56
+msgid "No pre-filled package"
+msgstr "Geen vooraf ingevuld arrangement"
+
+#: editor/form-booking.php:63 js/gutenberg-onlinebooking.js:158
+msgid "Preview times in programme"
+msgstr "Toon voorbeeldtijden in programma"
+
+#: editor/form-booking.php:65
+msgid "Pre-fill amounts (requires pre-filled package)"
+msgstr "Aantallen vooraf invullen (vereist exact 1 geselecteerd arrangement)"
+
+#: editor/form-booking.php:66
 msgid "Sorry, this is only available using the Gutenberg editor."
 msgstr "Sorry, dit is alleen beschikbaar in de Gutenberg-editor."
 
-#: editor/form-booking.php:49
-msgid "Pre-fill amounts (requires pre-filled package)"
-msgstr "Aantallen vooraf invullen (vereist een vooraf ingevuld arrangement)"
+#: editor/form-booking.php:67 js/gutenberg-onlinebooking.js:303
+msgid "Pre-fill date (requires exactly 1 package selected)"
+msgstr "Datum vooraf invullen (vereist exact 1 geselecteerd arrangement)"
 
-#: editor/form-booking.php:51 editor/form-booking.php:60
-msgid "Pre-fill time"
-msgstr "Tijd vooraf invullen"
-
-#: editor/form-booking.php:57 src/ContactForm.php:270
+#: editor/form-booking.php:73 src/ContactForm.php:270
 msgid "yyyy-mm-dd"
 msgstr "jjjj-mm-dd"
 
-#: editor/form-booking.php:69 editor/form-contact.php:63
+#: editor/form-booking.php:76 js/gutenberg-onlinebooking.js:202
+msgid "Pre-fill time (requires exactly 1 package selected)"
+msgstr "Tijd vooraf invullen (vereist exact 1 geselecteerd arrangement)"
+
+#: editor/form-booking.php:85 editor/form-contact.php:63
 #: editor/form-voucher-sales.php:25
 msgid "Thank-you page"
 msgstr "Bedanktpagina"
 
-#: editor/form-booking.php:71 editor/form-contact.php:65
+#: editor/form-booking.php:87 editor/form-contact.php:65
 #: editor/form-voucher-sales.php:27
 msgid "Don't redirect"
 msgstr "Niet doorsturen"
 
-#: editor/form-booking.php:72 editor/form-contact.php:66
+#: editor/form-booking.php:88 editor/form-contact.php:66
 #: editor/form-voucher-sales.php:28
 msgid "Pages"
 msgstr "Pagina's"
 
-#: editor/form-booking.php:77 editor/form-contact.php:71
+#: editor/form-booking.php:93 editor/form-contact.php:71
 #: editor/form-voucher-sales.php:33
 msgid "Posts"
 msgstr "Berichten"
 
-#: editor/form-booking.php:83 editor/form-package-availability.php:31
+#: editor/form-booking.php:99 editor/form-package-availability.php:31
 msgid "Automatic resize?"
 msgstr "Automatisch schalen?"
 
@@ -376,10 +386,6 @@ msgstr "Online boeking"
 msgid "Pre-fill amounts (requires exactly 1 package selected)"
 msgstr "Aantallen vooraf invullen (vereist exact 1 arrangement geselecteerd)"
 
-#: js/gutenberg-onlinebooking.js:202
-msgid "Pre-fill time (requires exactly 1 package selected)"
-msgstr "Tijd vooraf invullen (vereist een vooraf ingevuld arrangement)"
-
 #: js/gutenberg-onlinebooking.js:203
 msgid "i.e. 14:00"
 msgstr "bijv. 14:00"
@@ -399,10 +405,6 @@ msgid ""
 msgstr ""
 "Als je een enkel arrangement selecteert wordt deze vooraf ingevuld en wordt "
 "de arrangement-selectie-stap overgeslagen."
-
-#: js/gutenberg-onlinebooking.js:303
-msgid "Pre-fill date (requires exactly 1 package selected)"
-msgstr "Datum vooraf invullen (vereist een vooraf ingevuld arrangement)"
 
 #: js/gutenberg-package.js:114 js/gutenberg-product.js:99
 #: js/gutenberg-voucher-info.js:73
@@ -859,6 +861,9 @@ msgstr "Contactformulieren"
 #: src/admin/settings.php:7
 msgid "Save"
 msgstr "Opslaan"
+
+#~ msgid "Pre-fill time"
+#~ msgstr "Tijd vooraf invullen"
 
 #~ msgid "The selected cache was cleared."
 #~ msgstr "De geselecteerde cache is gewist."
