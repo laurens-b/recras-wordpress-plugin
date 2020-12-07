@@ -1,4 +1,4 @@
-registerBlockType('recras/contactform', {
+registerGutenbergBlock('recras/contactform', {
     title: __('Contact form', TEXT_DOMAIN),
     icon: 'email',
     category: 'recras',

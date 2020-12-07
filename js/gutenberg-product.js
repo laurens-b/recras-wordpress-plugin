@@ -1,4 +1,4 @@
-registerBlockType('recras/product', {
+registerGutenbergBlock('recras/product', {
     title: __('Product', TEXT_DOMAIN),
     icon: 'cart',
     category: 'recras',

@@ -4,7 +4,7 @@ namespace Recras;
 class Gutenberg
 {
     const ENDPOINT_NAMESPACE = 'recras';
-    const GUTENBERG_SCRIPT_VERSION = '4.0.0';
+    const GUTENBERG_SCRIPT_VERSION = '4.0.3';
 
 
     public static function addBlocks()
@@ -41,31 +41,31 @@ class Gutenberg
         $gutenbergBlocks = [
             'availability' => [
                 'callback' => [Availability::class, 'renderAvailability'],
-                'version' => '3.4.4',
+                'version' => '4.0.3',
             ],
             'contactform' => [
                 'callback' => [ContactForm::class, 'renderContactForm'],
-                'version' => '3.4.4',
+                'version' => '4.0.3',
             ],
             'onlinebooking' => [
                 'callback' => [OnlineBooking::class, 'renderOnlineBooking'],
-                'version' => '3.5.0',
+                'version' => '4.0.3',
             ],
             'package' => [
                 'callback' => [Arrangement::class, 'renderPackage'],
-                'version' => '3.4.4',
+                'version' => '4.0.3',
             ],
             'product' => [
                 'callback' => [Products::class, 'renderProduct'],
-                'version' => '3.4.4',
+                'version' => '4.0.3',
             ],
             'voucher-info' => [
                 'callback' => [Vouchers::class, 'renderVoucherInfo'],
-                'version' => '3.4.4',
+                'version' => '4.0.3',
             ],
             'voucher-sales' => [
                 'callback' => [Vouchers::class, 'renderVoucherSales'],
-                'version' => '3.4.4',
+                'version' => '4.0.3',
             ],
         ];
         foreach ($gutenbergBlocks as $key => $block) {

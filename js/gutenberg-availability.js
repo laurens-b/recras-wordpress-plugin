@@ -1,4 +1,4 @@
-registerBlockType('recras/availability', {
+registerGutenbergBlock('recras/availability', {
     title: __('Availability calendar', TEXT_DOMAIN),
     icon: 'calendar-alt',
     category: 'recras',

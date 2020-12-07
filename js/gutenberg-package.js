@@ -1,4 +1,4 @@
-registerBlockType('recras/package', {
+registerGutenbergBlock('recras/package', {
     title: __('Package', TEXT_DOMAIN),
     icon: 'clipboard',
     category: 'recras',

@@ -1,4 +1,4 @@
-registerBlockType('recras/voucher-sales', {
+registerGutenbergBlock('recras/voucher-sales', {
     title: __('Voucher sales', TEXT_DOMAIN),
     icon: 'money',
     category: 'recras',

@@ -1,4 +1,4 @@
-registerBlockType('recras/onlinebooking', {
+registerGutenbergBlock('recras/onlinebooking', {
     title: __('Online booking', TEXT_DOMAIN),
     icon: 'admin-site',
     category: 'recras',

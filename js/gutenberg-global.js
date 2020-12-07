@@ -1,5 +1,5 @@
 const createEl = wp.element.createElement;
-const { registerBlockType } = wp.blocks;
+const registerGutenbergBlock = wp.blocks.registerBlockType;
 const {
     DatePicker,
     RadioControl,

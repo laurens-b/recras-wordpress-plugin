@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Fix potential conflict causing Gutenberg blocks not to load
+
 ## 4.0.2 (2020-08-18)
 * Fix max length of various contact form fields
 
