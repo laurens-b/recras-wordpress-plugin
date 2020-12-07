@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 4.1.0 (2020-12-07)
 * Fix potential conflict causing Gutenberg blocks not to load
 * Simplify clearing the Recras cache
 * Enable multiple package selection in classic (non-Gutenberg) editor
