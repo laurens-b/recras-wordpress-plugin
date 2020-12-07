@@ -33,6 +33,15 @@ $arrangements = $model->getArrangements($subdomain, true);
                 <input type="radio" id="use_new_library_no" name="integration_method" value="iframe">
                 <?php _e('iframe (uses setting in your Recras)', \Recras\Plugin::TEXT_DOMAIN); ?>
             </label>
+        <p class="recras-notice">
+            <?php
+            _e('Seamless integration uses the styling of your website. At Recras → Settings in the menu on the left, you can set an optional theme.', \Recras\Plugin::TEXT_DOMAIN);
+            ?>
+            <br>
+            <?php
+            _e('iframe integration uses the styling set in your Recras. You can change the styling in Recras via Settings → Other settings → Custom CSS.', \Recras\Plugin::TEXT_DOMAIN);
+            ?>
+        </p>
     <dt><label for="show_times"><?php _e('Preview times in programme', \Recras\Plugin::TEXT_DOMAIN); ?></label>
         <dd><input type="checkbox" id="show_times">
     <dt><label><?php _e('Package selection', \Recras\Plugin::TEXT_DOMAIN); ?></label>
