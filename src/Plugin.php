@@ -41,10 +41,7 @@ class Plugin
         add_action('wp_enqueue_scripts', [$this, 'loadScripts']);
 
         // Clear caches
-        add_action('admin_post_clear_arrangement_cache', [Arrangement::class, 'clearCache']);
-        add_action('admin_post_clear_contactform_cache', [ContactForm::class, 'clearCache']);
-        add_action('admin_post_clear_product_cache', [Products::class, 'clearCache']);
-        add_action('admin_post_clear_voucher_template_cache', [Vouchers::class, 'clearCache']);
+        add_action('admin_post_clear_recras_cache', [$this, 'clearCache']);
 
         $this->addShortcodes();
 
@@ -117,6 +114,15 @@ class Plugin
         add_shortcode('recras-product', [Products::class, 'renderProduct']);
         add_shortcode($this::SHORTCODE_VOUCHER_SALES, [Vouchers::class, 'renderVoucherSales']);
         add_shortcode($this::SHORTCODE_VOUCHER_INFO, [Vouchers::class, 'renderVoucherInfo']);
+    }
+
+
+    public static function clearCache()
+    {
+        Arrangement::clearCache();
+        ContactForm::clearCache();
+        Products::clearCache();
+        Vouchers::clearCache();
     }
 
 
