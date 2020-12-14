@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.1.1 (2020-12-14)
+* Seamless online booking integration: when a list of packages to show is given, don't show all of them after resetting package selection
+
 ## 4.1.0 (2020-12-07)
 * Fix potential conflict causing Gutenberg blocks not to load
 * Simplify clearing the Recras cache
