@@ -55,8 +55,8 @@ registerGutenbergBlock('recras/availability', {
         };
 
         retval.push(recrasHelper.elementText('Recras - ' + __('Availability calendar', TEXT_DOMAIN)));
-        retval.push(createEl(SelectControl, optionsPackageControl));
-        retval.push(createEl(ToggleControl, optionsAutoresizeControl));
+        retval.push(createEl(compSelectControl, optionsPackageControl));
+        retval.push(createEl(compToggleControl, optionsAutoresizeControl));
         return retval;
     }),
 

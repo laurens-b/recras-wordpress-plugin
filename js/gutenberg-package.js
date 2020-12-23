@@ -140,12 +140,12 @@ registerGutenbergBlock('recras/package', {
 
         retval.push(recrasHelper.elementText('Recras - ' + __('Package', TEXT_DOMAIN)));
 
-        retval.push(createEl(SelectControl, optionsIDControl));
+        retval.push(createEl(compSelectControl, optionsIDControl));
         retval.push(recrasHelper.elementInfo(__('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN)));
-        retval.push(createEl(SelectControl, optionsShowWhatControl));
+        retval.push(createEl(compSelectControl, optionsShowWhatControl));
         if (show === 'programme') {
-            retval.push(createEl(TextControl, optionsStartTimeControl));
-            retval.push(createEl(ToggleControl, optionsShowHeaderControl));
+            retval.push(createEl(compTextControl, optionsStartTimeControl));
+            retval.push(createEl(compToggleControl, optionsShowHeaderControl));
 
         }
         return retval;

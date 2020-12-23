@@ -70,8 +70,8 @@ registerGutenbergBlock('recras/voucher-sales', {
         };
 
         retval.push(recrasHelper.elementText('Recras - ' + __('Voucher sales', TEXT_DOMAIN)));
-        retval.push(createEl(SelectControl, optionsIDControl));
-        retval.push(createEl(SelectControl, optionsRedirectControl));
+        retval.push(createEl(compSelectControl, optionsIDControl));
+        retval.push(createEl(compSelectControl, optionsRedirectControl));
 
         return retval;
     }),

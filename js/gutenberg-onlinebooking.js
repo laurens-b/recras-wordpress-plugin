@@ -278,7 +278,7 @@ registerGutenbergBlock('recras/onlinebooking', {
         }
 
         retval.push(recrasHelper.elementText('Recras - ' + __('Online booking', TEXT_DOMAIN)));
-        retval.push(createEl(RadioControl, optionsNewLibraryControl));
+        retval.push(createEl(compRadioControl, optionsNewLibraryControl));
         retval.push(recrasHelper.elementInfo(
             __('Seamless integration uses the styling of your website. At Recras → Settings in the menu on the left, you can set an optional theme.', TEXT_DOMAIN) + '<br>' +
             __('iframe integration uses the styling set in your Recras. You can change the styling in Recras via Settings → Other settings → Custom CSS.', TEXT_DOMAIN)
@@ -286,31 +286,31 @@ registerGutenbergBlock('recras/onlinebooking', {
         if (use_new_library) {
             retval.push(recrasHelper.elementLabel(__('Package selection', TEXT_DOMAIN)));
             for (let ctrl of packageControls) {
-                retval.push(createEl(ToggleControl, ctrl));
+                retval.push(createEl(compToggleControl, ctrl));
             }
             retval.push(recrasHelper.elementInfo(
                 __('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN) + '<br>' +
                 __('If you select a single package, it will be pre-filled and will skip the package selection step.', TEXT_DOMAIN)
             ));
-            retval.push(createEl(ToggleControl, optionsShowTimesControl));
-            retval.push(createEl(ToggleControl, optionsPreFillAmountsControl));
+            retval.push(createEl(compToggleControl, optionsShowTimesControl));
+            retval.push(createEl(compToggleControl, optionsPreFillAmountsControl));
             if (preFillControls.length) {
                 preFillControls.forEach(ctrl => {
-                    retval.push(createEl(TextControl, ctrl));
+                    retval.push(createEl(compTextControl, ctrl));
                 });
             }
             retval.push(recrasHelper.DatePickerControl(
                 __('Pre-fill date (requires exactly 1 package selected)', TEXT_DOMAIN),
                 optionsPreFillDateControl
             ));
-            retval.push(createEl(TextControl, optionsPreFillTimeControl));
-            retval.push(createEl(SelectControl, optionsRedirectControl));
+            retval.push(createEl(compTextControl, optionsPreFillTimeControl));
+            retval.push(createEl(compSelectControl, optionsRedirectControl));
         } else {
-            retval.push(createEl(SelectControl, optionsPackageControl));
+            retval.push(createEl(compSelectControl, optionsPackageControl));
             retval.push(recrasHelper.elementInfo(
                 __('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN)
             ));
-            retval.push(createEl(ToggleControl, optionsAutoresizeControl));
+            retval.push(createEl(compToggleControl, optionsAutoresizeControl));
         }
         return retval;
     }),

@@ -74,8 +74,8 @@ registerGutenbergBlock('recras/voucher-info', {
         };
 
         retval.push(recrasHelper.elementText('Recras - ' + __('Voucher info', TEXT_DOMAIN)));
-        retval.push(createEl(SelectControl, optionsIDControl));
-        retval.push(createEl(SelectControl, optionsShowWhatControl));
+        retval.push(createEl(compSelectControl, optionsIDControl));
+        retval.push(createEl(compSelectControl, optionsShowWhatControl));
 
         return retval;
     }),

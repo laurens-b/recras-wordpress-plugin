@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.1.2 (2020-12-23)
+* Fix potential conflict causing Gutenberg blocks not to load
+
 ## 4.1.1 (2020-12-14)
 * Seamless online booking integration: when a list of packages to show is given, don't show all of them after resetting package selection
 

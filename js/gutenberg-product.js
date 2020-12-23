@@ -102,9 +102,9 @@ registerGutenbergBlock('recras/product', {
         retval.push(recrasHelper.elementText('Recras - ' + __('Product', TEXT_DOMAIN)));
 
         if (optionsIDControl) {
-            retval.push(createEl(SelectControl, optionsIDControl));
+            retval.push(createEl(compSelectControl, optionsIDControl));
             retval.push(recrasHelper.elementInfo(__('If you are not seeing certain products, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Presentation" of the product.', TEXT_DOMAIN)));
-            retval.push(createEl(SelectControl, optionsShowWhatControl));
+            retval.push(createEl(compSelectControl, optionsShowWhatControl));
         } else {
             retval.push(recrasHelper.elementInfo(__('Could not find any products. Make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Presentation" of the product.', TEXT_DOMAIN)));
         }

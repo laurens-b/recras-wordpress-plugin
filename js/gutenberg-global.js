@@ -1,12 +1,10 @@
 const createEl = wp.element.createElement;
 const registerGutenbergBlock = wp.blocks.registerBlockType;
-const {
-    DatePicker,
-    RadioControl,
-    SelectControl,
-    TextControl,
-    ToggleControl,
-} = wp.components;
+const compDatePicker = wp.components.DatePicker;
+const compRadioControl = wp.components.RadioControl;
+const compSelectControl = wp.components.SelectControl;
+const compTextControl = wp.components.TextControl;
+const compToggleControl = wp.components.ToggleControl;
 
 const {
     registerStore,
@@ -29,7 +27,7 @@ const recrasHelper = {
             'div',
             null,
             recrasHelper.elementLabel(label),
-            createEl(DatePicker, options)
+            createEl(compDatePicker, options)
         );
     },
     elementInfo: (text) => {
