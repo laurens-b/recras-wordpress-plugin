@@ -1,5 +1,5 @@
 registerGutenbergBlock('recras/availability', {
-    title: __('Availability calendar', TEXT_DOMAIN),
+    title: wp.i18n.__('Availability calendar', TEXT_DOMAIN),
     icon: 'calendar-alt',
     category: 'recras',
     example: {
@@ -42,7 +42,7 @@ registerGutenbergBlock('recras/availability', {
                 });
             },
             options: packages,
-            label: __('Package', TEXT_DOMAIN),
+            label: wp.i18n.__('Package', TEXT_DOMAIN),
         };
         const optionsAutoresizeControl = {
             checked: autoresize,
@@ -51,10 +51,10 @@ registerGutenbergBlock('recras/availability', {
                     autoresize: newVal,
                 });
             },
-            label: __('Auto resize iframe', TEXT_DOMAIN),
+            label: wp.i18n.__('Auto resize iframe', TEXT_DOMAIN),
         };
 
-        retval.push(recrasHelper.elementText('Recras - ' + __('Availability calendar', TEXT_DOMAIN)));
+        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Availability calendar', TEXT_DOMAIN)));
         retval.push(createEl(compSelectControl, optionsPackageControl));
         retval.push(createEl(compToggleControl, optionsAutoresizeControl));
         return retval;

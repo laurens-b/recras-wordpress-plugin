@@ -1,5 +1,5 @@
 registerGutenbergBlock('recras/package', {
-    title: __('Package', TEXT_DOMAIN),
+    title: wp.i18n.__('Package', TEXT_DOMAIN),
     icon: 'clipboard',
     category: 'recras',
     example: {
@@ -47,7 +47,7 @@ registerGutenbergBlock('recras/package', {
                 });
             },
             options: packages,
-            label: __('Package', TEXT_DOMAIN),
+            label: wp.i18n.__('Package', TEXT_DOMAIN),
         };
         if (packages.length === 1) {
             props.setAttributes({
@@ -64,54 +64,54 @@ registerGutenbergBlock('recras/package', {
             options: [
                 {
                     value: 'description',
-                    label: __('Description', TEXT_DOMAIN),
+                    label: wp.i18n.__('Description', TEXT_DOMAIN),
                 },
                 {
                     value: 'duration',
-                    label: __('Duration', TEXT_DOMAIN),
+                    label: wp.i18n.__('Duration', TEXT_DOMAIN),
                 },
                 {
                     value: 'image_tag',
-                    label: __('Image tag', TEXT_DOMAIN),
+                    label: wp.i18n.__('Image tag', TEXT_DOMAIN),
                 },
                 {
                     value: 'persons',
-                    label: __('Minimum number of persons', TEXT_DOMAIN),
+                    label: wp.i18n.__('Minimum number of persons', TEXT_DOMAIN),
                 },
                 {
                     value: 'price_pp_excl_vat',
-                    label: __('Price p.p. excl. VAT', TEXT_DOMAIN),
+                    label: wp.i18n.__('Price p.p. excl. VAT', TEXT_DOMAIN),
                 },
                 {
                     value: 'price_pp_incl_vat',
-                    label: __('Price p.p. incl. VAT', TEXT_DOMAIN),
+                    label: wp.i18n.__('Price p.p. incl. VAT', TEXT_DOMAIN),
                 },
                 {
                     value: 'programme',
-                    label: __('Programme', TEXT_DOMAIN),
+                    label: wp.i18n.__('Programme', TEXT_DOMAIN),
                 },
                 {
                     value: 'location',
-                    label: __('Starting location', TEXT_DOMAIN),
+                    label: wp.i18n.__('Starting location', TEXT_DOMAIN),
                 },
                 {
                     value: 'title',
-                    label: __('Title', TEXT_DOMAIN),
+                    label: wp.i18n.__('Title', TEXT_DOMAIN),
                 },
                 {
                     value: 'price_total_excl_vat',
-                    label: __('Total price excl. VAT', TEXT_DOMAIN),
+                    label: wp.i18n.__('Total price excl. VAT', TEXT_DOMAIN),
                 },
                 {
                     value: 'price_total_incl_vat',
-                    label: __('Total price incl. VAT', TEXT_DOMAIN),
+                    label: wp.i18n.__('Total price incl. VAT', TEXT_DOMAIN),
                 },
                 {
                     value: 'image_url',
-                    label: __('Relative image URL', TEXT_DOMAIN),
+                    label: wp.i18n.__('Relative image URL', TEXT_DOMAIN),
                 },
             ],
-            label: __('Property to show', TEXT_DOMAIN),
+            label: wp.i18n.__('Property to show', TEXT_DOMAIN),
         };
         let optionsStartTimeControl;
         let optionsShowHeaderControl;
@@ -124,8 +124,8 @@ registerGutenbergBlock('recras/package', {
                         starttime: newVal,
                     });
                 },
-                placeholder: __('hh:mm', TEXT_DOMAIN),
-                label: __('Start time', TEXT_DOMAIN),
+                placeholder: wp.i18n.__('hh:mm', TEXT_DOMAIN),
+                label: wp.i18n.__('Start time', TEXT_DOMAIN),
             };
             optionsShowHeaderControl = {
                 checked: showheader,
@@ -134,14 +134,14 @@ registerGutenbergBlock('recras/package', {
                         showheader: newVal,
                     });
                 },
-                label: __('Show header?', TEXT_DOMAIN),
+                label: wp.i18n.__('Show header?', TEXT_DOMAIN),
             };
         }
 
-        retval.push(recrasHelper.elementText('Recras - ' + __('Package', TEXT_DOMAIN)));
+        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Package', TEXT_DOMAIN)));
 
         retval.push(createEl(compSelectControl, optionsIDControl));
-        retval.push(recrasHelper.elementInfo(__('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN)));
+        retval.push(recrasHelper.elementInfo(wp.i18n.__('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN)));
         retval.push(createEl(compSelectControl, optionsShowWhatControl));
         if (show === 'programme') {
             retval.push(createEl(compTextControl, optionsStartTimeControl));

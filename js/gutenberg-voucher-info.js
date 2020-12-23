@@ -1,5 +1,5 @@
 registerGutenbergBlock('recras/voucher-info', {
-    title: __('Voucher info', TEXT_DOMAIN),
+    title: wp.i18n.__('Voucher info', TEXT_DOMAIN),
     icon: 'money',
     category: 'recras',
     example: {
@@ -41,7 +41,7 @@ registerGutenbergBlock('recras/voucher-info', {
                 });
             },
             options: voucherTemplates,
-            label: __('Voucher template', TEXT_DOMAIN),
+            label: wp.i18n.__('Voucher template', TEXT_DOMAIN),
         };
         if (voucherTemplates.length === 1) {
             props.setAttributes({
@@ -59,21 +59,21 @@ registerGutenbergBlock('recras/voucher-info', {
             options: [
                 {
                     value: 'name',
-                    label: __('Name', TEXT_DOMAIN),
+                    label: wp.i18n.__('Name', TEXT_DOMAIN),
                 },
                 {
                     value: 'price',
-                    label: __('Price', TEXT_DOMAIN),
+                    label: wp.i18n.__('Price', TEXT_DOMAIN),
                 },
                 {
                     value: 'validity',
-                    label: __('Number of days valid', TEXT_DOMAIN),
+                    label: wp.i18n.__('Number of days valid', TEXT_DOMAIN),
                 },
             ],
-            label: __('Property to show', TEXT_DOMAIN),
+            label: wp.i18n.__('Property to show', TEXT_DOMAIN),
         };
 
-        retval.push(recrasHelper.elementText('Recras - ' + __('Voucher info', TEXT_DOMAIN)));
+        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Voucher info', TEXT_DOMAIN)));
         retval.push(createEl(compSelectControl, optionsIDControl));
         retval.push(createEl(compSelectControl, optionsShowWhatControl));
 

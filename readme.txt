@@ -4,7 +4,7 @@ Tags: recras, recreation, reservation
 Requires at least: 5.0
 Requires PHP: 5.6.0
 Tested up to: 5.6
-Stable tag: 4.1.2
+Stable tag: 4.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 4.1.3 =
+* Fix potential conflict causing Gutenberg blocks not to load
 
 = 4.1.2 =
 * Fix potential conflict causing Gutenberg blocks not to load

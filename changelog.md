@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.1.3 (2020-12-23)
+* Fix potential conflict causing Gutenberg blocks not to load
+
 ## 4.1.2 (2020-12-23)
 * Fix potential conflict causing Gutenberg blocks not to load
 

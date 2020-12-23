@@ -12,12 +12,7 @@ const {
 } = wp.data;
 
 const dateSettings = wp.date.__experimentalGetSettings();
-
 const TEXT_DOMAIN = 'recras';
-const {
-    __,
-    sprintf,
-} = wp.i18n;
 
 const recrasHelper = {
     serverSideRender: () => null,
@@ -49,9 +44,9 @@ const recrasHelper = {
         );
     },
     elementNoRecrasName: () => {
-        const settingsLink = `<a href="${ recrasOptions.settingsPage }" target="_blank">${ __('Recras → Settings menu', TEXT_DOMAIN) }</a>`;
+        const settingsLink = `<a href="${ recrasOptions.settingsPage }" target="_blank">${ wp.i18n.__('Recras → Settings menu', TEXT_DOMAIN) }</a>`;
         return [
-            recrasHelper.elementInfo(sprintf(__('Please enter your Recras name in the %s before adding widgets.', TEXT_DOMAIN), settingsLink)),
+            recrasHelper.elementInfo(wp.i18n.sprintf(wp.i18n.__('Please enter your Recras name in the %s before adding widgets.', TEXT_DOMAIN), settingsLink)),
         ];
     },
     elementText: (text) => {
@@ -245,13 +240,13 @@ const recrasStore = registerStore('recras/store', {
             const params = '?per_page=100&orderby=title&order=asc';
             let pages = yield recrasActions.fetchAPI('wp/v2/pages' + params);
             pages = pages.map(p => {
-                return mapPagesPosts(p, __('Page: ', TEXT_DOMAIN));
+                return mapPagesPosts(p, wp.i18n.__('Page: ', TEXT_DOMAIN));
             });
             pagesPosts = pagesPosts.concat(pages);
 
             let posts = yield recrasActions.fetchAPI('wp/v2/posts' + params);
             posts = posts.map(p => {
-                return mapPagesPosts(p, __('Post: ', TEXT_DOMAIN));
+                return mapPagesPosts(p, wp.i18n.__('Post: ', TEXT_DOMAIN));
             });
             pagesPosts = pagesPosts.concat(posts);
 

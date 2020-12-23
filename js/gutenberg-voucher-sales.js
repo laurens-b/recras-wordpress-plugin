@@ -1,5 +1,5 @@
 registerGutenbergBlock('recras/voucher-sales', {
-    title: __('Voucher sales', TEXT_DOMAIN),
+    title: wp.i18n.__('Voucher sales', TEXT_DOMAIN),
     icon: 'money',
     category: 'recras',
     example: {
@@ -35,7 +35,7 @@ registerGutenbergBlock('recras/voucher-sales', {
 
         if (pagesPosts === undefined || !pagesPosts.length) {
             return [
-                recrasHelper.elementText(__('Loading data...', TEXT_DOMAIN))
+                recrasHelper.elementText(wp.i18n.__('Loading data...', TEXT_DOMAIN))
             ];
         }
 
@@ -49,7 +49,7 @@ registerGutenbergBlock('recras/voucher-sales', {
                 });
             },
             options: voucherTemplates,
-            label: __('Voucher template', TEXT_DOMAIN),
+            label: wp.i18n.__('Voucher template', TEXT_DOMAIN),
         };
         if (voucherTemplates.length === 1) {
             props.setAttributes({
@@ -65,11 +65,11 @@ registerGutenbergBlock('recras/voucher-sales', {
                 });
             },
             options: pagesPosts,
-            placeholder: __('i.e. https://www.recras.com/thanks/', TEXT_DOMAIN),
-            label: __('Thank-you page (optional, leave empty to not redirect)', TEXT_DOMAIN),
+            placeholder: wp.i18n.__('i.e. https://www.recras.com/thanks/', TEXT_DOMAIN),
+            label: wp.i18n.__('Thank-you page (optional, leave empty to not redirect)', TEXT_DOMAIN),
         };
 
-        retval.push(recrasHelper.elementText('Recras - ' + __('Voucher sales', TEXT_DOMAIN)));
+        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Voucher sales', TEXT_DOMAIN)));
         retval.push(createEl(compSelectControl, optionsIDControl));
         retval.push(createEl(compSelectControl, optionsRedirectControl));
 

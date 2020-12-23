@@ -1,5 +1,5 @@
 registerGutenbergBlock('recras/onlinebooking', {
-    title: __('Online booking', TEXT_DOMAIN),
+    title: wp.i18n.__('Online booking', TEXT_DOMAIN),
     icon: 'admin-site',
     category: 'recras',
     example: {
@@ -85,11 +85,11 @@ registerGutenbergBlock('recras/onlinebooking', {
             selected: use_new_library ? 'jslibrary' : 'iframe',
             options: [
                 {
-                    label: __('Seamless (recommended)', TEXT_DOMAIN),
+                    label: wp.i18n.__('Seamless (recommended)', TEXT_DOMAIN),
                     value: 'jslibrary',
                 },
                 {
-                    label: __('iframe (uses setting in your Recras)', TEXT_DOMAIN),
+                    label: wp.i18n.__('iframe (uses setting in your Recras)', TEXT_DOMAIN),
                     value: 'iframe',
                 },
             ],
@@ -108,7 +108,7 @@ registerGutenbergBlock('recras/onlinebooking', {
                     });
                 }
             },
-            label: __('Integration method', TEXT_DOMAIN),
+            label: wp.i18n.__('Integration method', TEXT_DOMAIN),
         };
         let optionsShowTimesControl;
         let optionsPreFillAmountsControl;
@@ -155,7 +155,7 @@ registerGutenbergBlock('recras/onlinebooking', {
                         show_times: newVal,
                     });
                 },
-                label: __('Preview times in programme', TEXT_DOMAIN),
+                label: wp.i18n.__('Preview times in programme', TEXT_DOMAIN),
             };
             optionsPreFillAmountsControl = {
                 checked: prefill_enabled,
@@ -168,7 +168,7 @@ registerGutenbergBlock('recras/onlinebooking', {
                     });
                 },
                 disabled: package_list.length !== 1, // This doesn't work. We mimic it using `newVal = false` above
-                label: __('Pre-fill amounts (requires exactly 1 package selected)', TEXT_DOMAIN),
+                label: wp.i18n.__('Pre-fill amounts (requires exactly 1 package selected)', TEXT_DOMAIN),
             };
             optionsPreFillDateControl = {
                 locale: dateSettings.l10n.locale,
@@ -199,8 +199,8 @@ registerGutenbergBlock('recras/onlinebooking', {
                     });
                 },
                 disabled: package_list.length !== 1, // This doesn't work. We mimic it using `newVal = null` above
-                label: __('Pre-fill time (requires exactly 1 package selected)', TEXT_DOMAIN),
-                help: __('i.e. 14:00', TEXT_DOMAIN),
+                label: wp.i18n.__('Pre-fill time (requires exactly 1 package selected)', TEXT_DOMAIN),
+                help: wp.i18n.__('i.e. 14:00', TEXT_DOMAIN),
             };
             optionsRedirectControl = {
                 value: redirect,
@@ -210,8 +210,8 @@ registerGutenbergBlock('recras/onlinebooking', {
                     });
                 },
                 options: pagesPosts,
-                placeholder: __('i.e. https://www.recras.com/thanks/', TEXT_DOMAIN),
-                label: __('Thank-you page (optional, leave empty to not redirect)', TEXT_DOMAIN),
+                placeholder: wp.i18n.__('i.e. https://www.recras.com/thanks/', TEXT_DOMAIN),
+                label: wp.i18n.__('Thank-you page (optional, leave empty to not redirect)', TEXT_DOMAIN),
             };
 
             if (prefill_enabled && package_list.length === 1 && packages[package_list[0]]) {
@@ -263,8 +263,8 @@ registerGutenbergBlock('recras/onlinebooking', {
                     });
                 },
                 options: packagesMapped,
-                placeholder: __('Pre-filled package', TEXT_DOMAIN),
-                label: __('Pre-filled package (optional)', TEXT_DOMAIN),
+                placeholder: wp.i18n.__('Pre-filled package', TEXT_DOMAIN),
+                label: wp.i18n.__('Pre-filled package (optional)', TEXT_DOMAIN),
             };
             optionsAutoresizeControl = {
                 checked: autoresize,
@@ -273,24 +273,24 @@ registerGutenbergBlock('recras/onlinebooking', {
                         autoresize: newVal,
                     });
                 },
-                label: __('Auto resize iframe', TEXT_DOMAIN),
+                label: wp.i18n.__('Auto resize iframe', TEXT_DOMAIN),
             };
         }
 
-        retval.push(recrasHelper.elementText('Recras - ' + __('Online booking', TEXT_DOMAIN)));
+        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Online booking', TEXT_DOMAIN)));
         retval.push(createEl(compRadioControl, optionsNewLibraryControl));
         retval.push(recrasHelper.elementInfo(
-            __('Seamless integration uses the styling of your website. At Recras → Settings in the menu on the left, you can set an optional theme.', TEXT_DOMAIN) + '<br>' +
-            __('iframe integration uses the styling set in your Recras. You can change the styling in Recras via Settings → Other settings → Custom CSS.', TEXT_DOMAIN)
+            wp.i18n.__('Seamless integration uses the styling of your website. At Recras → Settings in the menu on the left, you can set an optional theme.', TEXT_DOMAIN) + '<br>' +
+            wp.i18n.__('iframe integration uses the styling set in your Recras. You can change the styling in Recras via Settings → Other settings → Custom CSS.', TEXT_DOMAIN)
         ));
         if (use_new_library) {
-            retval.push(recrasHelper.elementLabel(__('Package selection', TEXT_DOMAIN)));
+            retval.push(recrasHelper.elementLabel(wp.i18n.__('Package selection', TEXT_DOMAIN)));
             for (let ctrl of packageControls) {
                 retval.push(createEl(compToggleControl, ctrl));
             }
             retval.push(recrasHelper.elementInfo(
-                __('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN) + '<br>' +
-                __('If you select a single package, it will be pre-filled and will skip the package selection step.', TEXT_DOMAIN)
+                wp.i18n.__('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN) + '<br>' +
+                wp.i18n.__('If you select a single package, it will be pre-filled and will skip the package selection step.', TEXT_DOMAIN)
             ));
             retval.push(createEl(compToggleControl, optionsShowTimesControl));
             retval.push(createEl(compToggleControl, optionsPreFillAmountsControl));
@@ -300,7 +300,7 @@ registerGutenbergBlock('recras/onlinebooking', {
                 });
             }
             retval.push(recrasHelper.DatePickerControl(
-                __('Pre-fill date (requires exactly 1 package selected)', TEXT_DOMAIN),
+                wp.i18n.__('Pre-fill date (requires exactly 1 package selected)', TEXT_DOMAIN),
                 optionsPreFillDateControl
             ));
             retval.push(createEl(compTextControl, optionsPreFillTimeControl));
@@ -308,7 +308,7 @@ registerGutenbergBlock('recras/onlinebooking', {
         } else {
             retval.push(createEl(compSelectControl, optionsPackageControl));
             retval.push(recrasHelper.elementInfo(
-                __('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN)
+                wp.i18n.__('If you are not seeing certain packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN)
             ));
             retval.push(createEl(compToggleControl, optionsAutoresizeControl));
         }

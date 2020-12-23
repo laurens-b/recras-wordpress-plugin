@@ -1,5 +1,5 @@
 registerGutenbergBlock('recras/contactform', {
-    title: __('Contact form', TEXT_DOMAIN),
+    title: wp.i18n.__('Contact form', TEXT_DOMAIN),
     icon: 'email',
     category: 'recras',
     example: {
@@ -11,7 +11,7 @@ registerGutenbergBlock('recras/contactform', {
             arrangement: null,
             element: 'dl',
             single_choice_element: 'select',
-            submittext: __('Send', TEXT_DOMAIN),
+            submittext: wp.i18n.__('Send', TEXT_DOMAIN),
             redirect: '',
         },
     },
@@ -24,7 +24,7 @@ registerGutenbergBlock('recras/contactform', {
         arrangement: recrasHelper.typeString(),
         element: recrasHelper.typeString('dl'),
         single_choice_element: recrasHelper.typeString('select'),
-        submittext: recrasHelper.typeString(__('Send', TEXT_DOMAIN)),
+        submittext: recrasHelper.typeString(wp.i18n.__('Send', TEXT_DOMAIN)),
         redirect: recrasHelper.typeString(),
     },
 
@@ -66,7 +66,7 @@ registerGutenbergBlock('recras/contactform', {
                 });
             },
             options: contactForms,
-            label: __('Contact form', TEXT_DOMAIN),
+            label: wp.i18n.__('Contact form', TEXT_DOMAIN),
         };
         if (contactForms.length === 1) {
             props.setAttributes({
@@ -80,7 +80,7 @@ registerGutenbergBlock('recras/contactform', {
                     showtitle: newVal,
                 });
             },
-            label: __('Show title?', TEXT_DOMAIN),
+            label: wp.i18n.__('Show title?', TEXT_DOMAIN),
         };
         const optionsShowLabelsControl = {
             checked: showlabels,
@@ -89,7 +89,7 @@ registerGutenbergBlock('recras/contactform', {
                     showlabels: newVal,
                 });
             },
-            label: __('Show labels?', TEXT_DOMAIN),
+            label: wp.i18n.__('Show labels?', TEXT_DOMAIN),
         };
         const optionsShowPlaceholdersControl = {
             checked: showplaceholders,
@@ -98,7 +98,7 @@ registerGutenbergBlock('recras/contactform', {
                     showplaceholders: newVal,
                 });
             },
-            label: __('Show placeholders?', TEXT_DOMAIN),
+            label: wp.i18n.__('Show placeholders?', TEXT_DOMAIN),
         };
         const optionsPackageControl = {
             value: arrangement,
@@ -108,7 +108,7 @@ registerGutenbergBlock('recras/contactform', {
                 });
             },
             options: packages,
-            label: __('Package (optional)', TEXT_DOMAIN),
+            label: wp.i18n.__('Package (optional)', TEXT_DOMAIN),
         };
         const optionsElementControl = {
             value: element,
@@ -120,18 +120,18 @@ registerGutenbergBlock('recras/contactform', {
             options: [
                 {
                     value: 'dl',
-                    label: __('Definition list', TEXT_DOMAIN),
+                    label: wp.i18n.__('Definition list', TEXT_DOMAIN),
                 },
                 {
                     value: 'ol',
-                    label: __('Ordered list', TEXT_DOMAIN),
+                    label: wp.i18n.__('Ordered list', TEXT_DOMAIN),
                 },
                 {
                     value: 'table',
-                    label: __('Table', TEXT_DOMAIN),
+                    label: wp.i18n.__('Table', TEXT_DOMAIN),
                 },
             ],
-            label: __('HTML element', TEXT_DOMAIN),
+            label: wp.i18n.__('HTML element', TEXT_DOMAIN),
         };
         const optionsSingleChoiceControl = {
             value: single_choice_element,
@@ -143,14 +143,14 @@ registerGutenbergBlock('recras/contactform', {
             options: [
                 {
                     value: 'select',
-                    label: __('Drop-down list (Select)', TEXT_DOMAIN),
+                    label: wp.i18n.__('Drop-down list (Select)', TEXT_DOMAIN),
                 },
                 {
                     value: 'radio',
-                    label: __('Radio buttons', TEXT_DOMAIN),
+                    label: wp.i18n.__('Radio buttons', TEXT_DOMAIN),
                 },
             ],
-            label: __('Element for single choices', TEXT_DOMAIN),
+            label: wp.i18n.__('Element for single choices', TEXT_DOMAIN),
         };
         const optionsSubmitTextControl = {
             value: submittext,
@@ -159,8 +159,8 @@ registerGutenbergBlock('recras/contactform', {
                     submittext: newVal
                 });
             },
-            placeholder: __('Submit button text', TEXT_DOMAIN),
-            label: __('Submit button text', TEXT_DOMAIN),
+            placeholder: wp.i18n.__('Submit button text', TEXT_DOMAIN),
+            label: wp.i18n.__('Submit button text', TEXT_DOMAIN),
         };
         const optionsRedirectControl = {
             value: redirect,
@@ -170,12 +170,12 @@ registerGutenbergBlock('recras/contactform', {
                 });
             },
             options: pagesPosts,
-            placeholder: __('i.e. https://www.recras.com/thanks/', TEXT_DOMAIN),
-            label: __('Thank-you page (optional, leave empty to not redirect)', TEXT_DOMAIN),
+            placeholder: wp.i18n.__('i.e. https://www.recras.com/thanks/', TEXT_DOMAIN),
+            label: wp.i18n.__('Thank-you page (optional, leave empty to not redirect)', TEXT_DOMAIN),
             type: 'url',
         };
 
-        retval.push(recrasHelper.elementText('Recras - ' + __('Contact form', TEXT_DOMAIN)));
+        retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Contact form', TEXT_DOMAIN)));
 
         retval.push(createEl(compSelectControl, optionsIDControl));
         retval.push(createEl(compToggleControl, optionsShowTitleControl));
@@ -183,8 +183,8 @@ registerGutenbergBlock('recras/contactform', {
         retval.push(createEl(compToggleControl, optionsShowPlaceholdersControl));
         retval.push(createEl(compSelectControl, optionsPackageControl));
 
-        retval.push(recrasHelper.elementInfo(__('Some packages may not be available for all contact forms. You can change this by editing your contact forms in Recras.', TEXT_DOMAIN)));
-        retval.push(recrasHelper.elementInfo(__('If you are still missing packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN)));
+        retval.push(recrasHelper.elementInfo(wp.i18n.__('Some packages may not be available for all contact forms. You can change this by editing your contact forms in Recras.', TEXT_DOMAIN)));
+        retval.push(recrasHelper.elementInfo(wp.i18n.__('If you are still missing packages, make sure in Recras "May be presented on a website (via API)" is enabled on the tab "Extra settings" of the package.', TEXT_DOMAIN)));
 
         retval.push(createEl(compSelectControl, optionsElementControl));
         retval.push(createEl(compSelectControl, optionsSingleChoiceControl));
