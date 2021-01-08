@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.1.4 (2021-01-08)
+* Seamless online booking integration: check if a discount is still valid after changing the date
+
 ## 4.1.3 (2020-12-23)
 * Fix potential conflict causing Gutenberg blocks not to load
 
