@@ -263,6 +263,7 @@ class ContactForm
                     $html .= self::generateSubTag($options['element']) . self::generateInput($field, [
                             'raw' => [
                                 'autocomplete' => 'off',
+                                'data-mindate' => date('Y-m-d'),
                             ],
                             'class' => 'recras-input-date',
                             'min' => date('Y-m-d'),
@@ -304,6 +305,18 @@ class ContactForm
                             ]);
                             break;
                         case 'date':
+                            $html .= self::generateInput($field, [
+                                'class' => 'recras-input-date',
+                                'raw' => [
+                                    'autocomplete' => 'off',
+                                    'data-mindate' => null,
+                                    'maxlength' => 10,
+                                ],
+                                'pattern' => self::PATTERN_DATE,
+                                'placeholder' => __('yyyy-mm-dd', Plugin::TEXT_DOMAIN),
+                                'type' => 'date',
+                            ]);
+                            break;
                         case 'text':
                             $html .= self::generateInput($field, [
                                 'raw' => [

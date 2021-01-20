@@ -4,7 +4,7 @@ Tags: recras, recreation, reservation
 Requires at least: 5.2
 Requires PHP: 5.6.0
 Tested up to: 5.6
-Stable tag: 4.1.4
+Stable tag: 4.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 4.1.5 =
+* Fix date picker for "extra fields date type" in a contact form
 
 = 4.1.4 =
 * Seamless online booking integration: check if a discount is still valid after changing the date

@@ -14,32 +14,33 @@ function submitRecrasForm(formID, subdomain, basePath, redirect)
     var formElements = formEl.querySelectorAll('input, textarea, select');
     var elements = {};
     for (var i = 0; i < formElements.length; i++) {
-        if (formElements[i].type !== 'submit') {
-            if (formElements[i].value === '' && formElements[i].required === false) {
-                formElements[i].value = null;
-            }
-            if (formElements[i].type === 'radio') {
-                var selected = document.querySelector('input[name="' + formElements[i].name + '"]:checked');
-                elements[formElements[i].name] = selected.value;
-            } else if (formElements[i].type === 'checkbox') {
-                elements[formElements[i].name] = [];
-                var checked = document.querySelectorAll('input[name="' + formElements[i].name + '"]:checked');
-                if (checked.length === 0) {
-                    var isRequired = document.querySelector('input[name="' + formElements[i].name + '"][data-required="1"]');
-                    if (isRequired) {
-                        formEl
-                            .querySelector('[name="' + formElements[i].name + '"]')
-                            .parentNode
-                            .insertAdjacentHTML('beforeend', '<span class="recras-error">' + recras_l10n.checkboxRequired + '</span>');
-                        return false;
-                    }
+        if (formElements[i].type === 'submit') {
+            continue;
+        }
+        if (formElements[i].value === '' && formElements[i].required === false) {
+            formElements[i].value = null;
+        }
+        if (formElements[i].type === 'radio') {
+            var selected = document.querySelector('input[name="' + formElements[i].name + '"]:checked');
+            elements[formElements[i].name] = selected.value;
+        } else if (formElements[i].type === 'checkbox') {
+            elements[formElements[i].name] = [];
+            var checked = document.querySelectorAll('input[name="' + formElements[i].name + '"]:checked');
+            if (checked.length === 0) {
+                var isRequired = document.querySelector('input[name="' + formElements[i].name + '"][data-required="1"]');
+                if (isRequired) {
+                    formEl
+                        .querySelector('[name="' + formElements[i].name + '"]')
+                        .parentNode
+                        .insertAdjacentHTML('beforeend', '<span class="recras-error">' + recras_l10n.checkboxRequired + '</span>');
+                    return false;
                 }
-                for (var j = 0; j < checked.length; j++) {
-                    elements[formElements[i].name].push(checked[j].value);
-                }
-            } else {
-                elements[formElements[i].name] = formElements[i].value;
             }
+            for (var j = 0; j < checked.length; j++) {
+                elements[formElements[i].name].push(checked[j].value);
+            }
+        } else {
+            elements[formElements[i].name] = formElements[i].value;
         }
     }
     if (elements['boeking.arrangement'] === '0') {
@@ -92,7 +93,6 @@ var initPikaday = function(dateInput) {
 
     var pikadayOptions = {
         firstDay: 1, // Monday
-        minDate: new Date(),
         numberOfMonths: 2,
         reposition: false,
         toString: function(date) {
@@ -101,6 +101,9 @@ var initPikaday = function(dateInput) {
         field: dateInput,
         i18n: recras_l10n.pikaday,
     };
+    if (dateInput.dataset.mindate) {
+        pikadayOptions.minDate = new Date(dateInput.dataset.mindate);
+    }
 
     new Pikaday(pikadayOptions);
 };

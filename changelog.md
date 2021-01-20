@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.1.5 (2021-01-20)
+* Fix date picker for "extra fields date type" in a contact form
+
 ## 4.1.4 (2021-01-08)
 * Seamless online booking integration: check if a discount is still valid after changing the date
 

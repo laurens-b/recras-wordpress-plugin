@@ -254,7 +254,7 @@ class Plugin
 
         // Generic functionality & localisation script
         $scriptName = 'recras-frontend';
-        wp_register_script($scriptName, $this->baseUrl . '/js/recras.js', ['jquery'], '4.0.0', true);
+        wp_register_script($scriptName, $this->baseUrl . '/js/recras.js', ['jquery'], '4.1.5', true);
         wp_localize_script($scriptName, 'recras_l10n', $localisation);
         wp_enqueue_script($scriptName);
     }
