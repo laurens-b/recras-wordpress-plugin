@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.1.6 (2021-02-18)
+* Shortcode documentation: fix wrong example code & clarify option
+
 ## 4.1.5 (2021-01-20)
 * Fix date picker for "extra fields date type" in a contact form
 
