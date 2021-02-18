@@ -78,7 +78,7 @@
 	<li>Package - <kbd>id</kbd>
 	<li>Auto resize iframe - <kbd>autoresize</kbd>, value is either  <kbd>1</kbd> (yes) or <kbd>0</kbd> (no)
 </ol>
-<p>Example: <kbd>[recras-availability package="18" autoresize="1"]</kbd></p>
+<p>Example: <kbd>[recras-availability id="18" autoresize="1"]</kbd></p>
 
 
 <hr>
