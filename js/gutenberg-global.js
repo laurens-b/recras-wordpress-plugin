@@ -88,7 +88,7 @@ const mapPackage = function(pack) {
 };
 const mapPagesPosts = function(pagePost, prefix) {
     // SelectControl does not support optgroups :(
-    // https://github.com/WordPress/gutenberg/issues/8426 and https://github.com/WordPress/gutenberg/issues/17032
+    // https://github.com/WordPress/gutenberg/issues/17032
     return mapSelect(prefix + pagePost.title.rendered, pagePost.link);
 };
 const mapProduct = function(product) {

@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.1.7 (2021-03-08)
+* Seamless online booking integration: allow dates in the past for "relation extra field"
+
 ## 4.1.6 (2021-02-18)
 * Shortcode documentation: fix wrong example code & clarify option
 
