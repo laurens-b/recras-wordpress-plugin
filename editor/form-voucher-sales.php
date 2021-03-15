@@ -41,8 +41,8 @@ $templates = $model->getTemplates($subdomain);
 
 <script>
     document.getElementById('voucher_submit').addEventListener('click', function(){
-        var templateID = document.getElementById('template_id').value;
-        var shortcode = '[<?= \Recras\Plugin::SHORTCODE_VOUCHER_SALES; ?>';
+        const templateID = document.getElementById('template_id').value;
+        let shortcode = '[<?= \Recras\Plugin::SHORTCODE_VOUCHER_SALES; ?>';
 
         if (templateID !== '0') {
             shortcode += ' id="' + templateID + '"';

@@ -78,8 +78,8 @@ $forms = $model->getForms($subdomain);
 <button class="button button-primary" id="contact_submit"><?php _e('Insert shortcode', \Recras\Plugin::TEXT_DOMAIN); ?></button>
 
 <script>
-    var DEFAULT_ELEMENT = 'dl';
-    var DEFAULT_SINGLE_CHOICE_ELEMENT = 'select';
+    const DEFAULT_ELEMENT = 'dl';
+    const DEFAULT_SINGLE_CHOICE_ELEMENT = 'select';
 
     // Check which arrangements are available
     getContactFormArrangements(document.getElementById('contactform_id').value, '<?php echo $subdomain; ?>');
@@ -88,12 +88,12 @@ $forms = $model->getForms($subdomain);
     });
 
     document.getElementById('contact_submit').addEventListener('click', function(){
-        var shortcode = '[recras-contact id="' + document.getElementById('contactform_id').value + '"';
+        let shortcode = '[recras-contact id="' + document.getElementById('contactform_id').value + '"';
 
-        var options = ['showtitle', 'showlabels', 'showplaceholders'];
-        for (var i = 0; i < options.length; i++) {
-            if (!document.getElementById(options[i]).checked) {
-                shortcode += ' ' + options[i] + '="no"';
+        const options = ['showtitle', 'showlabels', 'showplaceholders'];
+        for (let opt of options) {
+            if (!document.getElementById(opt).checked) {
+                shortcode += ' ' + opt + '="no"';
             }
         }
 

@@ -37,7 +37,9 @@ $products = $model->getProducts($subdomain);
 
 <script>
     document.getElementById('product_submit').addEventListener('click', function(){
-        var shortcode = '[recras-product id="' + document.getElementById('product_id').value + '" show="' + document.getElementById('show_what').value + '"]';
+        const shortcode = '[recras-product id="' +
+            document.getElementById('product_id').value + '" show="' +
+            document.getElementById('show_what').value + '"]';
 
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
         tb_remove();

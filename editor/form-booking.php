@@ -105,7 +105,7 @@ $arrangements = $model->getArrangements($subdomain, true);
 <script>
     [...document.querySelectorAll('[name="integration_method"]')].forEach(function(el) {
         el.addEventListener('change', function(){
-            var useLibrary = document.getElementById('use_new_library_yes').checked;
+            const useLibrary = document.getElementById('use_new_library_yes').checked;
             document.getElementById('auto_resize').disabled = useLibrary;
             document.getElementById('redirect_page').disabled = !useLibrary;
             document.getElementById('show_times').disabled = !useLibrary;
@@ -117,29 +117,29 @@ $arrangements = $model->getArrangements($subdomain, true);
         });
     });
     document.getElementById('arrangement_id').addEventListener('change', function() {
-        var hasPackage = this.value > 0;
+        const hasPackage = this.value > 0;
         document.getElementById('prefill_date').disabled = !hasPackage;
         document.getElementById('prefill_time').disabled = !hasPackage;
     });
     document.getElementById('package_selection').addEventListener('change', function() {
-        var selectedPackages = document.querySelectorAll('#package_selection option:checked');
-        var hasPackage = selectedPackages.length === 1;
+        const selectedPackages = document.querySelectorAll('#package_selection option:checked');
+        const hasPackage = selectedPackages.length === 1;
         document.getElementById('prefill_date').disabled = !hasPackage;
         document.getElementById('prefill_time').disabled = !hasPackage;
     });
 
     document.getElementById('booking_submit').addEventListener('click', function() {
-        var useNewLibrary = document.getElementById('use_new_library_yes').checked;
+        const useNewLibrary = document.getElementById('use_new_library_yes').checked;
 
-        var arrangementID;
-        var packageIDsMultiple;
-        var selectedPackages = document.querySelectorAll('#package_selection option:checked');
+        let arrangementID;
+        let packageIDsMultiple;
+        const selectedPackages = document.querySelectorAll('#package_selection option:checked');
         if (selectedPackages.length === 1) {
             arrangementID = selectedPackages[0].value;
         } else {
             packageIDsMultiple = [...selectedPackages].map(el => el.value);
         }
-        var shortcode = '[<?= \Recras\Plugin::SHORTCODE_ONLINE_BOOKING; ?>';
+        let shortcode = '[<?= \Recras\Plugin::SHORTCODE_ONLINE_BOOKING; ?>';
         if (packageIDsMultiple && useNewLibrary) {
             shortcode += ' package_list="' + packageIDsMultiple.join(',') + '"';
         } else if (arrangementID) {

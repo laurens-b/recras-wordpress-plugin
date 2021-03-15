@@ -32,7 +32,7 @@ $templates = $model->getTemplates($subdomain);
 
 <script>
     document.getElementById('voucher_submit').addEventListener('click', function(){
-        var shortcode = '[<?= \Recras\Plugin::SHORTCODE_VOUCHER_INFO; ?>';
+        let shortcode = '[<?= \Recras\Plugin::SHORTCODE_VOUCHER_INFO; ?>';
         shortcode += ' id="' + document.getElementById('template_id').value + '"';
         shortcode += ' show="' + document.getElementById('show_what').value + '"';
         shortcode += ']';
