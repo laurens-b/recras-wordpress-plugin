@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.1.8 (2021-03-16)
+* Fix empty package list after selecting and deselecting a package during online booking
+
 ## 4.1.7 (2021-03-08)
 * Seamless online booking integration: allow dates in the past for "relation extra field"
 
