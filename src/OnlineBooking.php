@@ -59,18 +59,16 @@ class OnlineBooking
         if ((int) $arrangementID === 0 && isset($attributes['package_list'])) {
             if (is_string($attributes['package_list'])) {
                 $packages = json_decode($attributes['package_list']);
-                if (!$packages) {
+                if ($packages === false) {
                     $packages = explode(',', $attributes['package_list']);
                 }
-                if (count($packages) === 0) {
-                    return __('Error: "package_list" is empty', Plugin::TEXT_DOMAIN);
+                if (count($packages) > 0) {
+                    $libraryOptions['packageList'] = $packages;
                 }
-                $libraryOptions['packageList'] = $packages;
             } else if (is_array($attributes['package_list'])) {
-                if (count($attributes['package_list']) === 0) {
-                    return __('Error: "package_list" is empty', Plugin::TEXT_DOMAIN);
+                if (count($attributes['package_list']) > 0) {
+                    $libraryOptions['packageList'] = $attributes['package_list'];
                 }
-                $libraryOptions['packageList'] = $attributes['package_list'];
             }
         }
         if ((int) $arrangementID !== 0 || (isset($libraryOptions['packageList'])) && count($libraryOptions['packageList']) === 1) {
