@@ -341,18 +341,23 @@ class ContactForm
                     break;
                 case 'contact.landcode':
                     $locale = get_locale();
+
+                    $matches = [];
+                    if (preg_match('/[a-z]{2}_([A-Z]{2})/', $locale, $matches)) {
+                        $countryCode = $matches[1]; // en_IE -> IE
+                    }
+
                     if (!file_exists(__DIR__ . '/countries/' . $locale . '.php')) {
                         $locale = 'en_GB';
                     }
 
-                    $matches = [];
-                    $selectOptions = [];
-                    if (preg_match('/[a-z]{2}_([A-Z]{2})/', $locale, $matches)) {
-                        $selectOptions['selected'] = $matches[1];
-                    }
-
                     require_once(__DIR__ . '/countries/' . $locale . '.php');
                     assert(is_array($countries));
+
+                    $selectOptions = [];
+                    if (isset($countryCode) && array_key_exists($countryCode, $countries)) {
+                        $selectOptions['selected'] = $matches[1];
+                    }
 
                     $html .= self::generateSubTag($options['element']) . self::generateSelect($field, $countries, $selectOptions);
                     break;

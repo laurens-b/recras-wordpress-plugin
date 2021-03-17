@@ -1,10 +1,10 @@
 === Recras WordPress plugin ===
 Contributors: zanderz
-Tags: recras, recreation, reservation
+Tags: recras, recreation, reservation, booking, voucher
 Requires at least: 5.2
 Requires PHP: 5.6.0
 Tested up to: 5.7
-Stable tag: 4.1.8
+Stable tag: 4.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 4.2.0 =
+* Add localised country list (in contact forms) when the WordPress language is set to Swedish
+* Fix default country for contact forms when the WordPress language is set to one of the following: Dutch (Belgium), English (Ireland), German (Austria)
 
 = 4.1.8 =
 * Fix empty package list after selecting and deselecting a package during online booking
