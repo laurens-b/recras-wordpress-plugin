@@ -195,8 +195,8 @@ class Plugin
 
         // Add Pikaday scripts and Pikaday localisation if the site has "Use calendar widget" enabled
         if ($value = get_option('recras_datetimepicker')) {
-            wp_enqueue_script('pikaday', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/pikaday.min.js', [], false, true); // ver=false because it's already in the URL
-            wp_enqueue_style('pikaday', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css', [], false); // ver=false because it's already in the URL
+            wp_enqueue_script('pikaday', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/pikaday.min.js', [], false, true); // ver=false because it's already in the URL
+            wp_enqueue_style('pikaday', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.2/css/pikaday.min.css', [], false); // ver=false because it's already in the URL
 
             $localisation['pikaday'] = [
                 'previousMonth' => __('Previous month', $this::TEXT_DOMAIN),
