@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.2.1 (2021-03-24)
+* Fixed default country for contact forms used during online booking
+
 ## 4.2.0 (2021-03-17)
 * Add localised country list (in contact forms) when the WordPress language is set to Swedish
 * Fix default country for contact forms when the WordPress language is set to one of the following: Dutch (Belgium), English (Ireland), German (Austria)

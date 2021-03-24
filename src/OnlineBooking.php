@@ -90,6 +90,11 @@ class OnlineBooking
         $generatedDivID = uniqid('V');
         $extraOptions = [];
 
+        $countryCode = ContactForm::getDefaultCountry();
+        if (is_string($countryCode)) {
+            $extraOptions[] = "defaultCountry: '" . $countryCode . "'";
+        }
+
         if ($arrangementID) {
             $extraOptions[] = 'package_id: ' . $arrangementID;
         } else if (isset($libraryOptions['packageList'])) {

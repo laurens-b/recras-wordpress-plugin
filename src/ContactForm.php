@@ -7,6 +7,20 @@ class ContactForm
     const PATTERN_TIME = '(0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9])';
 
     /**
+     * @return string|null
+     */
+    public static function getDefaultCountry()
+    {
+        $locale = get_locale();
+
+        $matches = [];
+        if (preg_match('/[a-z]{2}_([A-Z]{2})/', $locale, $matches)) {
+            return $matches[1]; // en_IE -> IE
+        }
+        return null;
+    }
+
+    /**
      * Get a single contact form
      *
      * @param string $subdomain
@@ -343,9 +357,7 @@ class ContactForm
                     $locale = get_locale();
 
                     $matches = [];
-                    if (preg_match('/[a-z]{2}_([A-Z]{2})/', $locale, $matches)) {
-                        $countryCode = $matches[1]; // en_IE -> IE
-                    }
+                    $countryCode = self::getDefaultCountry();
 
                     if (!file_exists(__DIR__ . '/countries/' . $locale . '.php')) {
                         $locale = 'en_GB';
