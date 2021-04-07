@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.2.2 (2021-04-07)
+* Setting "package_list" parameter in the online booking shortcode sometimes wasn't working properly - fixed
+
 ## 4.2.1 (2021-03-24)
 * Fixed default country for contact forms used during online booking
 

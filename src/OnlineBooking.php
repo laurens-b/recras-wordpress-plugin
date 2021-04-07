@@ -59,10 +59,10 @@ class OnlineBooking
         if ((int) $arrangementID === 0 && isset($attributes['package_list'])) {
             if (is_string($attributes['package_list'])) {
                 $packages = json_decode($attributes['package_list']);
-                if ($packages === false) {
+                if (!is_array($packages)) {
                     $packages = explode(',', $attributes['package_list']);
                 }
-                if (count($packages) > 0) {
+                if (is_array($packages) && count($packages) > 0) {
                     $libraryOptions['packageList'] = $packages;
                 }
             } else if (is_array($attributes['package_list'])) {
