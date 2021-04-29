@@ -36,6 +36,7 @@ class Arrangement
 
         switch ($showProperty) {
             case 'description':
+                //Notice: Undefined property: stdClass::$uitgebreide_omschrijving in /home/sander/src/recras-wordpress-plugin/src/Arrangement.php on line 39
                 return $json->uitgebreide_omschrijving;
             case 'duration':
                 return self::getDuration($json);
