@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.3.0 (2021-05-27)
+* Seamless online booking integration: Swedish translation is now available
+
 ## 4.2.2 (2021-04-07)
 * Setting "package_list" parameter in the online booking shortcode sometimes wasn't working properly - fixed
 
