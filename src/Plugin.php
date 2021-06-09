@@ -34,7 +34,12 @@ class Plugin
         if (function_exists('register_block_type')) {
             add_action('init', [Gutenberg::class, 'addBlocks']);
             add_action('rest_api_init', [Gutenberg::class, 'addEndpoints']);
-            add_filter('block_categories', [Gutenberg::class, 'addCategory']);
+            $wpVersion = get_bloginfo('version');
+            if ($wpVersion >= '5.8') {
+                add_filter('block_categories_all', [Gutenberg::class, 'addCategory']);
+            } else {
+                add_filter('block_categories', [Gutenberg::class, 'addCategory']);
+            }
         }
 
         add_action('admin_enqueue_scripts', [$this, 'loadAdminScripts']);
