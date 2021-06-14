@@ -1,8 +1,6 @@
 === Recras WordPress plugin ===
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
-Requires at least: 5.3
-Requires PHP: 5.6.0
 Tested up to: 5.8
 Stable tag: 4.3.0
 License: GPLv2 or later

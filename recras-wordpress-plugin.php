@@ -4,6 +4,8 @@ Plugin Name: Recras WordPress Plugin
 Plugin URI: https://www.recras.nl/
 Description: Easily integrate your Recras data into your own site
 Author: Recras
+Requires at least: 5.3
+Requires PHP: 5.6.0
 Text Domain: recras
 Domain Path: /lang
 Version: 4.3.0
