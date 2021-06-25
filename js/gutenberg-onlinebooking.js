@@ -10,6 +10,7 @@ registerGutenbergBlock('recras/onlinebooking', {
             package_list: [],
             show_times: true,
             use_new_library: true,
+            showdiscount: true,
             prefill_enabled: false,
             prefill_date: null,
             prefill_time: null,
@@ -24,6 +25,7 @@ registerGutenbergBlock('recras/onlinebooking', {
         package_list: recrasHelper.typeString(), // stored as JSON string
         show_times: recrasHelper.typeBoolean(false),
         use_new_library: recrasHelper.typeBoolean(false),
+        showdiscount: recrasHelper.typeBoolean(true),
         prefill_enabled: recrasHelper.typeBoolean(false),
         prefill_date: recrasHelper.typeString(),
         prefill_time: recrasHelper.typeString(),
@@ -45,6 +47,7 @@ registerGutenbergBlock('recras/onlinebooking', {
             use_new_library,
             redirect,
             show_times,
+            showdiscount,
             autoresize,
             prefill_date,
             prefill_time,
@@ -111,6 +114,7 @@ registerGutenbergBlock('recras/onlinebooking', {
             label: wp.i18n.__('Integration method', TEXT_DOMAIN),
         };
         let optionsShowTimesControl;
+        let optionsShowDiscount;
         let optionsPreFillAmountsControl;
         let optionsPreFillDateControl;
         let optionsPreFillTimeControl;
@@ -156,6 +160,15 @@ registerGutenbergBlock('recras/onlinebooking', {
                     });
                 },
                 label: wp.i18n.__('Preview times in programme', TEXT_DOMAIN),
+            };
+            optionsShowDiscount = {
+                checked: showdiscount,
+                onChange: function(newVal) {
+                    props.setAttributes({
+                        showdiscount: newVal,
+                    });
+                },
+                label: wp.i18n.__('Show discount fields', TEXT_DOMAIN),
             };
             optionsPreFillAmountsControl = {
                 checked: prefill_enabled,
@@ -293,6 +306,7 @@ registerGutenbergBlock('recras/onlinebooking', {
                 wp.i18n.__('If you select a single package, it will be pre-filled and will skip the package selection step.', TEXT_DOMAIN)
             ));
             retval.push(createEl(compToggleControl, optionsShowTimesControl));
+            retval.push(createEl(compToggleControl, optionsShowDiscount));
             retval.push(createEl(compToggleControl, optionsPreFillAmountsControl));
             if (preFillControls.length) {
                 preFillControls.forEach(ctrl => {

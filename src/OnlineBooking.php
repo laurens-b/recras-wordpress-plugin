@@ -51,6 +51,7 @@ class OnlineBooking
 
         $libraryOptions = [
             'previewTimes' => isset($attributes['show_times']) ? (!!$attributes['show_times']) : false,
+            'showDiscount' => isset($attributes['showdiscount']) ? (!!$attributes['showdiscount']) : true,
             'redirect' => isset($attributes['redirect']) ? $attributes['redirect'] : null,
             'prefillDate' => isset($attributes['prefill_date']) ? $attributes['prefill_date'] : null,
             'prefillTime' => isset($attributes['prefill_time']) ? $attributes['prefill_time'] : null,
@@ -119,7 +120,7 @@ class OnlineBooking
             $extraOptions[] .= 'analytics: true';
         }
 
-        return "
+        $html = "
 <div id='" . $generatedDivID . "'></div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -133,6 +134,10 @@ document.addEventListener('DOMContentLoaded', function() {
     new RecrasBooking(bookingOptions);
 });
 </script>";
+        if (!$libraryOptions['showDiscount']) {
+            $html .= '<style>#' . $generatedDivID . ' .recras-discounts { display: none; }</style>';
+        }
+        return $html;
     }
 
     private static function generateIframe($subdomain, $arrangementID, $enableResize)

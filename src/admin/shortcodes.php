@@ -56,6 +56,7 @@
 
 <h3>Options for seamless integration</h3>
 <ol class="recrasOptionsList">
+    <li>Show discount fields - <kbd>showdiscount</kbd>, value is either <kbd>1</kbd> (yes) or <kbd>0</kbd> (no)
     <li>Pre-fill amounts - <kbd>product_amounts</kbd>, value is a valid JSON-object of line id's (as seen in the generated HTML) as keys and amounts as values. If you don't know what JSON is or how to find the line id's, contact your web developer.
     <li>Pre-fill date - <kbd>prefill_date</kbd>, value is an ISO 8601 string
     <li>Pre-fill time - <kbd>prefill_time</kbd>, value is a 24-hour time string

@@ -49,7 +49,7 @@ class Gutenberg
             ],
             'onlinebooking' => [
                 'callback' => [OnlineBooking::class, 'renderOnlineBooking'],
-                'version' => '4.1.3',
+                'version' => '4.4.0',
             ],
             'package' => [
                 'callback' => [Arrangement::class, 'renderPackage'],

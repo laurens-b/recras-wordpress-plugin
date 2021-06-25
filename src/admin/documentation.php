@@ -80,6 +80,7 @@
         ?>/your-online-booking-page/?package=42</code> to pre-fill the package with ID 42. You can also select multiple packages (seamless method only) to limit the package selection to those packages.
 	<li>Preview times in programme - whether or not you want to preview times in the programme. Note: this is only available for the seamless online booking method.
 	<li>Pre-fill amounts - <strong>Note:</strong> this is only available for the seamless online booking method, and required a pre-filled package. When enabled, this gives you the ability to pre-fill the amounts form. This can be useful, for example, for packages where you always have a fixed amount.
+	<li>Show discount fields - <strong>Note:</strong> this is only available for the seamless online booking method. When disabled, the discount fields are hidden.
     <li>Pre-fill date - <strong>Note:</strong> this is only available for the seamless online booking method, and required a pre-filled package. This allows you to pre-fill a certain date.
     <li>Pre-fill time - <strong>Note:</strong> this is only available for the seamless online booking method, and required a pre-filled package. This allows you to pre-fill a certain time.
     <li>Thank-you page - a page/post that the user is redirected to, after booking successfully. Note: this is only available for the new online booking method.
