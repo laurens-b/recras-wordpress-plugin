@@ -88,6 +88,7 @@
 <ol class="recrasOptionsList">
 	<li>Voucher template - <kbd>id</kbd>
 	<li>Thank-you page - <kbd>redirect</kbd>
+    <li>Show quantity input - <kbd>showquantity</kbd>, value is either  <kbd>1</kbd> (yes) or <kbd>0</kbd> (no)
 </ol>
 <p>Example: <kbd>[recras-vouchers id="12" redirect="https://www.recras.com/contact/"]</kbd></p>
 

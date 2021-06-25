@@ -77,7 +77,7 @@ class Vouchers
 
         $generatedDivID = uniqid('V');
 
-        return "
+        $html = "
 <div id='" . $generatedDivID . "'></div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -89,6 +89,11 @@ class Vouchers
         new RecrasVoucher(voucherOptions);
     });
 </script>";
+        $showQuantity = isset($attributes['showquantity']) ? (!!$attributes['showquantity']) : true;
+        if (!$showQuantity) {
+            $html .= '<style>#' . $generatedDivID . ' .recras-contactform > div:first-child { display: none; }</style>';
+        }
+        return $html;
     }
 
 

@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.4.0 (unreleased)
+* Add option to hide voucher sale quantity (defaults to 1)
+
 ## 4.3.1 (2021-06-29)
 * Seamless online booking integration: Fix discount code with prefilled date
 

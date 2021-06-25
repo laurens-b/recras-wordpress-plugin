@@ -6,12 +6,14 @@ registerGutenbergBlock('recras/voucher-sales', {
         attributes: {
             id: null,
             redirect: '',
+            showquantity: true,
         },
     },
 
     attributes: {
         id: recrasHelper.typeString(),
         redirect: recrasHelper.typeString(),
+        showquantity: recrasHelper.typeBoolean(true),
     },
 
     edit: withSelect((select) => {
@@ -27,6 +29,7 @@ registerGutenbergBlock('recras/voucher-sales', {
         const {
             id,
             redirect,
+            showquantity,
         } = props.attributes;
         const {
             pagesPosts,
@@ -69,9 +72,20 @@ registerGutenbergBlock('recras/voucher-sales', {
             label: wp.i18n.__('Thank-you page (optional, leave empty to not redirect)', TEXT_DOMAIN),
         };
 
+        const optionsShowQuantityControl = {
+            checked: showquantity,
+            onChange: function(newVal) {
+                props.setAttributes({
+                    showquantity: newVal,
+                });
+            },
+            label: wp.i18n.__('Show quantity input (will be set to 1 if not shown)', TEXT_DOMAIN),
+        };
+
         retval.push(recrasHelper.elementText('Recras - ' + wp.i18n.__('Voucher sales', TEXT_DOMAIN)));
         retval.push(createEl(compSelectControl, optionsIDControl));
         retval.push(createEl(compSelectControl, optionsRedirectControl));
+        retval.push(createEl(compToggleControl, optionsShowQuantityControl));
 
         return retval;
     }),

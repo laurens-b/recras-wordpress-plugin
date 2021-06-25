@@ -65,7 +65,7 @@ class Gutenberg
             ],
             'voucher-sales' => [
                 'callback' => [Vouchers::class, 'renderVoucherSales'],
-                'version' => '4.1.3',
+                'version' => '4.4.0',
             ],
         ];
         foreach ($gutenbergBlocks as $key => $block) {

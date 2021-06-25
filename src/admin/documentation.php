@@ -102,6 +102,7 @@
 <ol class="recrasOptionsList">
 	<li>Voucher template - when selected, this will skip the template selection step
 	<li>Thank-you page - a page/post that the user is redirected to, after submitting the form successfully.
+    <li>Show quantity input - if unselected, the quantity input is hidden. The customer will only be able to buy 1 voucher at a time.
 </ol>
 
 <hr>
