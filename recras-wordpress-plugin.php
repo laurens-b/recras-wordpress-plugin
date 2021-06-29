@@ -8,7 +8,7 @@ Requires at least: 5.3
 Requires PHP: 5.6.0
 Text Domain: recras
 Domain Path: /lang
-Version: 4.3.0
+Version: 4.3.1
 
 Author URI: https://www.recras.nl/
 */

@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.3.1 (2021-06-29)
+* Seamless online booking integration: Fix discount code with prefilled date
+
 ## 4.3.0 (2021-05-27)
 * Seamless online booking integration: Swedish translation is now available
 
