@@ -96,6 +96,8 @@ $arrangements = $model->getArrangements($subdomain, true);
                     <?php } ?>
             </optgroup>
         </select>
+    <dt><label for="show_discounts"><?php _e('Show discount fields', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+        <dd><input type="checkbox" id="show_discounts" checked>
     <dt><label for="auto_resize"><?php _e('Automatic resize?', \Recras\Plugin::TEXT_DOMAIN); ?></label>
         <dd><input type="checkbox" id="auto_resize" disabled>
 
@@ -109,6 +111,7 @@ $arrangements = $model->getArrangements($subdomain, true);
             document.getElementById('auto_resize').disabled = useLibrary;
             document.getElementById('redirect_page').disabled = !useLibrary;
             document.getElementById('show_times').disabled = !useLibrary;
+            document.getElementById('show_discounts').disabled = !useLibrary;
 
             document.getElementById('pack_sel_label').style.display = useLibrary ? 'block' : 'none';
             document.getElementById('pack_sel_input').style.display = useLibrary ? 'block' : 'none';
@@ -132,7 +135,7 @@ $arrangements = $model->getArrangements($subdomain, true);
         const useNewLibrary = document.getElementById('use_new_library_yes').checked;
 
         let arrangementID;
-        let packageIDsMultiple;
+        let packageIDsMultiple = [];
         const selectedPackages = document.querySelectorAll('#package_selection option:checked');
         if (selectedPackages.length === 1) {
             arrangementID = selectedPackages[0].value;
@@ -140,7 +143,7 @@ $arrangements = $model->getArrangements($subdomain, true);
             packageIDsMultiple = [...selectedPackages].map(el => el.value);
         }
         let shortcode = '[<?= \Recras\Plugin::SHORTCODE_ONLINE_BOOKING; ?>';
-        if (packageIDsMultiple && useNewLibrary) {
+        if (packageIDsMultiple.length > 0 && useNewLibrary) {
             shortcode += ' package_list="' + packageIDsMultiple.join(',') + '"';
         } else if (arrangementID) {
             shortcode += ' id="' + arrangementID + '"';
@@ -153,6 +156,9 @@ $arrangements = $model->getArrangements($subdomain, true);
             }
             if (document.getElementById('show_times').checked) {
                 shortcode += ' show_times=1';
+            }
+            if (!document.getElementById('show_discounts').checked) {
+                shortcode += ' showdiscount=0';
             }
         } else {
             if (!document.getElementById('auto_resize').checked) {

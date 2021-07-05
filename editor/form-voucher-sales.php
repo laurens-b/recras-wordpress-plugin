@@ -36,6 +36,8 @@ $templates = $model->getTemplates($subdomain);
                 <?php } ?>
             </optgroup>
         </select>
+    <dt><label for="show_quantity"><?php _e('Show quantity input (will be set to 1 if not shown)', \Recras\Plugin::TEXT_DOMAIN); ?></label>
+    <dd><input type="checkbox" id="show_quantity" checked>
 </dl>
 <button class="button button-primary" id="voucher_submit"><?php _e('Insert shortcode', \Recras\Plugin::TEXT_DOMAIN); ?></button>
 
@@ -50,6 +52,10 @@ $templates = $model->getTemplates($subdomain);
 
         if (document.getElementById('redirect_page').value !== '') {
             shortcode += ' redirect="' + document.getElementById('redirect_page').value + '"';
+        }
+
+        if (!document.getElementById('show_quantity').checked) {
+            shortcode += ' showquantity=0';
         }
 
         shortcode += ']';
