@@ -1,6 +1,6 @@
 # Changelog
 
-## 4.4.0 (unreleased)
+## 4.4.0 (2021-07-05)
 * Add option to hide voucher sale quantity (defaults to 1)
 * Add option to hide discount field during online booking
 * Seamless online booking integration: pressing Enter in the amounts form sometimes broke the form

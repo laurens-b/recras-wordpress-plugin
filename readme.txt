@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 5.8
-Stable tag: 4.3.1
+Stable tag: 4.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,11 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 4.4.0 =
+* Add option to hide voucher sale quantity (defaults to 1)
+* Add option to hide discount field during online booking
+* Seamless online booking integration: pressing Enter in the amounts form sometimes broke the form
 
 = 4.3.1 =
 * Seamless online booking integration: Fix discount code with prefilled date
