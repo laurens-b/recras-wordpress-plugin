@@ -96,8 +96,7 @@ class Bookprocess
             return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $processes);
         }
 
-        $process = $processes[$attributes['id']];
-        if (!$process) {
+        if (!isset($processes[$attributes['id']])) {
             return __('Error: book process does not exist', Plugin::TEXT_DOMAIN);
         }
 
