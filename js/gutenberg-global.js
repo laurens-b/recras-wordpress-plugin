@@ -80,6 +80,9 @@ const mapSelect = function(label, value) {
         value: value,
     };
 };
+const mapBookprocess = function(idBookprocess) {
+    return mapSelect(idBookprocess[1], idBookprocess[0]);
+};
 const mapContactForm = function(idName) {
     return mapSelect(idName[1], idName[0]);
 };
@@ -103,6 +106,13 @@ const recrasActions = {
         return {
             type: 'FETCH_API',
             path,
+        }
+    },
+
+    setBookprocesses(bookprocesses) {
+        return {
+            type: 'SET_BOOKPROCESSES',
+            bookprocesses,
         }
     },
 
@@ -143,6 +153,7 @@ const recrasActions = {
 };
 const recrasStore = registerStore('recras/store', {
     reducer(state = {
+        bookprocesses: {},
         contactForms: {},
         packages: {},
         pagesPosts: {},
@@ -150,6 +161,11 @@ const recrasStore = registerStore('recras/store', {
         voucherTemplates: {},
     }, action) {
         switch (action.type) {
+            case 'SET_BOOKPROCESSES':
+                return {
+                    ...state,
+                    bookprocesses: action.bookprocesses,
+                };
             case 'SET_FORMS':
                 return {
                     ...state,
@@ -181,6 +197,10 @@ const recrasStore = registerStore('recras/store', {
     },
     recrasActions,
     selectors: {
+        fetchBookprocesses(state) {
+            const { bookprocesses } = state;
+            return bookprocesses;
+        },
         fetchContactForms(state) {
             const { contactForms } = state;
             return contactForms;
@@ -211,6 +231,12 @@ const recrasStore = registerStore('recras/store', {
     },
     resolvers: {
         // * makes it a generator function
+        * fetchBookprocesses(state) {
+            let bookprocesses = yield recrasActions.fetchAPI('recras/bookprocesses');
+            bookprocesses = Object.entries(bookprocesses).map(mapBookprocess);
+
+            return recrasActions.setBookprocesses(bookprocesses);
+        },
         * fetchContactForms(state) {
             let forms = yield recrasActions.fetchAPI('recras/contactforms');
             forms = Object.entries(forms).map(mapContactForm);
