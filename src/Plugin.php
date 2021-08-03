@@ -114,6 +114,7 @@ class Plugin
     {
         add_shortcode('recras-availability', [Availability::class, 'renderAvailability']);
         add_shortcode($this::SHORTCODE_ONLINE_BOOKING, [OnlineBooking::class, 'renderOnlineBooking']);
+        add_shortcode('recras-bookprocess', [Bookprocess::class, 'renderBookprocess']);
         add_shortcode('recras-contact', [ContactForm::class, 'renderContactForm']);
         add_shortcode('recras-package', [Arrangement::class, 'renderPackage']);
         add_shortcode('recras-product', [Products::class, 'renderProduct']);
@@ -247,6 +248,11 @@ class Plugin
         // Polyfill for old browsers
         wp_enqueue_script('recrasjspolyfill', 'https://polyfill.io/v3/polyfill.min.js?features=default,fetch,Promise,Array.prototype.includes,RegExp.prototype.flags', [], null, false);
         wp_enqueue_script('recrasjslibrary', $this->baseUrl . '/js/onlinebooking.min.js', [], $this::LIBRARY_VERSION, false);
+
+        $subdomain = Settings::getSubdomain([]);
+        if ($subdomain) {
+            Bookprocess::enqueueScripts($subdomain);
+        }
 
         // Online booking theme
         $theme = get_option('recras_theme');
