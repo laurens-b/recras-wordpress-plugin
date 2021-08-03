@@ -98,7 +98,7 @@ class Plugin
         );
 
         add_submenu_page(null, __('Package', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-arrangement', [Arrangement::class, 'showForm']);
-        add_submenu_page(null, __('Package availability', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-package-availability', [Availability::class, 'showForm']);
+        add_submenu_page(null, __('Book process', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-bookprocess', [Bookprocess::class, 'showForm']);
         add_submenu_page(null, __('Contact form', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-contact', [ContactForm::class, 'showForm']);
         add_submenu_page(null, __('Online booking', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-booking', [OnlineBooking::class, 'showForm']);
         add_submenu_page(null, __('Product', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-product', [Products::class, 'showForm']);
@@ -167,6 +167,7 @@ class Plugin
             'contact_form' => __('Contact form', $this::TEXT_DOMAIN),
             'no_connection' => __('Could not connect to your Recras', $this::TEXT_DOMAIN),
             'online_booking' => __('Online booking', $this::TEXT_DOMAIN),
+            'bookprocess' => __('Book process', $this::TEXT_DOMAIN),
             'package' => __('Package', $this::TEXT_DOMAIN),
             'package_availability' => __('Package availability', $this::TEXT_DOMAIN),
             'product' => __('Product', $this::TEXT_DOMAIN),

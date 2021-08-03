@@ -102,4 +102,12 @@ class Bookprocess
 
         return '<section id="bookprocess" data-id="' . $attributes['id'] . '" data-url="https://' . $subdomain . '.recras.nl">';
     }
+
+    /**
+     * Show the TinyMCE shortcode generator contact form
+     */
+    public static function showForm()
+    {
+        require_once(__DIR__ . '/../editor/form-bookprocess.php');
+    }
 }

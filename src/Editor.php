@@ -41,7 +41,17 @@ class Editor
      */
     public static function registerButtons($buttons, $editorId)
     {
-        array_push($buttons, 'recras-arrangement', 'recras-availability', 'recras-booking', 'recras-contact', 'recras-product', 'recras-voucher-info', 'recras-voucher-sales');
+        array_push(
+            $buttons,
+            'recras-arrangement',
+            'recras-availability',
+            'recras-booking',
+            'recras-bookprocess',
+            'recras-contact',
+            'recras-product',
+            'recras-voucher-info',
+            'recras-voucher-sales'
+        );
         return $buttons;
     }
 }
