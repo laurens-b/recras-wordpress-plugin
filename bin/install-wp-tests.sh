@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Based on https://github.com/wp-cli/scaffold-command/blob/master/templates/install-wp-tests.sh
+# Last updated: 2021-08-08
 # Usage: $0 [db-name] [db-user] [db-pass] [db-host] [wp-version] [skip-db-create]
 
 DB_NAME=${1-wptest}
@@ -60,10 +61,10 @@ install_wp() {
 	mkdir -p $WP_CORE_DIR
 
 	if [[ $WP_VERSION == 'nightly' || $WP_VERSION == 'trunk' ]]; then
-		mkdir -p $TMPDIR/wordpress-nightly
-		download https://wordpress.org/nightly-builds/wordpress-latest.zip  $TMPDIR/wordpress-nightly/wordpress-nightly.zip
-		unzip -q $TMPDIR/wordpress-nightly/wordpress-nightly.zip -d $TMPDIR/wordpress-nightly/
-		mv $TMPDIR/wordpress-nightly/wordpress/* $WP_CORE_DIR
+    mkdir -p $TMPDIR/wordpress-trunk
+    rm -rf $TMPDIR/wordpress-trunk/*
+    svn export --quiet https://core.svn.wordpress.org/trunk $TMPDIR/wordpress-trunk/wordpress
+    mv $TMPDIR/wordpress-trunk/wordpress/* $WP_CORE_DIR
 	else
 		if [ $WP_VERSION == 'latest' ]; then
 			local ARCHIVE_NAME='latest'
@@ -105,8 +106,9 @@ install_test_suite() {
 	if [ ! -d $WP_TESTS_DIR ]; then
 		# set up testing suite
 		mkdir -p $WP_TESTS_DIR
-		svn co --quiet --ignore-externals https://develop.svn.wordpress.org/${WP_TESTS_TAG}/tests/phpunit/includes/ $WP_TESTS_DIR/includes
-		svn co --quiet --ignore-externals https://develop.svn.wordpress.org/${WP_TESTS_TAG}/tests/phpunit/data/ $WP_TESTS_DIR/data
+    rm -rf $WP_TESTS_DIR/{includes,data}
+		svn export --quiet --ignore-externals https://develop.svn.wordpress.org/${WP_TESTS_TAG}/tests/phpunit/includes/ $WP_TESTS_DIR/includes
+		svn export --quiet --ignore-externals https://develop.svn.wordpress.org/${WP_TESTS_TAG}/tests/phpunit/data/ $WP_TESTS_DIR/data
 	fi
 
 	if [ ! -f wp-tests-config.php ]; then
