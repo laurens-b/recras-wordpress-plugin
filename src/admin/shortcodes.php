@@ -27,6 +27,16 @@
 
 
 <hr>
+<h2><?php _e('Book processes', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<p>Book processes can be added using the <kbd>[recras-bookprocess]</kbd> shortcode.</p>
+<p>The following option is available:</p>
+<ol class="recrasOptionsList">
+    <li>Book process - <kbd>id</kbd>
+</ol>
+<p>Example: <kbd>[recras-bookprocess id="9"]</kbd></p>
+
+
+<hr>
 <h2><?php _e('Contact forms', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
 <p>Contact forms can be added using the <kbd>[recras-contact]</kbd> shortcode.</p>
 <p>The following options are available:</p>

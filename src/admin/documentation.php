@@ -52,6 +52,15 @@
 
 
 <hr>
+<h2><?php _e('Book processes', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
+<p>Book processes can be added using the Recras/Book process block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-editor-ul"></span> icon in the Classic Editor.</p>
+<p>The following option is available:</p>
+<ol class="recrasOptionsList">
+    <li>Book process - <strong>required</strong> what process to use
+</ol>
+
+
+<hr>
 <h2><?php _e('Contact forms', \Recras\Plugin::TEXT_DOMAIN); ?></h2>
 <p>Contact forms can be added using the Recras/Contact form block (Gutenberg) or using the <span class="rDocsIcon dashicons dashicons-email"></span> icon in the Classic Editor.</p>
 <p>The following options are available:</p>
