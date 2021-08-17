@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.5.0 (2021-08-17)
+* The "Term for number of vouchers" is now used during voucher sales
+
 ## 4.4.0 (2021-07-05)
 * Add option to hide voucher sale quantity (defaults to 1)
 * Add option to hide discount field during online booking
