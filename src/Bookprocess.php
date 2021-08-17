@@ -24,10 +24,9 @@ class Bookprocess
             ['recrasreact', 'recrasreactdom'], false, true
         );
 
-        // We're using an old stylesheet until https://github.com/Hacker0x01/react-datepicker/issues/3028 is solved -- node_modules/react-datepicker/dist/react-datepicker.css
         wp_enqueue_style(
             'recrasreactdatepicker',
-            'https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/3.8.0/react-datepicker.min.css'
+            'https://' . $subdomain . '.recras.nl/bookprocess/node_modules/react-datepicker/dist/react-datepicker.css'
         );
         // Old stylesheet, to be replaced soon
         wp_enqueue_style(
