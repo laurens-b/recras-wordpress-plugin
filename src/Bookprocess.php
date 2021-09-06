@@ -28,13 +28,8 @@ class Bookprocess
             'recrasreactdatepicker',
             'https://' . $subdomain . '.recras.nl/bookprocess/node_modules/react-datepicker/dist/react-datepicker.css'
         );
-        // Old stylesheet, to be replaced soon
         wp_enqueue_style(
-            'recrasbookprocessesold',
-            'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess.css'
-        );
-        wp_enqueue_style(
-            'recrasbookprocessesold',
+            'recrasbookprocesses',
             'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess_base.css'
         );
     }
