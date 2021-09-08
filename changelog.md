@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Seamless online booking integration: Replace alerts with inline messages
+
 ## 4.5.0 (2021-08-17)
 * The "Term for number of vouchers" is now used during voucher sales
 
