@@ -368,7 +368,7 @@ class ContactForm
 
                     $selectOptions = [];
                     if (isset($countryCode) && array_key_exists($countryCode, $countries)) {
-                        $selectOptions['selected'] = $matches[1];
+                        $selectOptions['selected'] = $countryCode;
                     }
 
                     $html .= self::generateSubTag($options['element']) . self::generateSelect($field, $countries, $selectOptions);

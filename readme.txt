@@ -82,6 +82,7 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 = unreleased =
 * Seamless online booking integration: Replace alerts with inline messages
 * Seamless online booking integration: Make redirect without Mollie more robust
+* Fix default selected country in contact forms
 
 = 4.5.0 =
 * The "Term for number of vouchers" is now used during voucher sales
