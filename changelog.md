@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 4.5.1 (2021-10-06)
 * Seamless online booking integration: Replace alerts with inline messages
 * Seamless online booking integration: Make redirect without Mollie more robust
 * Fix default selected country in contact forms

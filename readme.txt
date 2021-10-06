@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 5.8
-Stable tag: 4.5.0
+Stable tag: 4.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,7 +79,7 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
-= unreleased =
+= 4.5.1 =
 * Seamless online booking integration: Replace alerts with inline messages
 * Seamless online booking integration: Make redirect without Mollie more robust
 * Fix default selected country in contact forms
