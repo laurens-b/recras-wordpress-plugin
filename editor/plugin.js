@@ -23,6 +23,14 @@ var recrasPlugin = function(editor, url) {
         }
     });
 
+    editor.addButton('recras-bookprocess', {
+        title: recras_l10n.bookprocess,
+        image: url + '/bookprocess.svg',
+        onclick: function() {
+            tb_show(recras_l10n.bookprocess, 'admin.php?page=form-bookprocess');
+        }
+    });
+
     editor.addButton('recras-contact', {
         title: recras_l10n.contact_form,
         image: url + '/contact.svg',

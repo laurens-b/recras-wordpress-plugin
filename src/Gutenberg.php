@@ -4,7 +4,7 @@ namespace Recras;
 class Gutenberg
 {
     const ENDPOINT_NAMESPACE = 'recras';
-    const GUTENBERG_SCRIPT_VERSION = '4.1.3';
+    const GUTENBERG_SCRIPT_VERSION = '4.5.0';
 
 
     public static function addBlocks()
@@ -42,6 +42,10 @@ class Gutenberg
             'availability' => [
                 'callback' => [Availability::class, 'renderAvailability'],
                 'version' => '4.1.3',
+            ],
+            'bookprocess' => [
+                'callback' => [Bookprocess::class, 'renderBookprocess'],
+                'version' => '4.5.0',
             ],
             'contactform' => [
                 'callback' => [ContactForm::class, 'renderContactForm'],
@@ -99,6 +103,7 @@ class Gutenberg
     public static function addEndpoints()
     {
         $routes = [
+            'bookprocesses' => 'getBookprocesses',
             'contactforms' => 'getContactForms',
             'packages' => 'getPackages',
             'products' => 'getProducts',
@@ -117,6 +122,12 @@ class Gutenberg
                 ]
             );
         }
+    }
+
+    public static function getBookprocesses()
+    {
+        $model = new Bookprocess();
+        return $model->getProcesses(get_option('recras_subdomain'));
     }
 
     public static function getContactForms()

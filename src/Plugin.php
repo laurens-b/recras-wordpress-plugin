@@ -53,6 +53,18 @@ class Plugin
         register_uninstall_hook(__FILE__, [__CLASS__, 'uninstall']);
     }
 
+    private function addClassicEditorSubmenuPage($title, $slug, $callable)
+    {
+        add_submenu_page(
+            null,
+            $title,
+            null,
+            'publish_posts',
+            $slug,
+            $callable
+        );
+    }
+
     /**
      * Add the menu items for our plugin
      */
@@ -97,13 +109,13 @@ class Plugin
             ['\Recras\Settings', 'shortcodes']
         );
 
-        add_submenu_page(null, __('Package', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-arrangement', [Arrangement::class, 'showForm']);
-        add_submenu_page(null, __('Package availability', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-package-availability', [Availability::class, 'showForm']);
-        add_submenu_page(null, __('Contact form', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-contact', [ContactForm::class, 'showForm']);
-        add_submenu_page(null, __('Online booking', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-booking', [OnlineBooking::class, 'showForm']);
-        add_submenu_page(null, __('Product', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-product', [Products::class, 'showForm']);
-        add_submenu_page(null, __('Voucher sales', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-voucher-sales', [Vouchers::class, 'showSalesForm']);
-        add_submenu_page(null, __('Voucher info', $this::TEXT_DOMAIN), null, 'publish_posts', 'form-voucher-info', [Vouchers::class, 'showInfoForm']);
+        $this->addClassicEditorSubmenuPage(__('Package', $this::TEXT_DOMAIN), 'form-arrangement', [Arrangement::class, 'showForm']);
+        $this->addClassicEditorSubmenuPage(__('Book process', $this::TEXT_DOMAIN) . ' (beta)', 'form-bookprocess', [Bookprocess::class, 'showForm']);
+        $this->addClassicEditorSubmenuPage(__('Contact form', $this::TEXT_DOMAIN), 'form-contact', [ContactForm::class, 'showForm']);
+        $this->addClassicEditorSubmenuPage(__('Online booking', $this::TEXT_DOMAIN), 'form-booking', [OnlineBooking::class, 'showForm']);
+        $this->addClassicEditorSubmenuPage(__('Product', $this::TEXT_DOMAIN), 'form-product', [Products::class, 'showForm']);
+        $this->addClassicEditorSubmenuPage(__('Voucher sales', $this::TEXT_DOMAIN), 'form-voucher-sales', [Vouchers::class, 'showSalesForm']);
+        $this->addClassicEditorSubmenuPage(__('Voucher info', $this::TEXT_DOMAIN), 'form-voucher-info', [Vouchers::class, 'showInfoForm']);
     }
 
 
@@ -114,6 +126,7 @@ class Plugin
     {
         add_shortcode('recras-availability', [Availability::class, 'renderAvailability']);
         add_shortcode($this::SHORTCODE_ONLINE_BOOKING, [OnlineBooking::class, 'renderOnlineBooking']);
+        add_shortcode('recras-bookprocess', [Bookprocess::class, 'renderBookprocess']);
         add_shortcode('recras-contact', [ContactForm::class, 'renderContactForm']);
         add_shortcode('recras-package', [Arrangement::class, 'renderPackage']);
         add_shortcode('recras-product', [Products::class, 'renderProduct']);
@@ -166,6 +179,7 @@ class Plugin
             'contact_form' => __('Contact form', $this::TEXT_DOMAIN),
             'no_connection' => __('Could not connect to your Recras', $this::TEXT_DOMAIN),
             'online_booking' => __('Online booking', $this::TEXT_DOMAIN),
+            'bookprocess' => __('Book process', $this::TEXT_DOMAIN) . ' (beta)',
             'package' => __('Package', $this::TEXT_DOMAIN),
             'package_availability' => __('Package availability', $this::TEXT_DOMAIN),
             'product' => __('Product', $this::TEXT_DOMAIN),
@@ -247,6 +261,11 @@ class Plugin
         // Polyfill for old browsers
         wp_enqueue_script('recrasjspolyfill', 'https://polyfill.io/v3/polyfill.min.js?features=default,fetch,Promise,Array.prototype.includes,RegExp.prototype.flags', [], null, false);
         wp_enqueue_script('recrasjslibrary', $this->baseUrl . '/js/onlinebooking.min.js', [], $this::LIBRARY_VERSION, false);
+
+        $subdomain = Settings::getSubdomain([]);
+        if ($subdomain) {
+            Bookprocess::enqueueScripts($subdomain);
+        }
 
         // Online booking theme
         $theme = get_option('recras_theme');
