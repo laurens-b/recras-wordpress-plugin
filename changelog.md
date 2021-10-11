@@ -1,6 +1,7 @@
 # Changelog
 
-## Unreleased
+## 4.6.0 (2021-10-11)
+* Book processes can now be integrated through the plugin!
 * Seamless online booking integration: Fixed slowness after clicking required checkboxes a few times
 
 ## 4.5.1 (2021-10-06)
