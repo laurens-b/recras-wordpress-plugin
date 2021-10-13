@@ -6,6 +6,7 @@ class Plugin
     const LIBRARY_VERSION = '1.10.2';
     const TEXT_DOMAIN = 'recras';
 
+    const SHORTCODE_BOOK_PROCESS = 'recras-bookprocess';
     const SHORTCODE_ONLINE_BOOKING = 'recras-booking';
     const SHORTCODE_VOUCHER_SALES = 'recras-vouchers';
     const SHORTCODE_VOUCHER_INFO = 'recras-voucher-info';
@@ -126,7 +127,7 @@ class Plugin
     {
         add_shortcode('recras-availability', [Availability::class, 'renderAvailability']);
         add_shortcode($this::SHORTCODE_ONLINE_BOOKING, [OnlineBooking::class, 'renderOnlineBooking']);
-        add_shortcode('recras-bookprocess', [Bookprocess::class, 'renderBookprocess']);
+        add_shortcode($this::SHORTCODE_BOOK_PROCESS, [Bookprocess::class, 'renderBookprocess']);
         add_shortcode('recras-contact', [ContactForm::class, 'renderContactForm']);
         add_shortcode('recras-package', [Arrangement::class, 'renderPackage']);
         add_shortcode('recras-product', [Products::class, 'renderProduct']);
@@ -264,7 +265,11 @@ class Plugin
 
         $subdomain = Settings::getSubdomain([]);
         if ($subdomain) {
-            Bookprocess::enqueueScripts($subdomain);
+            global $post;
+            if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, $this::SHORTCODE_BOOK_PROCESS)) {
+                // Only load scripts if the book process shortcode is present
+                Bookprocess::enqueueScripts($subdomain);
+            }
         }
 
         // Online booking theme

@@ -25,7 +25,7 @@ $processes = $model->getProcesses($subdomain);
 
 <script>
     document.getElementById('bp_submit').addEventListener('click', function(){
-        const shortcode = '[recras-bookprocess id="' + document.getElementById('bookprocess_id').value + '"]';
+        const shortcode = '[<?= \Recras\Plugin::SHORTCODE_BOOK_PROCESS; ?> id="' + document.getElementById('bookprocess_id').value + '"]';
 
         tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
         tb_remove();
