@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.6.1 (2021-10-13)
+* Prevent JavaScript error on pages without a book process
+
 ## 4.6.0 (2021-10-11)
 * Book processes can now be integrated through the plugin!
 * Seamless online booking integration: Fixed slowness after clicking required checkboxes a few times
