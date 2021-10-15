@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.6.2 (2021-10-15)
+* Fix book process not loading when using the Gutenberg block instead of the shortcode
+
 ## 4.6.1 (2021-10-13)
 * Prevent JavaScript error on pages without a book process
 

@@ -266,7 +266,11 @@ class Plugin
         $subdomain = Settings::getSubdomain([]);
         if ($subdomain) {
             global $post;
-            if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, $this::SHORTCODE_BOOK_PROCESS)) {
+
+            if (is_a($post, 'WP_Post') && (
+                has_shortcode($post->post_content, $this::SHORTCODE_BOOK_PROCESS)
+                || (strpos($post->post_content, 'recras/bookprocess') !== false)
+            )) {
                 // Only load scripts if the book process shortcode is present
                 Bookprocess::enqueueScripts($subdomain);
             }
