@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 5.8
-Stable tag: 4.6.2
+Stable tag: 4.6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 4.6.3 =
+* Fix PHP 8.0 compatibility
 
 = 4.6.2 =
 * Fix book process not loading when using the Gutenberg block instead of the shortcode
