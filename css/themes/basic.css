@@ -60,3 +60,172 @@
         grid-template-columns: 1fr;
     }
 }
+
+
+/*** Book processes ***/
+#bookprocess {
+    max-width: 1400px;
+}
+
+#bookprocess aside h2 {
+    background: #000;
+    color: #fff;
+}
+
+#bookprocess input:invalid:not([value='']) {
+    border-color: #c00;
+}
+
+.price-information {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.error {
+    background: hsl(0, 100%, 96%);
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    color: hsl(0, 100%, 33%);
+}
+
+#bookprocess table {
+    border-collapse: collapse;
+}
+
+#programma tbody tr + tr td,
+#factuurRegels tbody tr + tr td {
+    border-top: 1px dotted #dedede;
+}
+#programma thead th,
+#factuurRegels thead th {
+    border-bottom: 2px solid #ccc;
+    font-weight: bold;
+}
+#factuurRegels tbody:empty + tfoot #totaalFactuur th,
+#factuurRegels tbody:empty + tfoot #totaalFactuur td {
+    /* If the table is empty, hide the footer border because the header also has a 2px border */
+    border-top: 0;
+}
+#teBetalen {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+#teBetalen th,
+#teBetalen td {
+    border-top: 2px solid #ccc;
+}
+#totaalFactuur th,
+#totaalFactuur td {
+    border-top: 2px solid #ccc;
+}
+#totaalFactuur + tr:not(#teBetalen) {
+    color: #666;
+    font-style: italic;
+}
+
+.recras-package .radioWrapper > label,
+.recras-product_without_time .checkboxWrapper > label {
+    background-color: hsl(140, 0%, 80%);
+    border-radius: 50%;
+}
+.recras-product_with_time .checkboxWrapper > label {
+    background-color: hsl(140, 0%, 80%);
+    border: 1px solid hsl(140, 0%, 80%);
+}
+@media (pointer: fine) {
+    .recras-package .radioWrapper > label:hover,
+    .recras-product_with_time .checkboxWrapper > label:hover {
+        background-color: hsl(120, 0%, 40%);
+        color: #fff;
+    }
+}
+
+.recras-package :checked + label,
+.recras-product_with_time > div > div :checked + label,
+.recras-product_without_time > div :checked + label {
+    background-color: hsl(140, 0%, 30%);
+    color: #fff;
+}
+@media (pointer: fine) {
+    .recras-package .radioWrapper > input + label:hover::after,
+    .recras-product_with_time .checkboxWrapper > input + label:hover::after,
+    .recras-product_without_time > div input + label:hover::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='%23fff' d='M368 224H224V80c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v144H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h144v144c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V288h144c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z'%3E%3C/path%3E%3C/svg%3E%0A");
+    }
+    .recras-package .radioWrapper > input:checked + label:hover::after,
+    .recras-product_with_time .checkboxWrapper > input:checked + label:hover::after,
+    .recras-product_without_time > div input:checked + label:hover::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='%23fff' d='M368 224H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h352c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z'%3E%3C/path%3E%3C/svg%3E%0A");
+    }
+}
+
+.recras-product_with_time > div > div input:disabled + label,
+.recras-product_without_time > div input:disabled + label {
+    border-color: #aaa;
+    background-color: #aaa;
+    color: #888;
+}
+
+.numberWithPlusMinus input {
+    background-color: #fff;
+    border-color: hsl(140, 0%, 30%);
+}
+.numberWithPlusMinus input:disabled {
+    background-color: #aaa;
+    border-color: #aaa;
+}
+.numberWithPlusMinus button {
+    background-color: hsl(140, 0%, 30%);
+    color: #fff;
+}
+.numberWithPlusMinus input[value=''],
+.numberWithPlusMinus input[value='0'] {
+    border-color: hsl(140, 0%, 80%);
+}
+.numberWithPlusMinus input[value=''] ~ button,
+.numberWithPlusMinus input[value='0'] ~ button {
+    background-color: hsl(140, 0%, 80%);
+    color: #000;
+}
+@media (pointer: fine) {
+    .numberWithPlusMinus button:hover {
+        background-color: hsl(
+                120,
+                0%,
+                40%
+        ) !important; /* Important to override styles for empty value */
+    }
+}
+
+.recras-product_with_time .numberWrapper.disabled {
+    color: #ccc;
+}
+.recras-product_without_time .numberWrapper.disabled {
+    background-color: #aaa;
+}
+.numberWrapper.disabled button {
+    background-color: #ccc !important; /* Important to overwrite [value=""] */
+    color: #888 !important; /* Important to overwrite [value=""] */
+}
+.numberWrapper.disabled input {
+    border-color: #ccc !important; /* Important to overwrite [value=""] */
+}
+.numberWrapper > input:invalid {
+    background-color: #e0adad;
+    border: 0;
+}
+.spinner {
+    border: 8px solid hsl(140, 0%, 30%);
+    border-top-color: hsl(140, 0%, 45%);
+}
+
+#recapEle dt {
+    color: #666;
+}
+
+input.discountInput[disabled] {
+    background: hsl(140, 0%, 75%);
+}
+.recras-discount button {
+    color: hsl(0, 58%, 58%);
+}
