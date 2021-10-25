@@ -295,13 +295,13 @@ class Settings
      *
      * @return bool|string
      */
-    public function sanitizeSubdomain($subdomain)
+    public static function sanitizeSubdomain($subdomain)
     {
         // RFC 1034 section 3.5 - http://tools.ietf.org/html/rfc1034#section-3.5
         if (strlen($subdomain) > 63) {
             return false;
         }
-        if (! preg_match('/^[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?$/', $subdomain)) {
+        if (!preg_match('/^[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?$/', $subdomain)) {
             return false;
         }
         return $subdomain;
