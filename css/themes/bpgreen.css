@@ -1,0 +1,398 @@
+.recras-onlinebooking input, .recras-onlinebooking select, .recras-onlinebooking button, .recras-onlinebooking textarea {
+    font: inherit;
+    height: auto;
+    padding: 0.5em;
+}
+.recras-onlinebooking input, .recras-onlinebooking select, .recras-onlinebooking button {
+    line-height: 1;
+}
+.recras-onlinebooking textarea {
+    line-height: 1.25;
+}
+
+.recras-onlinebooking input:not([type="checkbox"]):not([type="radio"]), .recras-onlinebooking select, .recras-onlinebooking textarea,
+.recras-buy-voucher input:not([type="checkbox"]):not([type="radio"]), .recras-buy-voucher select, .recras-buy-voucher textarea {
+    background: #fff;
+    border: 1px solid hsl(140, 58%, 30%);
+    width: 100%;
+}
+.recras-onlinebooking button,
+.recras-buy-voucher button {
+    background: hsl(140, 58%, 30%);
+    border: 1px solid hsl(140, 58%, 30%);
+    color: white;
+    text-transform: uppercase;
+}
+.recras-onlinebooking button:hover, .recras-onlinebooking button:active,
+.recras-buy-voucher button:hover, .recras-buy-voucher button:active {
+    background-color: hsl(120, 65%, 40%);
+}
+.recras-onlinebooking button[type="submit"], .recras-buy-voucher button[type="submit"] {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    padding: 0.5em 1em;
+}
+
+.recras-onlinebooking h3 {
+    background: hsl(140, 58%, 30%);
+    color: white;
+    font-size: 1.5em;
+    font-weight: 400;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1 / 3;
+    letter-spacing: normal;
+    margin: 0;
+    padding: 1rem;
+}
+
+.recras-amountsform > div:first-of-type {
+    margin-top: 1rem;
+}
+
+.recras-onlinebooking > *:not(.recrasLoadingIndicator) {
+    border-top: none !important;
+    /*padding: 0 !important;*/
+}
+.recras-onlinebooking > * + * {
+    margin-top: 2em;
+}
+p:empty {
+    margin: 0;
+}
+.recras-contactform input:not([type="checkbox"]):not([type="radio"]), .recras-contactform select, .recras-contactform textarea {
+    max-width: 22em;
+}
+.recras-onlinebooking input[type="checkbox"], .recras-onlinebooking input[type="radio"] {
+    margin-right: 0.5em;
+}
+
+.recras-amountsform {
+    padding: 0 0 1.5rem 0 !important;
+}
+.recras-amountsform input {
+    width: 8em;
+}
+.recras-amountsform p {
+    padding: 0;
+}
+.priceWithoutDiscount {
+    font-weight: bold;
+}
+.recras-onlinebooking > div.recras-datetime,
+.recras-contactform > div {
+    align-items: center;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 12em;
+    grid-template-columns: 1fr 12em;
+}
+
+@media all and (min-width: 641px) {
+    .recras-discounts button, .recras-discounts button {
+        margin-left: 0.5em;
+    }
+}
+.recras-onlinebooking-date, .recras-onlinebooking-time {
+    width: 200px;
+}
+.recras-datetime .recrasLoadingIndicator {
+    height: 1em;
+    margin-left: 0.5em;
+    width: 1em;
+}
+
+.recras-discounts {
+    padding-bottom: 0 !important;
+}
+.recras-discounts {
+    margin-top: 0;
+    padding-top: 0 !important;
+}
+.standard-attachments p {
+    margin-bottom: 0.5em;
+}
+
+
+.recras-onlinebooking button:not(:disabled) {
+    cursor: pointer;
+}
+.recras-onlinebooking button:disabled {
+    cursor: not-allowed;
+}
+.recras-price, .priceSubtotal {
+    text-align: right;
+}
+.recras-contactform-required::after {
+    color: hsl(140, 58%, 30%);
+    content: '*';
+    cursor: help;
+    margin-left: 0.125em;
+}
+.recras-product-dependency, .maximum-amount, .minimum-amount, .booking-error {
+    color: #a00;
+    display: block;
+}
+input[type].recras-input-invalid {
+    border-color: #a00;
+}
+
+@media (max-width: 640px) {
+    .recras-amountsform > div {
+        -ms-grid-columns: 1fr 7em;
+        grid-template-columns: 1fr 7em;
+    }
+    .recras-amountsform > div > div:first-child {
+        -ms-grid-column: 1;
+        -ms-grid-column-span: 2;
+        grid-column: 1 / 3;
+    }
+    .recras-contactform > div,
+    .recras-discounts > div {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Chrome/Safari Mac fixes */
+.recras-onlinebooking input[disabled] {
+    background: white !important;
+}
+.recras-onlinebooking select {
+    border-radius: 0;
+}
+
+
+/*** Book processes ***/
+#bookprocess, #bookprocess * {
+    box-sizing: border-box;
+}
+body {
+    max-width: 1400px;
+}
+
+label[for^='fixedtext_'] {
+    color: #444;
+}
+.recras-required > label[for^='choice_']:not(:empty)::after,
+.recras-required > label[for^='contact']:not(:empty)::after {
+    color: #444;
+}
+
+#bookprocess aside h2 {
+    background: hsl(140, 58%, 20%);
+    color: #fff;
+}
+
+#bookprocess :is(input, button, select, textarea) {
+    border-radius: 4px;
+}
+#bookprocess :is(input, select, textarea) {
+    background: #fff;
+    color: #000;
+}
+#bookprocess input[disabled] {
+    background: #ccc;
+}
+#bookprocess input:invalid:not([value='']) {
+    border: 2px solid #c00;
+}
+#bookprocess button {
+    background: #ddd;
+    border: 1px solid #bbb;
+    color: #000;
+    margin: 0.5em 0;
+    transition: all 0.2s linear;
+}
+#bookprocess button:active {
+    background: #eee;
+}
+@media (pointer: fine) {
+    #bookprocess button:hover {
+        background: #eee;
+    }
+}
+
+#bookprocess .primary {
+    background: hsl(140, 58%, 30%);
+    border-color: hsl(140, 58%, 30%);
+    color: #fff;
+}
+#bookprocess .primary:active {
+    background: hsl(120, 65%, 40%);
+    border-color: hsl(120, 65%, 40%);
+}
+@media (pointer: fine) {
+    #bookprocess .primary:hover {
+        background: hsl(120, 65%, 40%);
+        border-color: hsl(120, 65%, 40%);
+    }
+}
+
+.price-information {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.error {
+    background: hsl(0, 100%, 96%);
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    color: hsl(0, 100%, 33%);
+}
+
+#bookprocess table {
+    border-collapse: collapse;
+}
+
+#programma tbody tr + tr td,
+#factuurRegels tbody tr + tr td {
+    border-top: 1px dotted #dedede;
+}
+#programma thead th,
+#factuurRegels thead th {
+    border-bottom: 2px solid #ccc;
+    font-weight: bold;
+}
+#factuurRegels tbody:empty + tfoot #totaalFactuur th,
+#factuurRegels tbody:empty + tfoot #totaalFactuur td {
+    /* If the table is empty, hide the footer border because the header also has a 2px border */
+    border-top: 0;
+}
+#teBetalen {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+#teBetalen th,
+#teBetalen td {
+    border-top: 2px solid #ccc;
+}
+#totaalFactuur th,
+#totaalFactuur td {
+    border-top: 2px solid #ccc;
+}
+#totaalFactuur + tr:not(#teBetalen) {
+    color: #666;
+    font-style: italic;
+}
+
+
+.react-datepicker .react-datepicker__day--keyboard-selected {
+    background-color: transparent;
+    color: #000;
+}
+.react-datepicker .react-datepicker__day--selected {
+    background-color: hsl(140, 58%, 30%);
+    color: #fff;
+}
+.react-datepicker .react-datepicker__day--selected:hover {
+    background-color: hsl(120, 65%, 40%);
+}
+
+.recras-package .radioWrapper > label,
+.recras-product_without_time .checkboxWrapper > label {
+    background-color: hsl(140, 20%, 75%);
+    border-radius: 50%;
+}
+.recras-product_with_time .checkboxWrapper > label {
+    background-color: hsl(140, 20%, 75%);
+    border: 1px solid hsl(140, 20%, 75%);
+}
+@media (pointer: fine) {
+    .recras-package .radioWrapper > label:hover,
+    .recras-product_with_time .checkboxWrapper > label:hover {
+        background-color: hsl(120, 65%, 40%);
+        color: #fff;
+    }
+}
+
+.recras-package :checked + label,
+.recras-product_with_time > div > div :checked + label,
+.recras-product_without_time > div :checked + label {
+    background-color: hsl(140, 58%, 30%);
+    color: #fff;
+}
+@media (pointer: fine) {
+    .recras-package .radioWrapper > input + label:hover::after,
+    .recras-product_with_time .checkboxWrapper > input + label:hover::after,
+    .recras-product_without_time > div input + label:hover::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='%23fff' d='M368 224H224V80c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v144H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h144v144c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V288h144c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z'%3E%3C/path%3E%3C/svg%3E%0A");
+    }
+    .recras-package .radioWrapper > input:checked + label:hover::after,
+    .recras-product_with_time .checkboxWrapper > input:checked + label:hover::after,
+    .recras-product_without_time > div input:checked + label:hover::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath fill='%23fff' d='M368 224H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h352c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z'%3E%3C/path%3E%3C/svg%3E%0A");
+    }
+}
+
+.recras-product_with_time > div > div input:disabled + label,
+.recras-product_without_time > div input:disabled + label {
+    border-color: #aaa;
+    background-color: #aaa;
+}
+
+#bookprocess .numberWithPlusMinus input {
+    background-color: #fff;
+    border-color: hsl(140, 58%, 30%);
+    margin: 0;
+}
+#bookprocess .numberWithPlusMinus input:disabled {
+    background-color: #aaa;
+    border-color: #aaa;
+}
+#bookprocess .numberWithPlusMinus button {
+    background-color: hsl(140, 58%, 30%);
+    color: #fff;
+}
+.numberWithPlusMinus input[value=''],
+.numberWithPlusMinus input[value='0'] {
+    border-color: hsl(140, 20%, 75%);
+}
+.numberWithPlusMinus input[value=''] ~ button,
+.numberWithPlusMinus input[value='0'] ~ button {
+    background-color: hsl(140, 20%, 75%);
+    color: #000;
+}
+@media (pointer: fine) {
+    .numberWithPlusMinus button:hover {
+        background-color: hsl(
+                120,
+                65%,
+                40%
+        ) !important; /* Important to override styles for empty value */
+    }
+}
+
+.recras-product_with_time .numberWrapper.disabled {
+    color: #ccc;
+}
+.recras-product_without_time .numberWrapper.disabled {
+    background-color: #aaa;
+}
+.numberWrapper.disabled button {
+    background-color: #ccc !important; /* Important to overwrite [value=""] */
+    color: #888 !important; /* Important to overwrite [value=""] */
+}
+.numberWrapper.disabled input {
+    border-color: #ccc !important; /* Important to overwrite [value=""] */
+}
+.numberWrapper > input:invalid {
+    background-color: #e0adad;
+    border: 0;
+}
+.spinner {
+    border: 8px solid hsl(140, 58%, 30%);
+    border-top-color: hsl(140, 60%, 45%);
+}
+
+#recapEle dt {
+    color: #666;
+}
+
+input.discountInput[disabled] {
+    background: hsl(140, 20%, 75%);
+}
+.recras-discount button {
+    color: hsl(0, 58%, 58%);
+}

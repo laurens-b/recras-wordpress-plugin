@@ -210,6 +210,10 @@ class Settings
                 'name' => __('Basic theme', Plugin::TEXT_DOMAIN),
                 'version' => '3.4.3',
             ],
+            'bpgreen' => [
+                'name' => __('BP Green', Plugin::TEXT_DOMAIN),
+                'version' => '3.4.3',
+            ],
             'recrasblue' => [
                 'name' => __('Recras Blue', Plugin::TEXT_DOMAIN),
                 'version' => '3.4.3',
