@@ -66,6 +66,9 @@
 #bookprocess {
     max-width: 1400px;
 }
+#bookprocess, #bookprocess * {
+    box-sizing: border-box;
+}
 
 #bookprocess aside h2 {
     background: #000;
