@@ -94,6 +94,7 @@ class Bookprocess
             return __('Error: book process does not exist', Plugin::TEXT_DOMAIN);
         }
 
+        self::enqueueScripts($subdomain);
         return '<section id="bookprocess" data-id="' . $attributes['id'] . '" data-url="https://' . $subdomain . '.recras.nl">';
     }
 

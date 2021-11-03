@@ -263,19 +263,6 @@ class Plugin
         wp_enqueue_script('recrasjspolyfill', 'https://polyfill.io/v3/polyfill.min.js?features=default,fetch,Promise,Array.prototype.includes,RegExp.prototype.flags', [], null, false);
         wp_enqueue_script('recrasjslibrary', $this->baseUrl . '/js/onlinebooking.min.js', [], $this::LIBRARY_VERSION, false);
 
-        $subdomain = Settings::getSubdomain([]);
-        if ($subdomain) {
-            global $post;
-
-            if (is_a($post, 'WP_Post') && (
-                has_shortcode($post->post_content, $this::SHORTCODE_BOOK_PROCESS)
-                || (strpos($post->post_content, 'recras/bookprocess') !== false)
-            )) {
-                // Only load scripts if the book process shortcode is present
-                Bookprocess::enqueueScripts($subdomain);
-            }
-        }
-
         // Online booking theme
         $theme = get_option('recras_theme');
         if ($theme) {
