@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.6.4 (2021-11-03)
+* Fix book process not loading when using it from a widget or custom field
+
 ## 4.6.3 (2021-10-25)
 * Fix PHP 8.0 compatibility
 
