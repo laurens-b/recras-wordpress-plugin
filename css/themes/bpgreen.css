@@ -25,7 +25,7 @@
 }
 .recras-onlinebooking button:hover, .recras-onlinebooking button:active,
 .recras-buy-voucher button:hover, .recras-buy-voucher button:active {
-    background-color: hsl(120, 65%, 40%);
+    background-color: hsl(140, 60%, 45%);
 }
 .recras-onlinebooking button[type="submit"], .recras-buy-voucher button[type="submit"] {
     font-size: 1.2em;

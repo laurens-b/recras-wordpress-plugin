@@ -347,7 +347,7 @@ label[for^='fixedtext_'] {
 }
 .numberWithPlusMinus input[value=''],
 .numberWithPlusMinus input[value='0'] {
-    border-color: hsl(140, 20%, 75%);
+    border-color: hsl(205, 20%, 75%);
 }
 .numberWithPlusMinus input[value=''] ~ button,
 .numberWithPlusMinus input[value='0'] ~ button {
