@@ -105,10 +105,7 @@ class Vouchers
         global $recrasPlugin;
 
         $subdomain = get_option('recras_subdomain');
-        $error = $recrasPlugin->transients->delete($subdomain . '_voucher_templates');
-
-        header('Location: ' . admin_url('admin.php?page=' . Settings::PAGE_CACHE . '&msg=' . Plugin::getStatusMessage($error)));
-        exit;
+        return $recrasPlugin->transients->delete($subdomain . '_voucher_templates');
     }
 
 

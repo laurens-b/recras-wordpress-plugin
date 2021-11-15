@@ -138,10 +138,16 @@ class Plugin
 
     public static function clearCache()
     {
-        Arrangement::clearCache();
-        ContactForm::clearCache();
-        Products::clearCache();
-        Vouchers::clearCache();
+        $errors = 0;
+        $errors += Arrangement::clearCache();
+        $errors += Bookprocess::clearCache();
+        $errors += ContactForm::clearCache();
+        $errors += Products::clearCache();
+        $errors += Vouchers::clearCache();
+
+        $pageUrl = 'admin.php?page=' . Settings::PAGE_CACHE . '&msg=' . Plugin::getStatusMessage($errors);
+        header('Location: ' . admin_url($pageUrl));
+        exit;
     }
 
 

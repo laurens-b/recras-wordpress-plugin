@@ -4,6 +4,18 @@ namespace Recras;
 class Bookprocess
 {
     /**
+     * Clear book process cache (transients)
+     */
+    public static function clearCache()
+    {
+        global $recrasPlugin;
+
+        $subdomain = get_option('recras_subdomain');
+        return $recrasPlugin->transients->delete($subdomain . '_bookprocesses');
+    }
+
+
+    /**
      * @param string $subdomain
      */
     public static function enqueueScripts($subdomain)
