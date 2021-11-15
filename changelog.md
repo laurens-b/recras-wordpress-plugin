@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.6.5 (2021-11-15)
+* Clearing cache didn't delete book process cache - fixed
+
 ## 4.6.4 (2021-11-03)
 * Fix book process not loading when using it from a widget or custom field
 
