@@ -117,7 +117,7 @@ class Settings
         if (!current_user_can('edit_pages')) {
             wp_die(__('You do not have sufficient permissions to access this page.'));
         }
-        require_once('admin/cache.php');
+        require_once(__DIR__ . '/admin/cache.php');
     }
 
 
@@ -126,7 +126,7 @@ class Settings
         if (!current_user_can('edit_pages')) {
             wp_die(__('You do not have sufficient permissions to access this page.'));
         }
-        require_once('admin/documentation.php');
+        require_once(__DIR__ . '/admin/documentation.php');
     }
 
 
@@ -135,7 +135,7 @@ class Settings
         if (!current_user_can('edit_pages')) {
             wp_die(__('You do not have sufficient permissions to access this page.'));
         }
-        require_once('admin/shortcodes.php');
+        require_once(__DIR__ . '/admin/shortcodes.php');
     }
 
 
@@ -147,7 +147,7 @@ class Settings
         if (!current_user_can('manage_options')) {
             wp_die(__('You do not have sufficient permissions to access this page.'));
         }
-        require_once('admin/settings.php');
+        require_once(__DIR__ . '/admin/settings.php');
     }
 
 

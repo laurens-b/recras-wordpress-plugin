@@ -79,6 +79,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 
 == Changelog ==
 
+= Unreleased =
+* Fix "Class not found" error when using Composer in a theme
+
 = 4.6.5 =
 * Clearing cache didn't delete book process cache - fixed
 

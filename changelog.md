@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Fix "Class not found" error when using Composer in a theme
+
 ## 4.6.5 (2021-11-15)
 * Clearing cache didn't delete book process cache - fixed
 

@@ -22,5 +22,5 @@ if (!function_exists('add_action')) {
     die('You cannot run this file directly.');
 }
 
-require_once('vendor/autoload.php');
+require_once(__DIR__ . '/vendor/autoload.php');
 $recrasPlugin = new \Recras\Plugin;
