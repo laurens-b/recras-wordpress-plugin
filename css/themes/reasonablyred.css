@@ -13,19 +13,19 @@
 .recras-onlinebooking input:not([type="checkbox"]):not([type="radio"]), .recras-onlinebooking select, .recras-onlinebooking textarea,
 .recras-buy-voucher input:not([type="checkbox"]):not([type="radio"]), .recras-buy-voucher select, .recras-buy-voucher textarea {
     background: #fff;
-    border: 1px solid hsl(205, 63%, 56%);
+    border: 1px solid hsl(5, 63%, 56%);
     width: 100%;
 }
 .recras-onlinebooking button,
 .recras-buy-voucher button {
-    background: hsl(205, 63%, 56%);
-    border: 1px solid hsl(205, 63%, 56%);
+    background: hsl(5, 63%, 56%);
+    border: 1px solid hsl(5, 63%, 56%);
     color: white;
     text-transform: uppercase;
 }
 .recras-onlinebooking button:hover, .recras-onlinebooking button:active,
 .recras-buy-voucher button:hover, .recras-buy-voucher button:active {
-    background-color: hsl(205, 63%, 68%);
+    background-color: hsl(5, 63%, 68%);
 }
 .recras-onlinebooking button[type="submit"], .recras-buy-voucher button[type="submit"] {
     font-size: 1.2em;
@@ -34,7 +34,7 @@
 }
 
 .recras-onlinebooking h3 {
-    background: hsl(205, 63%, 56%);
+    background: hsl(5, 63%, 56%);
     color: white;
     font-size: 1.5em;
     font-weight: 400;
@@ -124,7 +124,7 @@ p:empty {
     text-align: right;
 }
 .recras-contactform-required::after {
-    color: hsl(205, 63%, 56%);
+    color: hsl(5, 63%, 56%);
     content: '*';
     cursor: help;
     margin-left: 0.125em;
@@ -181,7 +181,7 @@ label[for^='fixedtext_'] {
 }
 
 #bookprocess aside h2 {
-    background: hsl(205, 58%, 20%);
+    background: hsl(5, 58%, 20%);
     color: #fff;
 }
 
@@ -215,18 +215,18 @@ label[for^='fixedtext_'] {
 }
 
 #bookprocess .primary {
-    background: hsl(205, 63%, 56%);
-    border-color: hsl(205, 63%, 56%);
+    background: hsl(5, 63%, 56%);
+    border-color: hsl(5, 63%, 56%);
     color: #fff;
 }
 #bookprocess .primary:active {
-    background: hsl(205, 50%, 40%);
-    border-color: hsl(205, 50%, 40%);
+    background: hsl(5, 50%, 40%);
+    border-color: hsl(5, 50%, 40%);
 }
 @media (pointer: fine) {
     #bookprocess .primary:hover {
-        background: hsl(205, 50%, 40%);
-        border-color: hsl(205, 50%, 40%);
+        background: hsl(5, 50%, 40%);
+        border-color: hsl(5, 50%, 40%);
     }
 }
 
@@ -283,26 +283,26 @@ label[for^='fixedtext_'] {
     color: #000;
 }
 .react-datepicker .react-datepicker__day--selected {
-    background-color: hsl(205, 63%, 56%);
+    background-color: hsl(5, 63%, 56%);
     color: #fff;
 }
 .react-datepicker .react-datepicker__day--selected:hover {
-    background-color: hsl(205, 50%, 40%);
+    background-color: hsl(5, 50%, 40%);
 }
 
 .recras-package .radioWrapper > label,
 .recras-product_without_time .checkboxWrapper > label {
-    background-color: hsl(205, 30%, 75%);
+    background-color: hsl(5, 30%, 75%);
     border-radius: 50%;
 }
 .recras-product_with_time .checkboxWrapper > label {
-    background-color: hsl(205, 30%, 75%);
-    border: 1px solid hsl(205, 30%, 75%);
+    background-color: hsl(5, 30%, 75%);
+    border: 1px solid hsl(5, 30%, 75%);
 }
 @media (pointer: fine) {
     .recras-package .radioWrapper > label:hover,
     .recras-product_with_time .checkboxWrapper > label:hover {
-        background-color: hsl(205, 50%, 40%);
+        background-color: hsl(5, 50%, 40%);
         color: #fff;
     }
 }
@@ -310,7 +310,7 @@ label[for^='fixedtext_'] {
 .recras-package :checked + label,
 .recras-product_with_time > div > div :checked + label,
 .recras-product_without_time > div :checked + label {
-    background-color: hsl(205, 63%, 56%);
+    background-color: hsl(5, 63%, 56%);
     color: #fff;
 }
 @media (pointer: fine) {
@@ -334,7 +334,7 @@ label[for^='fixedtext_'] {
 
 #bookprocess .numberWithPlusMinus input {
     background-color: #fff;
-    border-color: hsl(205, 63%, 56%);
+    border-color: hsl(5, 63%, 56%);
     margin: 0;
 }
 #bookprocess .numberWithPlusMinus input:disabled {
@@ -342,16 +342,16 @@ label[for^='fixedtext_'] {
     border-color: #aaa;
 }
 #bookprocess .numberWithPlusMinus button {
-    background-color: hsl(205, 63%, 56%);
+    background-color: hsl(5, 63%, 56%);
     color: #fff;
 }
 .numberWithPlusMinus input[value=''],
 .numberWithPlusMinus input[value='0'] {
-    border-color: hsl(205, 20%, 75%);
+    border-color: hsl(5, 20%, 75%);
 }
 .numberWithPlusMinus input[value=''] ~ button,
 .numberWithPlusMinus input[value='0'] ~ button {
-    background-color: hsl(205, 30%, 75%);
+    background-color: hsl(5, 30%, 75%);
     color: #000;
 }
 @media (pointer: fine) {
@@ -382,8 +382,8 @@ label[for^='fixedtext_'] {
     border: 0;
 }
 .spinner {
-    border: 8px solid hsl(205, 63%, 56%);
-    border-top-color: hsl(205, 60%, 45%);
+    border: 8px solid hsl(5, 63%, 56%);
+    border-top-color: hsl(5, 60%, 45%);
 }
 
 #recapEle dt {
@@ -391,7 +391,7 @@ label[for^='fixedtext_'] {
 }
 
 input.discountInput[disabled] {
-    background: hsl(205, 30%, 75%);
+    background: hsl(5, 30%, 75%);
 }
 .recras-discount button {
     color: hsl(0, 58%, 58%);
