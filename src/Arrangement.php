@@ -33,6 +33,9 @@ class Arrangement
         }
 
         $json = self::getPackage($subdomain, $attributes['id']);
+        if (isset($json->error, $json->message)) {
+            return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $json->message);
+        }
 
         switch ($showProperty) {
             case 'description':

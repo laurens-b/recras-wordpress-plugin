@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.7.1 (2021-12-03)
+* Fix page crashing when trying to show the duration of a package that does not exist
+
 ## 4.7.0 (2021-11-29)
 * Fix "Class not found" error when using Composer in a theme
 * Update themes for use in book processes and add two new themes
