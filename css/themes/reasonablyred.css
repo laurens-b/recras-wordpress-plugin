@@ -289,6 +289,9 @@ label[for^='fixedtext_'] {
 .react-datepicker .react-datepicker__day--selected:hover {
     background-color: hsl(5, 50%, 40%);
 }
+.react-datepicker__day--today::after {
+    border-color: hsl(5, 63%, 56%);
+}
 
 .recras-package .radioWrapper > label,
 .recras-product_without_time .checkboxWrapper > label {
