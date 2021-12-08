@@ -113,6 +113,19 @@ class Arrangement
         return $json->arrangement;
     }
 
+    private static function latestTime($programme)
+    {
+        $last = ''; // begin and end are YYYY-MM-DD H:i:s strings, so we can safely compare them
+        foreach ($programme as $activity) {
+            if ($activity->begin) {
+                $last = ($activity->begin > $last) ? $activity->begin : $last;
+            }
+            if ($activity->eind) {
+                $last = ($activity->eind > $last) ? $activity->eind : $last;
+            }
+        }
+        return $last;
+    }
 
     /**
      * Generate the programme for an arrangement
@@ -134,14 +147,18 @@ class Arrangement
         }
 
         $first = reset($programme);
-        $last = end($programme);
+        $last = self::latestTime($programme);
 
         // Calculate how many days this programme spans - begin and eind are ISO8601 periods/intervals
         $startDatetime = new \DateTime($startTime);
         $startDatetime->add(new \DateInterval($first->begin));
-        $endDatetime = new \DateTime($startTime);
-        $endDatetime->add(new \DateInterval($last->eind));
-        $isMultiDay = ($endDatetime->format('Ymd') > $startDatetime->format('Ymd'));
+
+        $isMultiDay = false;
+        if ($last) {
+            $endDatetime = new \DateTime($startTime);
+            $endDatetime->add(new \DateInterval($last));
+            $isMultiDay = ($endDatetime->format('Ymd') > $startDatetime->format('Ymd'));
+        }
 
         $html .= '<tbody>';
         $lastDate = null;
@@ -154,7 +171,6 @@ class Arrangement
             $startDate = new \DateTime($startTime);
             $endDate = new \DateTime($startTime);
             $timeBegin = new \DateInterval($activity->begin);
-            $timeEnd = new \DateInterval($activity->eind);
             $lineDate = $startDate->add($timeBegin);
             $startFormatted = $lineDate->format('H:i');
             if ($isMultiDay && (is_null($lastDate) || $lineDate > $lastDate)) {
@@ -163,7 +179,11 @@ class Arrangement
             }
 
             $html .= '<tr><td>' . $startFormatted;
-            $html .= '<td>' . $endDate->add($timeEnd)->format('H:i');
+            $html .= '<td>';
+            if ($activity->eind) {
+                $timeEnd = new \DateInterval($activity->eind);
+                $html .= $endDate->add($timeEnd)->format('H:i');
+            }
             $html .= '<td>' . $activity->omschrijving;
             $lastDate = $lineDate;
         }
