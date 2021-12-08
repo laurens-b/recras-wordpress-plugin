@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.7.2 (2021-12-08)
+* Fix page crashing when trying to show the programme of a multi-day package where the last line has no end time
+* Small styling update for book process calendar
+
 ## 4.7.1 (2021-12-03)
 * Fix page crashing when trying to show the duration of a package that does not exist
 
