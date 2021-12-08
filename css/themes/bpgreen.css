@@ -168,7 +168,7 @@ input[type].recras-input-invalid {
 #bookprocess, #bookprocess * {
     box-sizing: border-box;
 }
-body {
+#bookprocess {
     max-width: 1400px;
 }
 

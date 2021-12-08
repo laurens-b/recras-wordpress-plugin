@@ -212,15 +212,15 @@ class Settings
             ],
             'bpgreen' => [
                 'name' => __('BP Green', Plugin::TEXT_DOMAIN),
-                'version' => '4.7.2',
+                'version' => '4.7.3',
             ],
             'reasonablyred' => [
                 'name' => __('Reasonably Red', Plugin::TEXT_DOMAIN),
-                'version' => '4.7.2',
+                'version' => '4.7.3',
             ],
             'recrasblue' => [
                 'name' => __('Recras Blue', Plugin::TEXT_DOMAIN),
-                'version' => '4.7.2',
+                'version' => '4.7.3',
             ],
         ];
     }
