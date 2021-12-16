@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.7.4 (2021-12-08)
+* Seamless online booking integration: change value of "BuyInProgress" events from package/template ID (bookings/vouchers, respectively) to total price
+
 ## 4.7.3 (2021-12-08)
 * Fix wrong page width when using an online booking theme
 
