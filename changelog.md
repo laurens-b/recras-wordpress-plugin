@@ -1,6 +1,9 @@
 # Changelog
 
-## 4.7.4 (2021-12-08)
+## 4.7.5 (2021-12-17)
+* Fix page crashing when trying to show the duration of a package where the last line has no end time
+* 
+## 4.7.4 (2021-12-16)
 * Seamless online booking integration: change value of "BuyInProgress" events from package/template ID (bookings/vouchers, respectively) to total price
 
 ## 4.7.3 (2021-12-08)

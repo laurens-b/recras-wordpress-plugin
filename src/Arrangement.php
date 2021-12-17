@@ -1,7 +1,6 @@
 <?php
 namespace Recras;
 
-
 class Arrangement
 {
     const SHOW_DEFAULT = 'title';
@@ -275,14 +274,18 @@ class Arrangement
         }
 
         $first = reset($json->programma);
-        $last = end($json->programma);
+        $last = self::latestTime($json->programma);
 
         $startTime = new \DateTime('00:00');
         $startTime->add(new \DateInterval($first->begin));
 
-        $endTime = new \DateTime('00:00');
-        $endTime->add(new \DateInterval($first->begin));
-        $endTime->add(new \DateInterval($last->eind));
+        if ($last) {
+            $endTime = new \DateTime('00:00');
+            $endTime->add(new \DateInterval($first->begin));
+            $endTime->add(new \DateInterval($last));
+        } else {
+            $endTime = $startTime;
+        }
         $duration = $startTime->diff($endTime);
 
         $html  = '<span class="recras-duration">';
