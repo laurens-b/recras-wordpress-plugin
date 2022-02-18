@@ -69,7 +69,7 @@ class ContactFormTest extends WordPressUnitTestCase
 
     function testGetForms()
     {
-        $plugin = new ContactForm;
+        $plugin = new ContactForm();
         $forms = $plugin->getForms('demo');
         $this->assertGreaterThan(0, count($forms), 'getForms should return a non-empty array');
     }

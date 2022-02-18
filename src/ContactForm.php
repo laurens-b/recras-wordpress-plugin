@@ -248,7 +248,7 @@ class ContactForm
                     // It is possible that a package was valid for this contact form in the past, but not in the present.
                     // So we show only arrangements that are valid for this form.
                     if (empty($arrangementen)) {
-                        $classArrangement = new Arrangement;
+                        $classArrangement = new Arrangement();
                         $arrangementen = $classArrangement->getArrangementsForContactForm($options['subdomain'], $formID);
                     }
 

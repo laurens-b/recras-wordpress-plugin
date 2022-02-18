@@ -120,14 +120,14 @@ class ArrangementTest extends WordPressUnitTestCase
 
     function testGetArrangements()
     {
-        $plugin = new Arrangement;
+        $plugin = new Arrangement();
         $arrangements = $plugin->getArrangements('demo');
         $this->assertGreaterThan(0, count($arrangements), 'getArrangements should return a non-empty array');
     }
 
     function testGetOnlineArrangements()
     {
-        $plugin = new Arrangement;
+        $plugin = new Arrangement();
         $packages = $plugin->getArrangements('demo', true, false);
         $this->assertTrue(is_array($packages));
         $packagesOnline = array_filter($packages, function($p) {
@@ -138,14 +138,14 @@ class ArrangementTest extends WordPressUnitTestCase
 
     function testGetFormArrangementsInvalidForm()
     {
-        $plugin = new Arrangement;
+        $plugin = new Arrangement();
         $arrangements = $plugin->getArrangementsForContactForm('demo', 1337);
         $this->assertTrue(is_string($arrangements), 'Non-existing contact form should return an error message');
     }
 
     function testGetFormArrangements()
     {
-        $plugin = new Arrangement;
+        $plugin = new Arrangement();
         $arrangements = $plugin->getArrangementsForContactForm('demo', 1);
         $this->assertGreaterThan(0, count($arrangements), 'Existing contact form should return a non-empty array');
     }

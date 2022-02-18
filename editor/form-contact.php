@@ -5,10 +5,10 @@ if (!$subdomain) {
     return;
 }
 
-$model = new \Recras\Arrangement;
+$model = new \Recras\Arrangement();
 $arrangements = $model->getArrangements($subdomain);
 
-$model = new \Recras\ContactForm;
+$model = new \Recras\ContactForm();
 $forms = $model->getForms($subdomain);
 ?>
 <dl>

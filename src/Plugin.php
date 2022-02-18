@@ -20,7 +20,7 @@ class Plugin
     public function __construct()
     {
         $this->setBaseUrl();
-        $this->transients = new Transient;
+        $this->transients = new Transient();
 
         // Init Localisation
         load_default_textdomain();

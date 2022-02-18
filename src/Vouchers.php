@@ -19,7 +19,7 @@ class Vouchers
             return Plugin::getNoSubdomainError();
         }
 
-        $model = new self;
+        $model = new Vouchers();
         $templates = $model->getTemplates($subdomain);
 
         if (!isset($templates[$attributes['id']])) {

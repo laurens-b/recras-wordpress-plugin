@@ -132,25 +132,25 @@ class Gutenberg
 
     public static function getContactForms()
     {
-        $model = new ContactForm;
+        $model = new ContactForm();
         return $model->getForms(get_option('recras_subdomain'));
     }
 
     public static function getPackages()
     {
-        $model = new Arrangement;
+        $model = new Arrangement();
         return $model->getArrangements(get_option('recras_subdomain'), false, false);
     }
 
     public static function getProducts()
     {
-        $model = new Products;
+        $model = new Products();
         return $model->getProducts(get_option('recras_subdomain'));
     }
 
     public static function getVouchers()
     {
-        $model = new Vouchers;
+        $model = new Vouchers();
         return $model->getTemplates(get_option('recras_subdomain'));
     }
 }

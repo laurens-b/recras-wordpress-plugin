@@ -5,7 +5,7 @@ if (!$subdomain) {
     return;
 }
 
-$model = new \Recras\Arrangement;
+$model = new \Recras\Arrangement();
 $arrangements = $model->getArrangements($subdomain);
 ?>
 

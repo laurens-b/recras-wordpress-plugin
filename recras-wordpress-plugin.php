@@ -23,4 +23,4 @@ if (!function_exists('add_action')) {
 }
 
 require_once(__DIR__ . '/vendor/autoload.php');
-$recrasPlugin = new \Recras\Plugin;
+$recrasPlugin = new \Recras\Plugin();

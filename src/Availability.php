@@ -29,7 +29,7 @@ class Availability
 
 
         // We don't need this data, but it's useful to check if the package actually exists
-        $packageModel = new Arrangement;
+        $packageModel = new Arrangement();
         $packageModel->getPackage($subdomain, $attributes['id']);
 
 

@@ -5,7 +5,7 @@ if (!$subdomain) {
     return;
 }
 
-$model = new \Recras\Vouchers;
+$model = new \Recras\Vouchers();
 $templates = $model->getTemplates($subdomain);
 ?>
 

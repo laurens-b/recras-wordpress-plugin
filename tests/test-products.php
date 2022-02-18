@@ -29,7 +29,7 @@ class ProductsTest extends WordPressUnitTestCase
 
     function testGetProducts()
     {
-        $plugin = new Products;
+        $plugin = new Products();
         $products = $plugin::getProducts('demo');
         $this->assertGreaterThan(0, count($products), 'getProducts should return a non-empty array');
     }

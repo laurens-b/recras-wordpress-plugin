@@ -5,7 +5,7 @@ if (!$subdomain) {
     return;
 }
 
-$model = new \Recras\Products;
+$model = new \Recras\Products();
 $products = $model->getProducts($subdomain);
 ?>
 
