@@ -5,12 +5,8 @@ class Price
 {
     /**
      * Format a price
-     *
-     * @param float $price
-     *
-     * @return string
      */
-    public static function format($price)
+    public static function format(float $price): string
     {
         $currency = get_option('recras_currency');
         $decimalSeparator = get_option('recras_decimal');

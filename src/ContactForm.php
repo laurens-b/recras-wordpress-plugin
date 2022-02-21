@@ -23,12 +23,9 @@ class ContactForm
     /**
      * Get a single contact form
      *
-     * @param string $subdomain
-     * @param int $id
-     *
      * @return object|string
      */
-    public static function getForm($subdomain, $id)
+    public static function getForm(string $subdomain, int $id)
     {
         global $recrasPlugin;
 
@@ -49,12 +46,8 @@ class ContactForm
 
     /**
      * Add the [recras-contact] shortcode
-     *
-     * @param array $attributes
-     *
-     * @return string
      */
-    public static function renderContactForm($attributes)
+    public static function renderContactForm(array $attributes): string
     {
         if (!isset($attributes['id'])) {
             return __('Error: no ID set', Plugin::TEXT_DOMAIN);
@@ -141,7 +134,7 @@ class ContactForm
     /**
      * Clear contact form cache (transients)
      */
-    public static function clearCache()
+    public static function clearCache(): int
     {
         global $recrasPlugin;
 
@@ -162,13 +155,8 @@ class ContactForm
 
     /**
      * Delete transients belonging to a contact form
-     *
-     * @param string $subdomain
-     * @param int $formID
-     *
-     * @return int
      */
-    private static function deleteTransients($subdomain, $formID)
+    private static function deleteTransients(string $subdomain, int $formID): int
     {
         global $recrasPlugin;
 
@@ -185,13 +173,8 @@ class ContactForm
 
     /**
      * Generate a group of checkboxes
-     *
-     * @param object $field
-     * @param array $options
-     *
-     * @return string
      */
-    public static function generateChoices($field, $options)
+    public static function generateChoices(\stdClass $field, array $options): string
     {
         $html = '';
         foreach ($options as $value => $name) {
@@ -204,12 +187,8 @@ class ContactForm
 
     /**
      * Generate an HTML end tag
-     *
-     * @param string $element
-     *
-     * @return string
      */
-    private static function generateEndTag($element)
+    private static function generateEndTag(string $element): string
     {
         return '</' . $element . '>';
     }
@@ -217,14 +196,8 @@ class ContactForm
 
     /**
      * Generate a contact form
-     *
-     * @param int $formID
-     * @param array $formFields
-     * @param array $options
-     *
-     * @return string
      */
-    public static function generateForm($formID, $formFields, $options)
+    public static function generateForm(int $formID, array $formFields, array $options): string
     {
         global $recrasPlugin;
         $arrangementen = [];
@@ -253,7 +226,7 @@ class ContactForm
                     // So we show only arrangements that are valid for this form.
                     if (empty($arrangementen)) {
                         $classArrangement = new Arrangement();
-                        $arrangementen = $classArrangement->getArrangementsForContactForm($options['subdomain'], $formID);
+                        $arrangementen = $classArrangement->getPackagesForContactForm($options['subdomain'], $formID);
                     }
 
                     if (isset($options['arrangement']) && isset($arrangementen[$options['arrangement']]) && $options['arrangement'] !== 0) {
@@ -491,13 +464,8 @@ class ContactForm
 
     /**
      * Generate an input field
-     *
-     * @param object $field
-     * @param array $options
-     *
-     * @return string
      */
-    private static function generateInput($field, $options = [])
+    private static function generateInput(\stdClass $field, array $options = []): string
     {
         $options = array_merge([
             'class' => false,
@@ -522,16 +490,7 @@ class ContactForm
         return '<input id="field' . $field->id . '" type="' . $options['type'] . '" name="' . $field->field_identifier . '" value="' . $options['value'] . '"' . $required . $class . $placeholder . $pattern . $raw . '>';
     }
 
-
-    /**
-     * Generate a label element
-     *
-     * @param string $mainElement
-     * @param object $field
-     *
-     * @return string
-     */
-    private static function generateLabel($mainElement, $field)
+    private static function generateLabel(string $mainElement, \stdClass $field): string
     {
         $html = '';
         switch ($mainElement) {
@@ -558,14 +517,8 @@ class ContactForm
 
     /**
      * Generate a set of radio buttons
-     *
-     * @param object $field
-     * @param array $selectItems
-     * @param array $options
-     *
-     * @return string
      */
-    public static function generateRadio($field, $selectItems, $options = [])
+    public static function generateRadio(\stdClass $field, array $selectItems, array $options = []): string
     {
         $html = '';
         $required = ($field->verplicht ? ' required' : '');
@@ -588,14 +541,8 @@ class ContactForm
 
     /**
      * Generate a dropdown field
-     *
-     * @param object $field
-     * @param array $selectItems
-     * @param array $options
-     *
-     * @return string
      */
-    public static function generateSelect($field, $selectItems, $options = [])
+    public static function generateSelect(\stdClass $field, array $selectItems, array $options = []): string
     {
         $html  = '<select id="field' . $field->id . '" name="' . $field->field_identifier . '"' . ($field->verplicht ? ' required' : '') . '>';
         $html .= self::getSelectPlaceholder($field, $options);
@@ -614,14 +561,8 @@ class ContactForm
 
     /**
      * Generate a dropdown field or radio buttons, depending on the element of choice
-     *
-     * @param object $field
-     * @param array $selectItems
-     * @param array $options
-     *
-     * @return string
      */
-    public static function generateSingleChoice($field, $selectItems, $options = [])
+    public static function generateSingleChoice(\stdClass $field, array $selectItems, array $options = []): string
     {
         if (isset($options['element']) && $options['element'] === 'radio') {
             unset($selectItems[0]);
@@ -634,12 +575,8 @@ class ContactForm
 
     /**
      * Generate an HTML start tag
-     *
-     * @param string $element
-     *
-     * @return string
      */
-    private static function generateStartTag($element)
+    private static function generateStartTag(string $element): string
     {
         return '<' . $element . '>';
     }
@@ -647,12 +584,8 @@ class ContactForm
 
     /**
      * Generate the element between label and input
-     *
-     * @param string $mainElement
-     *
-     * @return string
      */
-    private static function generateSubTag($mainElement)
+    private static function generateSubTag(string $mainElement): string
     {
         $html = '';
         switch ($mainElement) {
@@ -672,27 +605,24 @@ class ContactForm
 
     /**
      * Generate a textarea
-     *
-     * @param object $field
-     * @param array $options
-     *
-     * @return string
      */
-    private static function generateTextarea($field, $options)
+    private static function generateTextarea(\stdClass $field, array $options): string
     {
         $placeholder = self::getPlaceholder($field, $options);
-        return '<textarea id="field' . $field->id . '" name="' . $field->field_identifier . '"' . $placeholder . ($field->verplicht ? ' required' : '') . '></textarea>';
+        return '<textarea id="field' . $field->id . '"' .
+            'name="' . $field->field_identifier . '"' .
+            $placeholder .
+            ($field->verplicht ? ' required' : '') .
+            '></textarea>';
     }
 
 
     /**
      * Get forms for a Recras instance
      *
-     * @param string $subdomain
-     *
      * @return array|string
      */
-    public static function getForms($subdomain)
+    public static function getForms(string $subdomain)
     {
         global $recrasPlugin;
 
@@ -716,13 +646,8 @@ class ContactForm
 
     /**
      * Get the placeholder for a field
-     *
-     * @param object $field
-     * @param array $options
-     *
-     * @return string
      */
-    private static function getPlaceholder($field, $options)
+    private static function getPlaceholder(\stdClass $field, array $options): string
     {
         if (is_string($options['placeholder'])) {
             $txt = $options['placeholder'];
@@ -738,7 +663,7 @@ class ContactForm
     }
 
 
-    private static function getSelectPlaceholder($field, $options)
+    private static function getSelectPlaceholder(\stdClass $field, array $options): string
     {
         $placeholder = '';
         if (isset($options['placeholder']) && $options['placeholder']) {
@@ -758,10 +683,8 @@ class ContactForm
 
     /**
      * Get a list of all valid container elements
-     *
-     * @return array
      */
-    public static function getValidElements()
+    public static function getValidElements(): array
     {
         return ['dl', 'table', 'ol'];
     }
@@ -769,10 +692,8 @@ class ContactForm
 
     /**
      * Get a list of all valid single choice elements
-     *
-     * @return array
      */
-    public static function getValidSingleChoiceElements()
+    public static function getValidSingleChoiceElements(): array
     {
         return ['select', 'radio'];
     }

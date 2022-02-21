@@ -139,14 +139,14 @@ class ArrangementTest extends WordPressUnitTestCase
     function testGetFormArrangementsInvalidForm()
     {
         $plugin = new Arrangement();
-        $arrangements = $plugin->getArrangementsForContactForm('demo', 1337);
+        $arrangements = $plugin->getPackagesForContactForm('demo', 1337);
         $this->assertTrue(is_string($arrangements), 'Non-existing contact form should return an error message');
     }
 
     function testGetFormArrangements()
     {
         $plugin = new Arrangement();
-        $arrangements = $plugin->getArrangementsForContactForm('demo', 1);
+        $arrangements = $plugin->getPackagesForContactForm('demo', 1);
         $this->assertGreaterThan(0, count($arrangements), 'Existing contact form should return a non-empty array');
     }
 

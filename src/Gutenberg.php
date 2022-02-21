@@ -23,9 +23,7 @@ class Gutenberg
             self::GUTENBERG_SCRIPT_VERSION,
             true
         );
-        if (function_exists('wp_set_script_translations')) {
-            wp_set_script_translations($globalScriptName, Plugin::TEXT_DOMAIN, plugin_dir_path(__DIR__) . 'lang');
-        }
+        wp_set_script_translations($globalScriptName, Plugin::TEXT_DOMAIN, plugin_dir_path(__DIR__) . 'lang');
         wp_localize_script($globalScriptName, 'recrasOptions', [
             'settingsPage' => admin_url('admin.php?page=' . Settings::OPTION_PAGE),
             'subdomain' => get_option('recras_subdomain'),
@@ -91,7 +89,7 @@ class Gutenberg
         }
     }
 
-    public static function addCategory($categories)
+    public static function addCategory(array $categories): array
     {
         $categories[] = [
             'slug' => 'recras',

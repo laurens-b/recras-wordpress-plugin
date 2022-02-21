@@ -10,7 +10,7 @@ class Settings
     const PAGE_SHORTCODES = 'recras-shortcodes';
 
 
-    public static function addInputAnalytics($args)
+    public static function addInputAnalytics(array $args)
     {
         self::addInputCheckbox($args);
         self::infoText(__('Enabling this will send online booking and voucher sales events to Google Analytics.', Plugin::TEXT_DOMAIN));
@@ -19,10 +19,8 @@ class Settings
 
     /**
      * Add a currency input field
-     *
-     * @param array $args
      */
-    public static function addInputCurrency($args)
+    public static function addInputCurrency(array $args)
     {
         $field = $args['field'];
         $value = get_option($field);
@@ -36,10 +34,8 @@ class Settings
 
     /**
      * Add a checkbox option
-     *
-     * @param array $args
      */
-    public static function addInputCheckbox($args)
+    public static function addInputCheckbox(array $args)
     {
         $field = $args['field'];
         $value = get_option($field);
@@ -47,7 +43,7 @@ class Settings
         printf('<input type="checkbox" name="%s" id="%s" value="1"%s>', $field, $field, ($value ? ' checked' : ''));
     }
 
-    public static function addInputDatepicker($args)
+    public static function addInputDatepicker(array $args)
     {
         self::addInputCheckbox($args);
         self::infoText(__('Not all browsers have a built-in date picker. Enable this to use a custom widget.', Plugin::TEXT_DOMAIN));
@@ -56,10 +52,8 @@ class Settings
 
     /**
      * Add a decimal separator input field
-     *
-     * @param array $args
      */
-    public static function addInputDecimal($args)
+    public static function addInputDecimal(array $args)
     {
         $field = $args['field'];
         $value = get_option($field);
@@ -74,10 +68,8 @@ class Settings
 
     /**
      * Add a subdomain input field
-     *
-     * @param array $args
      */
-    public static function addInputSubdomain($args)
+    public static function addInputSubdomain(array $args)
     {
         $field = $args['field'];
         $value = get_option($field);
@@ -89,7 +81,7 @@ class Settings
     }
 
 
-    public static function addInputTheme($args)
+    public static function addInputTheme(array $args)
     {
         $themes = self::getThemes();
 
@@ -164,10 +156,8 @@ class Settings
 
     /**
      * This returns a valid locale, based on the locale set for WordPress, to use in "external" Recras scripts
-     *
-     * @return string
      */
-    public static function externalLocale()
+    public static function externalLocale(): string
     {
         $localeShort = substr(get_locale(), 0, 2);
         switch ($localeShort) {
@@ -184,22 +174,17 @@ class Settings
 
     /**
      * Get the Recras subdomain, which can be set in the shortcode attributes or as global setting
-     *
-     * @param array $attributes
-     *
-     * @return string
      */
-    public static function getSubdomain($attributes)
+    public static function getSubdomain(array $attributes): string
     {
         if (isset($attributes['recrasname'])) {
             return $attributes['recrasname'];
-        } else {
-            return get_option('recras_subdomain');
         }
+        return get_option('recras_subdomain');
     }
 
 
-    public static function getThemes()
+    public static function getThemes(): array
     {
         return [
             'none' => [
@@ -234,12 +219,8 @@ class Settings
 
     /**
      * Parse a boolean value
-     *
-     * @param string $value
-     *
-     * @return bool
      */
-    public static function parseBoolean($value)
+    public static function parseBoolean(string $value): bool
     {
         $bool = true;
         if (isset($value) && ($value == 'false' || $value == 0 || $value == 'no')) {
@@ -248,7 +229,7 @@ class Settings
         return $bool;
     }
 
-    private static function registerSetting($name, $default, $type = 'string', $sanitizeCallback = null)
+    private static function registerSetting(string $name, $default, string $type = 'string', callable $sanitizeCallback = null)
     {
         $options = [
             'default' => $default,
@@ -260,7 +241,7 @@ class Settings
         register_setting('recras', $name, $options);
     }
 
-    private static function addField($name, $title, $inputFn)
+    private static function addField(string $name, string $title, callable $inputFn)
     {
         add_settings_field($name, $title, $inputFn, self::OPTION_PAGE, self::OPTION_SECTION, [
             'field' => $name,
@@ -305,11 +286,9 @@ class Settings
     /**
      * Sanitize user inputted subdomain
      *
-     * @param string $subdomain
-     *
      * @return bool|string
      */
-    public static function sanitizeSubdomain($subdomain)
+    public static function sanitizeSubdomain(string $subdomain)
     {
         // RFC 1034 section 3.5 - http://tools.ietf.org/html/rfc1034#section-3.5
         if (strlen($subdomain) > 63) {

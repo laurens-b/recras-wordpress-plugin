@@ -7,12 +7,8 @@ class Arrangement
 
     /**
      * Add the [recras-package] shortcode
-     *
-     * @param array $attributes
-     *
-     * @return string
      */
-    public static function renderPackage($attributes)
+    public static function renderPackage(array $attributes): string
     {
         if (!isset($attributes['id'])) {
             return __('Error: no ID set', Plugin::TEXT_DOMAIN);
@@ -38,7 +34,6 @@ class Arrangement
 
         switch ($showProperty) {
             case 'description':
-                //Notice: Undefined property: stdClass::$uitgebreide_omschrijving in /home/sander/src/recras-wordpress-plugin/src/Arrangement.php on line 39
                 return $json->uitgebreide_omschrijving;
             case 'duration':
                 return self::getDuration($json);
@@ -85,17 +80,17 @@ class Arrangement
 
 
     /**
-     * Clear arrangement cache (transients)
+     * Clear package cache (transients)
      */
-    public static function clearCache()
+    public static function clearCache(): int
     {
         global $recrasPlugin;
 
         $subdomain = get_option('recras_subdomain');
         $errors = 0;
 
-        $arrangements = array_keys(self::getPackages($subdomain));
-        foreach ($arrangements as $id) {
+        $packages = array_keys(self::getPackages($subdomain));
+        foreach ($packages as $id) {
             $name = $subdomain . '_arrangement_' . $id;
             if ($recrasPlugin->transients->get($name)) {
                 $errors += $recrasPlugin->transients->delete($name);
@@ -107,7 +102,7 @@ class Arrangement
     }
 
 
-    private static function displayname($json)
+    private static function displayname(\stdClass $json): string
     {
         if ($json->weergavenaam) {
             return $json->weergavenaam;
@@ -115,7 +110,7 @@ class Arrangement
         return $json->arrangement;
     }
 
-    private static function latestTime($programme)
+    private static function latestTime(array $programme): string
     {
         $last = ''; // begin and end are YYYY-MM-DD H:i:s strings, so we can safely compare them
         foreach ($programme as $activity) {
@@ -130,15 +125,9 @@ class Arrangement
     }
 
     /**
-     * Generate the programme for an arrangement
-     *
-     * @param array $programme
-     * @param string $startTime
-     * @param bool $showHeader
-     *
-     * @return string
+     * Generate the programme for a package
      */
-    public static function generateProgramme($programme, $startTime = '00:00', $showHeader = true)
+    public static function generateProgramme(array $programme, string $startTime = '00:00', bool $showHeader = true): string
     {
         $html = '<table class="recras-programme">';
 
@@ -197,14 +186,11 @@ class Arrangement
 
 
     /**
-     * Get arrangements from the Recras API
-     *
-     * @param string $subdomain
-     * @param bool $onlyOnline
+     * Get packages from the Recras API
      *
      * @return array|string
      */
-    public static function getPackages($subdomain, $onlyOnline = false, $includeEmpty = true)
+    public static function getPackages(string $subdomain, bool $onlyOnline = false, bool $includeEmpty = true)
     {
         global $recrasPlugin;
 
@@ -218,32 +204,29 @@ class Arrangement
             $recrasPlugin->transients->set($subdomain . '_arrangements', $json);
         }
 
-        $arrangements = [];
+        $packages = [];
         if ($includeEmpty) {
-            $arrangements[0] = (object) [
+            $packages[0] = (object) [
                 'arrangement' => '',
                 'id' => null,
                 'mag_online' => false,
             ];
         }
-        foreach ($json as $arrangement) {
-            if (!$onlyOnline || $arrangement->mag_online) {
-                $arrangements[$arrangement->id] = $arrangement;
+        foreach ($json as $pckg) {
+            if (!$onlyOnline || $pckg->mag_online) {
+                $packages[$pckg->id] = $pckg;
             }
         }
-        return $arrangements;
+        return $packages;
     }
 
 
     /**
-     * Get arrangements for a certain contact form from the Recras API
-     *
-     * @param string $subdomain
-     * @param int $contactformID
+     * Get packages for a certain contact form from the Recras API
      *
      * @return array|string
      */
-    public function getArrangementsForContactForm($subdomain, $contactformID)
+    public function getPackagesForContactForm(string $subdomain, int $contactformID)
     {
         $form = ContactForm::getForm($subdomain, $contactformID);
         if (is_string($form)) {
@@ -251,26 +234,22 @@ class Arrangement
             return sprintf(__('Error: %s', Plugin::TEXT_DOMAIN), $form);
         }
 
-        $arrangements = [
+        $packages = [
             0 => '',
         ];
 
-        foreach ($form->Arrangementen as $arrangement) {
-            $arrangements[$arrangement->id] = $arrangement->arrangement;
+        foreach ($form->Arrangementen as $pckg) {
+            $packages[$pckg->id] = $pckg->arrangement;
         }
-        natcasesort($arrangements);
-        return $arrangements;
+        natcasesort($packages);
+        return $packages;
     }
 
 
     /**
      * Get duration of a package
-     *
-     * @param object $json
-     *
-     * @return string
      */
-    private static function getDuration($json)
+    private static function getDuration(\stdClass $json): string
     {
         if (!is_array($json->programma)) {
             $json->programma = (array) $json->programma;
@@ -317,12 +296,8 @@ class Arrangement
 
     /**
      * Get the starting location of a package
-     *
-     * @param object $json
-     *
-     * @return string
      */
-    private static function getLocation($json)
+    private static function getLocation(\stdClass $json): string
     {
         if (isset($json->ontvangstlocatie)) {
             $location = $json->ontvangstlocatie;
@@ -333,7 +308,10 @@ class Arrangement
     }
 
 
-    public static function getPackage($subdomain, $id)
+    /**
+     * @return object|string
+     */
+    public static function getPackage(string $subdomain, int $id)
     {
         global $recrasPlugin;
 
@@ -352,10 +330,8 @@ class Arrangement
 
     /**
      * Get all valid options for the "show" argument
-     *
-     * @return array
      */
-    public static function getValidOptions()
+    public static function getValidOptions(): array
     {
         return ['description', 'duration', 'image_tag', 'image_url', 'location', 'persons', 'price_pp_excl_vat', 'price_pp_incl_vat', 'price_total_excl_vat', 'price_total_incl_vat', 'program', 'programme', 'title'];
     }

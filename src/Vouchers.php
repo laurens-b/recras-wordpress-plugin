@@ -5,7 +5,7 @@ class Vouchers
 {
     const SHOW_DEFAULT = 'name';
 
-    public static function renderVoucherInfo($attributes)
+    public static function renderVoucherInfo(array $attributes): string
     {
         if (!isset($attributes['id'])) {
             return __('Error: no ID set', Plugin::TEXT_DOMAIN);
@@ -46,12 +46,8 @@ class Vouchers
 
     /**
      * Add the [recras-vouchers] shortcode
-     *
-     * @param array $attributes
-     *
-     * @return string
      */
-    public static function renderVoucherSales($attributes)
+    public static function renderVoucherSales(array $attributes): string
     {
         if (isset($attributes['id']) && !ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
@@ -100,7 +96,7 @@ class Vouchers
     /**
      * Clear voucher template cache (transients)
      */
-    public static function clearCache()
+    public static function clearCache(): int
     {
         global $recrasPlugin;
 
@@ -114,7 +110,7 @@ class Vouchers
     }
 
 
-    public function getTemplates($subdomain)
+    public function getTemplates(string $subdomain): array
     {
         global $recrasPlugin;
 
@@ -140,10 +136,8 @@ class Vouchers
 
     /**
      * Get all valid options for the "show" argument
-     *
-     * @return array
      */
-    public static function getValidOptions()
+    public static function getValidOptions(): array
     {
         return ['name', 'price', 'validity']; //TODO: decide on product_amount, products
     }

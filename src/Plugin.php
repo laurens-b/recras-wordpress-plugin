@@ -55,7 +55,7 @@ class Plugin
         register_uninstall_hook(__FILE__, [__CLASS__, 'uninstall']);
     }
 
-    private function addClassicEditorSubmenuPage($title, $slug, $callable)
+    private function addClassicEditorSubmenuPage(string $title, string $slug, callable $callable)
     {
         add_submenu_page(
             null,
@@ -154,9 +154,8 @@ class Plugin
 
     /**
      * Get error message if no subdomain has been entered yet
-     * @return string
      */
-    public static function getNoSubdomainError()
+    public static function getNoSubdomainError(): string
     {
         if (current_user_can('manage_options')) {
             return __('Error: you have not set your Recras name yet', Plugin::TEXT_DOMAIN);
@@ -165,13 +164,7 @@ class Plugin
         }
     }
 
-
-    /**
-     * @param int $errors
-     *
-     * @return string
-     */
-    public static function getStatusMessage($errors)
+    public static function getStatusMessage(int $errors): string
     {
         return ($errors === 0 ? 'success' : 'error');
     }
@@ -199,7 +192,7 @@ class Plugin
         wp_enqueue_script('wp-api');
     }
 
-    public static function changeScriptMarkup($tag, $handle)
+    public static function changeScriptMarkup(string $tag, string $handle): string
     {
         $deferHandles = ['recrasjspolyfill', 'recrasjslibrary'];
         if (in_array($handle, $deferHandles)) {

@@ -6,7 +6,7 @@ class Bookprocess
     /**
      * Clear book process cache (transients)
      */
-    public static function clearCache()
+    public static function clearCache(): int
     {
         global $recrasPlugin;
 
@@ -14,11 +14,7 @@ class Bookprocess
         return $recrasPlugin->transients->delete($subdomain . '_bookprocesses');
     }
 
-
-    /**
-     * @param string $subdomain
-     */
-    public static function enqueueScripts($subdomain)
+    public static function enqueueScripts(string $subdomain)
     {
         wp_enqueue_script(
             'recrasbookprocesses',
@@ -39,11 +35,9 @@ class Bookprocess
     /**
      * Get book processes for a Recras instance
      *
-     * @param string $subdomain
-     *
      * @return array|string
      */
-    public static function getProcesses($subdomain)
+    public static function getProcesses(string $subdomain)
     {
         global $recrasPlugin;
 
@@ -66,12 +60,8 @@ class Bookprocess
 
     /**
      * Add the [recras-bookprocess] shortcode
-     *
-     * @param array $attributes
-     *
-     * @return string
      */
-    public static function renderBookprocess($attributes)
+    public static function renderBookprocess(array $attributes): string
     {
         $subdomain = Settings::getSubdomain($attributes);
         if (!$subdomain) {
