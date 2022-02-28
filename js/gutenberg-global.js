@@ -263,7 +263,7 @@ const recrasStore = registerStore('recras/store', {
                 value: '',
             }];
 
-            const params = '?per_page=100&orderby=title&order=asc';
+            const params = '?per_page=250&orderby=title&order=asc';
             let pages = yield recrasActions.fetchAPI('wp/v2/pages' + params);
             pages = pages.map(p => {
                 return mapPagesPosts(p, wp.i18n.__('Page: ', TEXT_DOMAIN));

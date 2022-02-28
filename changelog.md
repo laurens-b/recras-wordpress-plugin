@@ -1,8 +1,11 @@
 # Changelog
 
+## 4.7.6 (2022-02-28)
+* Dropdowns for "Thank-you page" showed 100 pages/posts. This has been increased to 250 of each.
+
 ## 4.7.5 (2021-12-17)
 * Fix page crashing when trying to show the duration of a package where the last line has no end time
-* 
+
 ## 4.7.4 (2021-12-16)
 * Seamless online booking integration: change value of "BuyInProgress" events from package/template ID (bookings/vouchers, respectively) to total price
 
