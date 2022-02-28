@@ -99,93 +99,29 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * Fix "Class not found" error when using Composer in a theme
 * Update themes for use in book processes and add two new themes
 
-= 4.6.5 =
-* Clearing cache didn't delete book process cache - fixed
-
-= 4.6.4 =
-* Fix book process not loading when using it from a widget or custom field
-
-= 4.6.3 =
-* Fix PHP 8.0 compatibility
-
-= 4.6.2 =
-* Fix book process not loading when using the Gutenberg block instead of the shortcode
-
-= 4.6.1 =
-* Prevent JavaScript error on pages without a book process
-
-= 4.6.0 =
+= 4.6 (highlights) =
 * Book processes can now be integrated through the plugin!
-* Seamless online booking integration: Fixed slowness after clicking required checkboxes a few times
+* Various bug fixes related to online bookings and contact forms
+* PHP 8.0 compatibility
 
-= 4.5.1 =
-* Seamless online booking integration: Replace alerts with inline messages
-* Seamless online booking integration: Make redirect without Mollie more robust
-* Fix default selected country in contact forms
-
-= 4.5.0 =
+= 4.5 (highlights) =
 * The "Term for number of vouchers" is now used during voucher sales
+* Various bug fixes related to online bookings and contact forms
 
-= 4.4.0 =
+= 4.4 =
 * Add option to hide voucher sale quantity (defaults to 1)
 * Add option to hide discount field during online booking
 * Seamless online booking integration: pressing Enter in the amounts form sometimes broke the form
 
-= 4.3.1 =
-* Seamless online booking integration: Fix discount code with prefilled date
+= 4.3 (highlights) =
+* Various bug fixes related to online bookings
 
-= 4.3.0 =
-* Seamless online booking integration: Swedish translation is now available
+= 4.2 (highlights) =
+* Various bug fixes related to online bookings and contact forms
 
-= 4.2.2 =
-* Setting "package_list" parameter in the online booking shortcode sometimes wasn't working properly - fixed
-
-= 4.2.1 =
-* Fixed default country for contact forms used during online booking
-
-= 4.2.0 =
-* Add localised country list (in contact forms) when the WordPress language is set to Swedish
-* Fix default country for contact forms when the WordPress language is set to one of the following: Dutch (Belgium), English (Ireland), German (Austria)
-
-= 4.1.8 =
-* Fix empty package list after selecting and deselecting a package during online booking
-
-= 4.1.7 =
-* Seamless online booking integration: allow dates in the past for "relation extra field"
-
-= 4.1.6 =
-* Shortcode documentation: fix wrong example code & clarify option
-
-= 4.1.5 =
-* Fix date picker for "extra fields date type" in a contact form
-
-= 4.1.4 =
-* Seamless online booking integration: check if a discount is still valid after changing the date
-
-= 4.1.3 =
-* Fix potential conflict causing Gutenberg blocks not to load
-
-= 4.1.2 =
-* Fix potential conflict causing Gutenberg blocks not to load
-
-= 4.1.1 =
-* Seamless online booking integration: when a list of packages to show is given, don't show all of them after resetting package selection
-
-= 4.1.0 =
-* Fix potential conflict causing Gutenberg blocks not to load
-* Simplify clearing the Recras cache
+= 4.1 (highlights) =
+* Various bug fixes related to online bookings and contact forms
 * Enable multiple package selection in classic (non-Gutenberg) editor
-
-= 4.0.2 =
-* Fix max length of various contact form fields
-
-= 4.0.1 =
-* A message has been added to online booking when the selected date no longer has available time slots. This can occur when the availability cache is enabled.
-
-= 4.0.0 =
-* Allow clearing of non-required radio buttons. Since this adds a button to the list which may require styling, we consider this a breaking change.
-* Required checkboxes now notify you before sending the form
-* Small styling fixes for WP 5.5
 
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
