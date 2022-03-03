@@ -1,7 +1,10 @@
 # Changelog
 
-## 4.7.6 (2022-02-28)
+## 4.7.7 (2022-03-03)
 * Dropdowns for "Thank-you page" showed 100 pages/posts. This has been increased to 250 of each.
+* 
+## 4.7.6
+* Not released due to an error
 
 ## 4.7.5 (2021-12-17)
 * Fix page crashing when trying to show the duration of a package where the last line has no end time
