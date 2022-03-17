@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Make default settings work properly
+
 ## 4.7.7 (2022-03-03)
 * Dropdowns for "Thank-you page" showed 100 pages/posts. This has been increased to 250 of each.
 

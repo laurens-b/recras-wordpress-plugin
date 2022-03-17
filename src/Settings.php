@@ -273,19 +273,24 @@ class Settings
      */
     public static function registerSettings()
     {
-        add_settings_section(
-            self::OPTION_SECTION,
-            __('Recras settings', Plugin::TEXT_DOMAIN),
-            [__CLASS__, 'settingsHelp'],
-            self::OPTION_PAGE
-        );
-
         self::registerSetting('recras_subdomain', 'demo', 'string', [__CLASS__, 'sanitizeSubdomain']);
         self::registerSetting('recras_currency', '€');
         self::registerSetting('recras_decimal', ',');
         self::registerSetting('recras_datetimepicker', false, 'boolean');
         self::registerSetting('recras_theme', 'none');
         self::registerSetting('recras_enable_analytics', false, 'boolean');
+    }
+
+
+    public static function registerSettingsPage()
+    {
+        \add_settings_section(
+            self::OPTION_SECTION,
+            __('Recras settings', Plugin::TEXT_DOMAIN),
+            [__CLASS__, 'settingsHelp'],
+            self::OPTION_PAGE
+        );
+        self::registerSettings();
 
         self::addField('recras_subdomain', __('Recras name', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputSubdomain']);
         self::addField('recras_currency', __('Currency symbol', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputCurrency']);
@@ -294,6 +299,7 @@ class Settings
         self::addField('recras_theme', __('Theme for online booking', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputTheme']);
         self::addField('recras_enable_analytics', __('Enable Google Analytics integration?', Plugin::TEXT_DOMAIN), [__CLASS__, 'addInputAnalytics']);
     }
+
 
 
     /**

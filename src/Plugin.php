@@ -29,7 +29,8 @@ class Plugin
         // Add admin menu pages
         add_action('admin_menu', [&$this, 'addMenuItems']);
 
-        add_action('admin_init', [Settings::class, 'registerSettings']);
+        add_action('init', [Settings::class, 'registerSettings']);
+        add_action('admin_init', [Settings::class, 'registerSettingsPage']);
         add_action('admin_init', [Editor::class, 'addButtons']);
 
         if (function_exists('register_block_type')) {
