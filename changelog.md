@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 4.7.8
 * Make default settings work properly
 
 ## 4.7.7 (2022-03-03)

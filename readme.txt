@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 5.9
-Stable tag: 4.7.7
+Stable tag: 4.7.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,9 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 4.7.8 =
+* Make default settings work properly
 
 = 4.7.7 =
 * Dropdowns for "Thank-you page" showed 100 pages/posts. This has been increased to 250 of each.
