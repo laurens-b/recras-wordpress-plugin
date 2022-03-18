@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.7.9
+* The changes made in 4.7.7 didn't work properly. Dropdowns now show all pages/posts.
+
 ## 4.7.8
 * Make default settings work properly
 
