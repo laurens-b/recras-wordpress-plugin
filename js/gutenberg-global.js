@@ -263,14 +263,47 @@ const recrasStore = registerStore('recras/store', {
                 value: '',
             }];
 
-            const params = '?per_page=250&orderby=title&order=asc';
-            let pages = yield recrasActions.fetchAPI('wp/v2/pages' + params);
+            let page = 1;
+            let pages = [];
+            let isDone = false;
+            while (!isDone) {
+                const params = '?page=' + page + '&per_page=100&orderby=title&order=asc'; // WP has a hard limit of 100
+                try {
+                    let pagesNew = yield recrasActions.fetchAPI('wp/v2/pages' + params);
+                    pages.push(...pagesNew);
+                    ++page;
+                } catch (e) {
+                    if (e.code === 'rest_post_invalid_page_number') {
+                        isDone = true;
+                    } else {
+                        console.warn(e.code);
+                    }
+                }
+            }
+
             pages = pages.map(p => {
                 return mapPagesPosts(p, wp.i18n.__('Page: ', TEXT_DOMAIN));
             });
             pagesPosts = pagesPosts.concat(pages);
 
-            let posts = yield recrasActions.fetchAPI('wp/v2/posts' + params);
+            page = 1;
+            let posts = [];
+            isDone = false;
+            while (!isDone) {
+                const params = '?page=' + page + '&per_page=100&orderby=title&order=asc'; // WP has a hard limit of 100
+                try {
+                    let pagesNew = yield recrasActions.fetchAPI('wp/v2/posts' + params);
+                    posts.push(...pagesNew);
+                    ++page;
+                } catch (e) {
+                    if (e.code === 'rest_post_invalid_page_number') {
+                        isDone = true;
+                    } else {
+                        console.warn(e.code);
+                    }
+                }
+            }
+
             posts = posts.map(p => {
                 return mapPagesPosts(p, wp.i18n.__('Post: ', TEXT_DOMAIN));
             });
