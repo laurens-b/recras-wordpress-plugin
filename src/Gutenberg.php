@@ -49,11 +49,11 @@ class Gutenberg
             ],
             'contactform' => [
                 'callback' => [ContactForm::class, 'renderContactForm'],
-                'version' => '4.1.3',
+                'version' => '4.7.10',
             ],
             'onlinebooking' => [
                 'callback' => [OnlineBooking::class, 'renderOnlineBooking'],
-                'version' => '4.4.0',
+                'version' => '4.7.10',
             ],
             'package' => [
                 'callback' => [Arrangement::class, 'renderPackage'],

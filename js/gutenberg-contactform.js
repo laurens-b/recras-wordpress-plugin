@@ -56,6 +56,12 @@ registerGutenbergBlock('recras/contactform', {
             pagesPosts,
         } = props;
 
+        if (pagesPosts === undefined || !pagesPosts.length) {
+            return [
+                recrasHelper.elementText(wp.i18n.__('Loading data...', TEXT_DOMAIN))
+            ];
+        }
+
         let retval = [];
         const optionsIDControl = {
             value: id,

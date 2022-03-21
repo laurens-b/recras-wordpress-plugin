@@ -57,6 +57,12 @@ registerGutenbergBlock('recras/onlinebooking', {
             pagesPosts,
         } = props;
 
+        if (pagesPosts === undefined || !pagesPosts.length) {
+            return [
+                recrasHelper.elementText(wp.i18n.__('Loading data...', TEXT_DOMAIN))
+            ];
+        }
+
         let packagesMapped = Object.values(packages);
         packagesMapped = packagesMapped.filter(p => p.mag_online);
         let packagesWithoutEmpty = JSON.parse(JSON.stringify(packagesMapped));

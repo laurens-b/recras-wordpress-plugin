@@ -2,6 +2,7 @@
 
 ## Unreleased
 * Fetching thank-you pages is a lot faster now
+* Show "Loading data" message while fetching thank-you pages
 
 ## 4.7.9
 * The changes made in 4.7.7 didn't work properly. Dropdowns now show all pages/posts.
