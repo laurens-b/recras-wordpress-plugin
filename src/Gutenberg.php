@@ -41,7 +41,7 @@ class Gutenberg
         $gutenbergBlocks = [
             'availability' => [
                 'callback' => [Availability::class, 'renderAvailability'],
-                'version' => '4.1.3',
+                'version' => '4.7.10',
             ],
             'bookprocess' => [
                 'callback' => [Bookprocess::class, 'renderBookprocess'],
