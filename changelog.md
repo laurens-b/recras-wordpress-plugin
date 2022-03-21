@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 4.7.10
 * Fetching thank-you pages is a lot faster now
 * Show "Loading data" message while fetching thank-you pages
 
