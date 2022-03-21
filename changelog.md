@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Fetching thank-you pages is a lot faster now
+
 ## 4.7.9
 * The changes made in 4.7.7 didn't work properly. Dropdowns now show all pages/posts.
 

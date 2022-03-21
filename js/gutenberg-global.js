@@ -74,6 +74,16 @@ const recrasHelper = {
     }),
 };
 
+const paramsWithPage = function(page) {
+    const params = new URLSearchParams({
+        page,
+        per_page: 100, // WP has a hard limit of 100 posts per page
+        orderby: 'title',
+        order: 'asc',
+        _fields: 'id,title,link', // We're only interested in these fields
+    });
+    return params.toString();
+};
 const mapSelect = function(label, value) {
     return {
         label: label,
@@ -267,9 +277,9 @@ const recrasStore = registerStore('recras/store', {
             let pages = [];
             let isDone = false;
             while (!isDone) {
-                const params = '?page=' + page + '&per_page=100&orderby=title&order=asc'; // WP has a hard limit of 100
+                const params = paramsWithPage(page);
                 try {
-                    let pagesNew = yield recrasActions.fetchAPI('wp/v2/pages' + params);
+                    let pagesNew = yield recrasActions.fetchAPI('wp/v2/pages?' + params);
                     pages.push(...pagesNew);
                     ++page;
                 } catch (e) {
@@ -290,9 +300,9 @@ const recrasStore = registerStore('recras/store', {
             let posts = [];
             isDone = false;
             while (!isDone) {
-                const params = '?page=' + page + '&per_page=100&orderby=title&order=asc'; // WP has a hard limit of 100
+                const params = paramsWithPage(page);
                 try {
-                    let pagesNew = yield recrasActions.fetchAPI('wp/v2/posts' + params);
+                    let pagesNew = yield recrasActions.fetchAPI('wp/v2/posts?' + params);
                     posts.push(...pagesNew);
                     ++page;
                 } catch (e) {
