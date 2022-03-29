@@ -2,6 +2,7 @@
 
 ## Unreleased
 * Seamless online booking integration: add support for GA4
+* Update themes to style the new capacity info in "product with time" blocks in a book process
 
 ## 4.7.10 (2022-03-21)
 * Fetching thank-you pages is a lot faster now

@@ -214,6 +214,10 @@ label[for^='fixedtext_'] {
     }
 }
 
+#bookprocess .timeslot-capacity {
+    background: hsl(5, 20%, 75%);
+}
+
 #bookprocess .primary {
     background: hsl(5, 63%, 56%);
     border-color: hsl(5, 63%, 56%);
