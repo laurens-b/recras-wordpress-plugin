@@ -21,19 +21,9 @@ class Bookprocess
     public static function enqueueScripts($subdomain)
     {
         wp_enqueue_script(
-            'recrasreact',
-            'https://' . $subdomain . '.recras.nl/bookprocess/node_modules/react/umd/react.production.min.js',
-            [], false, true
-        );
-        wp_enqueue_script(
-            'recrasreactdom',
-            'https://' . $subdomain . '.recras.nl/bookprocess/node_modules/react-dom/umd/react-dom.production.min.js',
-            ['recrasreact'], false, true
-        );
-        wp_enqueue_script(
             'recrasbookprocesses',
-            'https://' . $subdomain . '.recras.nl/bookprocess/dist/main.js',
-            ['recrasreact', 'recrasreactdom'], false, true
+            'https://' . $subdomain . '.recras.nl/bookprocess/bookprocess.mjs',
+            [], false, true
         );
 
         wp_enqueue_style(

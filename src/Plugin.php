@@ -199,13 +199,20 @@ class Plugin
         wp_enqueue_script('wp-api');
     }
 
-    public static function deferJSLibrary($tag, $handle)
+    public static function changeScriptMarkup($tag, $handle)
     {
         $deferHandles = ['recrasjspolyfill', 'recrasjslibrary'];
-        if (!in_array($handle, $deferHandles)) {
-            return $tag;
+        if (in_array($handle, $deferHandles)) {
+            $tag = str_replace(' src=', ' defer src=', $tag);
         }
-        return str_replace(' src=', ' defer src=', $tag);
+
+        $moduleHandles = ['recrasbookprocesses'];
+        if (in_array($handle, $moduleHandles)) {
+            $tag = str_replace('type="text/javascript"', '', $tag); // Just to make sure we don't get a double type attribute
+            $tag = str_replace(' src=', ' type="module" src=', $tag);
+        }
+
+        return $tag;
     }
 
     /**
@@ -264,7 +271,8 @@ class Plugin
         }
 
         // Defer certain scripts
-        add_filter('script_loader_tag', [$this, 'deferJSLibrary'], 10, 2);
+        // Book process script must be loaded as module
+        add_filter('script_loader_tag', [$this, 'changeScriptMarkup'], 10, 2);
 
         // Polyfill for old browsers
         wp_enqueue_script('recrasjspolyfill', 'https://polyfill.io/v3/polyfill.min.js?features=default,fetch,Promise,Array.prototype.includes,RegExp.prototype.flags', [], null, false);
