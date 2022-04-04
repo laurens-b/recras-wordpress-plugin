@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.8.1 (2022-04-04)
+* Fix loading of book processes on some sites
+
 ## 4.8.0 (2022-04-04)
 * Seamless online booking integration: add support for GA4
 * Update themes to style the new capacity info in "product with time" blocks in a book process

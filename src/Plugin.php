@@ -208,7 +208,11 @@ class Plugin
 
         $moduleHandles = ['recrasbookprocesses'];
         if (in_array($handle, $moduleHandles)) {
-            $tag = str_replace('type="text/javascript"', '', $tag); // Just to make sure we don't get a double type attribute
+            // Make sure we don't get a double type attribute
+            $tag = strtr($tag, [
+                'type="text/javascript"' => '',
+                "type='text/javascript'" => '',
+            ]);
             $tag = str_replace(' src=', ' type="module" src=', $tag);
         }
 
