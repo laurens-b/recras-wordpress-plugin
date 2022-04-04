@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+* Seamless online booking integration: add support for GA4
+
 ## 4.7.10 (2022-03-21)
 * Fetching thank-you pages is a lot faster now
 * Show "Loading data" message while fetching thank-you pages
