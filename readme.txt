@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 5.9
-Stable tag: 4.7.10
+Stable tag: 4.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,10 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 4.8.0 =
+* Seamless online booking integration: add support for GA4
+* Update themes to style the new capacity info in "product with time" blocks in a book process
 
 = 4.7.10 =
 * Fetching thank-you pages is a lot faster now
