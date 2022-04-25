@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.8.2 (2022-04-25)
+* Book processes: update styling for empty inputs
+
 ## 4.8.1 (2022-04-04)
 * Fix loading of book processes on some sites
 
