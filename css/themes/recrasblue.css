@@ -361,6 +361,10 @@ label[for^='fixedtext_'] {
     background-color: hsl(205, 30%, 75%);
     color: #000;
 }
+.numberWithPlusMinus input:placeholder-shown ~ button {
+    background-color: hsl(205, 30%, 75%);
+    color: #000;
+}
 @media (pointer: fine) {
     .numberWithPlusMinus button:hover {
         background-color: hsl(
