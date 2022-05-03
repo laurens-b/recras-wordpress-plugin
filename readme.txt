@@ -145,10 +145,6 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 = 4.2 (highlights) =
 * Various bug fixes related to online bookings and contact forms
 
-= 4.1 (highlights) =
-* Various bug fixes related to online bookings and contact forms
-* Enable multiple package selection in classic (non-Gutenberg) editor
-
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
 
