@@ -3,11 +3,11 @@ namespace Recras;
 
 class Settings
 {
-    const OPTION_PAGE = 'recras';
-    const OPTION_SECTION = 'recras';
-    const PAGE_CACHE = 'recras-clear-cache';
-    const PAGE_DOCS = 'recras-documentation';
-    const PAGE_SHORTCODES = 'recras-shortcodes';
+    public const OPTION_PAGE = 'recras';
+    private const OPTION_SECTION = 'recras';
+    public const PAGE_CACHE = 'recras-clear-cache';
+    public const PAGE_DOCS = 'recras-documentation';
+    public const PAGE_SHORTCODES = 'recras-shortcodes';
 
 
     public static function addInputAnalytics(array $args): void

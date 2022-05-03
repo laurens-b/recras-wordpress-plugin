@@ -3,7 +3,7 @@ namespace Recras;
 
 class Vouchers
 {
-    const SHOW_DEFAULT = 'name';
+    private const SHOW_DEFAULT = 'name';
 
     public static function renderVoucherInfo(array $attributes): string
     {

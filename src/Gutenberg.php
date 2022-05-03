@@ -3,8 +3,8 @@ namespace Recras;
 
 class Gutenberg
 {
-    const ENDPOINT_NAMESPACE = 'recras';
-    const GUTENBERG_SCRIPT_VERSION = '4.7.10';
+    private const ENDPOINT_NAMESPACE = 'recras';
+    private const GUTENBERG_SCRIPT_VERSION = '4.7.10';
 
 
     public static function addBlocks(): void

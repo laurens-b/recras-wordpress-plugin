@@ -3,7 +3,7 @@ namespace Recras;
 
 class Transient
 {
-    const BASE = 'recras_';
+    private const BASE = 'recras_';
 
     /**
      * Delete a transient. Returns 0 for success, 1 for error for easy error counting

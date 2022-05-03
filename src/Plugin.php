@@ -3,14 +3,15 @@ namespace Recras;
 
 class Plugin
 {
-    const LIBRARY_VERSION = '1.11.0';
-    const TEXT_DOMAIN = 'recras';
+    private const LIBRARY_VERSION = '1.11.0';
+    public const TEXT_DOMAIN = 'recras';
 
-    const SHORTCODE_BOOK_PROCESS = 'recras-bookprocess';
-    const SHORTCODE_ONLINE_BOOKING = 'recras-booking';
-    const SHORTCODE_VOUCHER_SALES = 'recras-vouchers';
-    const SHORTCODE_VOUCHER_INFO = 'recras-voucher-info';
+    public const SHORTCODE_BOOK_PROCESS = 'recras-bookprocess';
+    public const SHORTCODE_ONLINE_BOOKING = 'recras-booking';
+    public const SHORTCODE_VOUCHER_SALES = 'recras-vouchers';
+    public const SHORTCODE_VOUCHER_INFO = 'recras-voucher-info';
 
+    /** @var string */
     public $baseUrl;
 
 
