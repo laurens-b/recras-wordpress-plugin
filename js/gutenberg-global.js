@@ -26,8 +26,7 @@ const recrasHelper = {
         );
     },
     elementInfo: (text) => {
-        // WP 5.5 has createInterpolateElement instead of RawHTML
-        // https://make.wordpress.org/core/2020/07/17/introducing-createinterpolateelement/
+        // text may contain HTML (line breaks), so createInterpolateElement doesn't work for us
         return createEl(
             wp.element.RawHTML,
             null,
