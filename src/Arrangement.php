@@ -94,7 +94,7 @@ class Arrangement
         $subdomain = get_option('recras_subdomain');
         $errors = 0;
 
-        $arrangements = array_keys(self::getArrangements($subdomain));
+        $arrangements = array_keys(self::getPackages($subdomain));
         foreach ($arrangements as $id) {
             $name = $subdomain . '_arrangement_' . $id;
             if ($recrasPlugin->transients->get($name)) {
@@ -204,7 +204,7 @@ class Arrangement
      *
      * @return array|string
      */
-    public static function getArrangements($subdomain, $onlyOnline = false, $includeEmpty = true)
+    public static function getPackages($subdomain, $onlyOnline = false, $includeEmpty = true)
     {
         global $recrasPlugin;
 

@@ -6,7 +6,7 @@ if (!$subdomain) {
 }
 
 $model = new \Recras\Arrangement();
-$arrangements = $model->getArrangements($subdomain);
+$arrangements = $model->getPackages($subdomain);
 ?>
 
 <dl>

@@ -6,7 +6,7 @@ if (!$subdomain) {
 }
 
 $model = new \Recras\Arrangement();
-$arrangements = $model->getArrangements($subdomain, true);
+$arrangements = $model->getPackages($subdomain, true);
 ?>
 <dl>
     <dt><label><?php _e('Integration method', \Recras\Plugin::TEXT_DOMAIN); ?></label>

@@ -139,7 +139,7 @@ class Gutenberg
     public static function getPackages()
     {
         $model = new Arrangement();
-        return $model->getArrangements(get_option('recras_subdomain'), false, false);
+        return $model->getPackages(get_option('recras_subdomain'), false, false);
     }
 
     public static function getProducts()

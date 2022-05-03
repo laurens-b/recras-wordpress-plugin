@@ -121,14 +121,14 @@ class ArrangementTest extends WordPressUnitTestCase
     function testGetArrangements()
     {
         $plugin = new Arrangement();
-        $arrangements = $plugin->getArrangements('demo');
+        $arrangements = $plugin->getPackages('demo');
         $this->assertGreaterThan(0, count($arrangements), 'getArrangements should return a non-empty array');
     }
 
     function testGetOnlineArrangements()
     {
         $plugin = new Arrangement();
-        $packages = $plugin->getArrangements('demo', true, false);
+        $packages = $plugin->getPackages('demo', true, false);
         $this->assertTrue(is_array($packages));
         $packagesOnline = array_filter($packages, function($p) {
             return $p->mag_online;

@@ -6,7 +6,7 @@ if (!$subdomain) {
 }
 
 $model = new \Recras\Arrangement();
-$arrangements = $model->getArrangements($subdomain);
+$arrangements = $model->getPackages($subdomain);
 
 $model = new \Recras\ContactForm();
 $forms = $model->getForms($subdomain);

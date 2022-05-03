@@ -6,7 +6,7 @@ if (!$subdomain) {
 }
 
 $model = new \Recras\Arrangement();
-$arrangements = $model->getArrangements($subdomain);
+$arrangements = $model->getPackages($subdomain);
 ?>
 <style id="arrangement_style">
     .programme-only { display: none; }
