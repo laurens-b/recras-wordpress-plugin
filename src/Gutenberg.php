@@ -7,7 +7,7 @@ class Gutenberg
     const GUTENBERG_SCRIPT_VERSION = '4.7.10';
 
 
-    public static function addBlocks()
+    public static function addBlocks(): void
     {
         $globalScriptName = 'recras-gutenberg-global';
         $globalStyleName = 'recras-gutenberg';
@@ -98,7 +98,7 @@ class Gutenberg
         return $categories;
     }
 
-    public static function addEndpoints()
+    public static function addEndpoints(): void
     {
         $routes = [
             'bookprocesses' => 'getBookprocesses',

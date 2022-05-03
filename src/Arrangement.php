@@ -340,7 +340,7 @@ class Arrangement
     /**
      * Show the TinyMCE shortcode generator package form
      */
-    public static function showForm()
+    public static function showForm(): void
     {
         require_once(__DIR__ . '/../editor/form-arrangement.php');
     }

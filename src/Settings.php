@@ -10,7 +10,7 @@ class Settings
     const PAGE_SHORTCODES = 'recras-shortcodes';
 
 
-    public static function addInputAnalytics(array $args)
+    public static function addInputAnalytics(array $args): void
     {
         self::addInputCheckbox($args);
         self::infoText(__('Enabling this will send online booking and voucher sales events to Google Analytics.', Plugin::TEXT_DOMAIN));
@@ -20,7 +20,7 @@ class Settings
     /**
      * Add a currency input field
      */
-    public static function addInputCurrency(array $args)
+    public static function addInputCurrency(array $args): void
     {
         $field = $args['field'];
         $value = get_option($field);
@@ -35,7 +35,7 @@ class Settings
     /**
      * Add a checkbox option
      */
-    public static function addInputCheckbox(array $args)
+    public static function addInputCheckbox(array $args): void
     {
         $field = $args['field'];
         $value = get_option($field);
@@ -43,7 +43,7 @@ class Settings
         printf('<input type="checkbox" name="%s" id="%s" value="1"%s>', $field, $field, ($value ? ' checked' : ''));
     }
 
-    public static function addInputDatepicker(array $args)
+    public static function addInputDatepicker(array $args): void
     {
         self::addInputCheckbox($args);
         self::infoText(__('Not all browsers have a built-in date picker. Enable this to use a custom widget.', Plugin::TEXT_DOMAIN));
@@ -53,7 +53,7 @@ class Settings
     /**
      * Add a decimal separator input field
      */
-    public static function addInputDecimal(array $args)
+    public static function addInputDecimal(array $args): void
     {
         $field = $args['field'];
         $value = get_option($field);
@@ -69,7 +69,7 @@ class Settings
     /**
      * Add a subdomain input field
      */
-    public static function addInputSubdomain(array $args)
+    public static function addInputSubdomain(array $args): void
     {
         $field = $args['field'];
         $value = get_option($field);
@@ -81,7 +81,7 @@ class Settings
     }
 
 
-    public static function addInputTheme(array $args)
+    public static function addInputTheme(array $args): void
     {
         $themes = self::getThemes();
 
@@ -104,7 +104,7 @@ class Settings
     }
 
 
-    public static function clearCache()
+    public static function clearCache(): void
     {
         if (!current_user_can('edit_pages')) {
             wp_die(__('You do not have sufficient permissions to access this page.'));
@@ -113,7 +113,7 @@ class Settings
     }
 
 
-    public static function documentation()
+    public static function documentation(): void
     {
         if (!current_user_can('edit_pages')) {
             wp_die(__('You do not have sufficient permissions to access this page.'));
@@ -122,7 +122,7 @@ class Settings
     }
 
 
-    public static function shortcodes()
+    public static function shortcodes(): void
     {
         if (!current_user_can('edit_pages')) {
             wp_die(__('You do not have sufficient permissions to access this page.'));
@@ -134,7 +134,7 @@ class Settings
     /**
      * Load the admin options page
      */
-    public static function editSettings()
+    public static function editSettings(): void
     {
         if (!current_user_can('manage_options')) {
             wp_die(__('You do not have sufficient permissions to access this page.'));
@@ -143,7 +143,7 @@ class Settings
     }
 
 
-    public static function errorNoRecrasName()
+    public static function errorNoRecrasName(): void
     {
         echo '<p class="recrasInfoText">';
         $settingsLink = admin_url('admin.php?page=' . self::OPTION_PAGE);
@@ -211,7 +211,7 @@ class Settings
     }
 
 
-    private static function infoText($text)
+    private static function infoText($text): void
     {
         echo '<p class="description">' . $text . '</p>';
     }
@@ -229,7 +229,7 @@ class Settings
         return $bool;
     }
 
-    private static function registerSetting(string $name, $default, string $type = 'string', callable $sanitizeCallback = null)
+    private static function registerSetting(string $name, $default, string $type = 'string', callable $sanitizeCallback = null): void
     {
         $options = [
             'default' => $default,
@@ -241,7 +241,7 @@ class Settings
         register_setting('recras', $name, $options);
     }
 
-    private static function addField(string $name, string $title, callable $inputFn)
+    private static function addField(string $name, string $title, callable $inputFn): void
     {
         add_settings_field($name, $title, $inputFn, self::OPTION_PAGE, self::OPTION_SECTION, [
             'field' => $name,
@@ -252,7 +252,7 @@ class Settings
     /**
      * Register plugin settings
      */
-    public static function registerSettings()
+    public static function registerSettings(): void
     {
         self::registerSetting('recras_subdomain', 'demo', 'string', [__CLASS__, 'sanitizeSubdomain']);
         self::registerSetting('recras_currency', '€');
@@ -263,7 +263,7 @@ class Settings
     }
 
 
-    public static function registerSettingsPage()
+    public static function registerSettingsPage(): void
     {
         \add_settings_section(
             self::OPTION_SECTION,
@@ -286,7 +286,7 @@ class Settings
     /**
      * Sanitize user inputted subdomain
      *
-     * @return bool|string
+     * @return string|false
      */
     public static function sanitizeSubdomain(string $subdomain)
     {
@@ -304,7 +304,7 @@ class Settings
     /**
      * Echo settings helper text
      */
-    public static function settingsHelp()
+    public static function settingsHelp(): void
     {
         printf(
             __('For more information on these options, please see the %s page.', Plugin::TEXT_DOMAIN),

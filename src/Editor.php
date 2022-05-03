@@ -6,7 +6,7 @@ class Editor
     /**
      * Add the shortcode generator buttons to TinyMCE
      */
-    public static function addButtons()
+    public static function addButtons(): void
     {
         add_filter('mce_buttons', [__CLASS__, 'registerButtons'], 999, 2);
         add_filter('mce_external_plugins', [__CLASS__, 'addScripts'], 999);

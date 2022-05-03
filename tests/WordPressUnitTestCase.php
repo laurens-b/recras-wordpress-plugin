@@ -3,7 +3,7 @@ namespace Recras;
 
 class WordPressUnitTestCase extends \WP_UnitTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         global $recrasPlugin;
 
@@ -23,7 +23,7 @@ class WordPressUnitTestCase extends \WP_UnitTestCase
         return apply_filters('the_content', $post->post_content);
     }
 
-    private function contactForm()
+    private function contactForm(): \stdClass
     {
         return (object) [
             'id' => 17,
@@ -46,7 +46,7 @@ class WordPressUnitTestCase extends \WP_UnitTestCase
         ];
     }
 
-    private function package()
+    private function package(): \stdClass
     {
         return (object) [
             'id' => 7,
@@ -74,7 +74,8 @@ class WordPressUnitTestCase extends \WP_UnitTestCase
             'prijs_pp_inc' => 41.5,
         ];
     }
-    private function packageMultiday()
+
+    private function packageMultiday(): \stdClass
     {
         return (object) [
             'id' => 5,
@@ -103,7 +104,7 @@ class WordPressUnitTestCase extends \WP_UnitTestCase
         ];
     }
 
-    private function products()
+    private function products(): array
     {
         return [
             17 => (object) [
@@ -127,6 +128,9 @@ class WordPressUnitTestCase extends \WP_UnitTestCase
         ];
     }
 
+    /**
+     * @return array|object[]|\stdClass|\stdClass[]|string
+     */
     public function transientGetCallback(string $name)
     {
         if (preg_match('~^([a-z]+)_arrangements$~', $name)) {

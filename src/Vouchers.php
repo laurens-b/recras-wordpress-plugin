@@ -110,6 +110,9 @@ class Vouchers
     }
 
 
+    /**
+     * @return array|string
+     */
     public function getTemplates(string $subdomain): array
     {
         global $recrasPlugin;
@@ -146,11 +149,11 @@ class Vouchers
     /**
      * Show the TinyMCE shortcode generator forms
      */
-    public static function showInfoForm()
+    public static function showInfoForm(): void
     {
         require_once(__DIR__ . '/../editor/form-voucher-info.php');
     }
-    public static function showSalesForm()
+    public static function showSalesForm(): void
     {
         require_once(__DIR__ . '/../editor/form-voucher-sales.php');
     }

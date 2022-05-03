@@ -3,79 +3,79 @@ namespace Recras;
 
 class ArrangementTest extends WordPressUnitTestCase
 {
-    function testShortcodeWithoutID()
+    function testShortcodeWithoutID(): void
     {
         $content = $this->createPostAndGetContent('[recras-package]');
         $this->assertEquals('Error: no ID set' . "\n", $content, 'Not setting ID should fail');
     }
 
-    function testInvalidIDinShortcode()
+    function testInvalidIDinShortcode(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=foobar]');
         $this->assertEquals('Error: ID is not a number' . "\n", $content, 'Non-numeric ID should fail');
     }
 
-    function testShortcodeWithoutShow()
+    function testShortcodeWithoutShow(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7]');
         $this->assertEquals('<span class="recras-title">Actieve Familiedag</span>' . "\n", $content, 'Not setting "show" option should default to title');
     }
 
-    function testShortcodeWithInvalidShow()
+    function testShortcodeWithInvalidShow(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7 show=invalid]');
         $this->assertEquals('<span class="recras-title">Actieve Familiedag</span>' . "\n", $content, 'Invalid "show" option should default to title');
     }
 
-    function testShortcodeShowTitle()
+    function testShortcodeShowTitle(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7 show=title]');
         $this->assertEquals('<span class="recras-title">Actieve Familiedag</span>' . "\n", $content, 'Should show title');
     }
 
-    function testShortcodeDescription()
+    function testShortcodeDescription(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7 show=description]');
         $this->assertTrue(strpos($content, 'Uitgebreide omschrijving van dit arrangement') !== false, 'Should show description');
     }
 
-    function testShortcodeDuration()
+    function testShortcodeDuration(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7 show=duration]');
         $this->assertEquals('<span class="recras-duration">4:15</span>' . "\n", $content, 'Should show duration');
     }
 
-    function testShortcodeImageTag()
+    function testShortcodeImageTag(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7 show=image_tag]');
         $this->assertEquals('<img src="https://demo.recras.nl/api2/arrangementen/7/afbeelding" alt="Actieve Familiedag">' . "\n", $content, 'Should return image tag');
     }
 
-    function testShortcodeImageUrl()
+    function testShortcodeImageUrl(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7 show=image_url]');
         $this->assertEquals('/api2/arrangementen/7/afbeelding' . "\n", $content, 'Should return image URL');
     }
 
-    function testShortcodeImageInTag()
+    function testShortcodeImageInTag(): void
     {
         $content = $this->createPostAndGetContent('<img src="[recras-package id=7 show=image_url]">');
         $this->assertEquals('<p><img src="/api2/arrangementen/7/afbeelding"></p>' . "\n", $content, 'Should return image URL');
     }
 
-    function testShortcodeLocation()
+    function testShortcodeLocation(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7 show=location]');
         $this->assertEquals('<span class="recras-location">No location specified</span>' . "\n", $content, 'Should show location');
     }
 
-    function testShortcodeShowPersons()
+    function testShortcodeShowPersons(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7 show=persons]');
         $this->assertEquals('<span class="recras-persons">10</span>' . "\n", $content, 'Should show number of persons');
     }
 
-    function testShortcodeShowPrices()
+    function testShortcodeShowPrices(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7 show=price_total_excl_vat]');
         $this->assertEquals('<span class="recras-price">€ 385.66</span>' . "\n", $content, 'Should show total price excl. vat');
@@ -90,7 +90,7 @@ class ArrangementTest extends WordPressUnitTestCase
         $this->assertEquals('<span class="recras-price">€ 41.50</span>' . "\n", $content, 'Should show price per person incl. vat');
     }
 
-    function testSingleDayProgramme()
+    function testSingleDayProgramme(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7 show=programme]');
         $this->assertNotFalse(strpos($content, '<table'), 'Should return an HTML table');
@@ -98,34 +98,34 @@ class ArrangementTest extends WordPressUnitTestCase
         $this->assertEquals(0, substr_count($content, '<tr class="recras-new-day'), 'Should stay on one day');
     }
 
-    function testProgrammeWithTimeOffset()
+    function testProgrammeWithTimeOffset(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7 starttime="14:00" show=programme]');
         $this->assertNotFalse(strpos($content, '<td>14:00<td>16:00'), 'Should move start and end times');
         $this->assertNotFalse(strpos($content, '<td>16:00<td>18:15'), 'Should move start and end times for all lines');
     }
 
-    function testMultiDayProgramme()
+    function testMultiDayProgramme(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=5 show=programme]');
         $this->assertEquals(2, substr_count($content, '<tr class="recras-new-day'), 'Should span two days');
     }
 
-    function testShortcodeProgrammeWithoutHeader()
+    function testShortcodeProgrammeWithoutHeader(): void
     {
         $content = $this->createPostAndGetContent('[recras-package id=7 show=programme showheader=false]');
         $this->assertNotFalse(strpos($content, '<table'), 'Should return an HTML table');
         $this->assertFalse(strpos($content, '<thead'), 'Should not contain a table header');
     }
 
-    function testGetArrangements()
+    function testGetArrangements(): void
     {
         $plugin = new Arrangement();
         $arrangements = $plugin->getPackages('demo');
         $this->assertGreaterThan(0, count($arrangements), 'getArrangements should return a non-empty array');
     }
 
-    function testGetOnlineArrangements()
+    function testGetOnlineArrangements(): void
     {
         $plugin = new Arrangement();
         $packages = $plugin->getPackages('demo', true, false);
@@ -136,21 +136,21 @@ class ArrangementTest extends WordPressUnitTestCase
         $this->assertEquals($packages, $packagesOnline, 'All packages should be bookable online');
     }
 
-    function testGetFormArrangementsInvalidForm()
+    function testGetFormArrangementsInvalidForm(): void
     {
         $plugin = new Arrangement();
         $arrangements = $plugin->getPackagesForContactForm('demo', 1337);
         $this->assertTrue(is_string($arrangements), 'Non-existing contact form should return an error message');
     }
 
-    function testGetFormArrangements()
+    function testGetFormArrangements(): void
     {
         $plugin = new Arrangement();
         $arrangements = $plugin->getPackagesForContactForm('demo', 1);
         $this->assertGreaterThan(0, count($arrangements), 'Existing contact form should return a non-empty array');
     }
 
-    function testChangeDecimal()
+    function testChangeDecimal(): void
     {
         update_option('recras_decimal', ',');
         $content = $this->createPostAndGetContent('[recras-package id=7 show=price_total_excl_vat]');
@@ -158,7 +158,7 @@ class ArrangementTest extends WordPressUnitTestCase
         update_option('recras_decimal', '.');
     }
 
-    function testChangeCurrency()
+    function testChangeCurrency(): void
     {
         update_option('recras_currency', '¥');
         $content = $this->createPostAndGetContent('[recras-package id=7 show=price_total_excl_vat]');

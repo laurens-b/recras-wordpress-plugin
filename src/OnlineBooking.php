@@ -164,7 +164,7 @@ SCRIPT;
     /**
      * Show the TinyMCE shortcode generator contact form
      */
-    public static function showForm()
+    public static function showForm(): void
     {
         require_once(__DIR__ . '/../editor/form-booking.php');
     }
