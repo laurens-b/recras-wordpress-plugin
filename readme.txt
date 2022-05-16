@@ -2,7 +2,7 @@
 Contributors: zanderz
 Tags: recras, recreation, reservation, booking, voucher
 Tested up to: 6.0
-Stable tag: 4.8.2
+Stable tag: 5.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,15 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 3. The Recras blocks in Gutenberg
 
 == Changelog ==
+
+= 5.0.0 =
+**Major release** Please read the following changes carefully:
+
+* Seamless online booking integration:
+  * Fix GA4 events
+  * Support for Google Analytics v2 has been dropped
+  * Support for Internet Explorer and old Edge (12-15) has been dropped
+* Plugin now requires PHP 7.1 or higher
 
 = 4.8.2 =
 * Book processes: update styling for empty inputs
