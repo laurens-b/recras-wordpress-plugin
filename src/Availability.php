@@ -6,12 +6,8 @@ class Availability
 {
     /**
      * Add the [recras-availability] shortcode
-     *
-     * @param array $attributes
-     *
-     * @return string
      */
-    public static function renderAvailability($attributes)
+    public static function renderAvailability(array $attributes): string
     {
         if (!isset($attributes['id'])) {
             return __('Error: no ID set', Plugin::TEXT_DOMAIN);
@@ -29,8 +25,7 @@ class Availability
 
 
         // We don't need this data, but it's useful to check if the package actually exists
-        $packageModel = new Arrangement();
-        $packageModel->getPackage($subdomain, $attributes['id']);
+        Arrangement::getPackage($subdomain, $attributes['id']);
 
 
         $url = 'https://' . $subdomain . '.recras.nl/api/arrangementbeschikbaarheid/id/' . $attributes['id'];
@@ -56,7 +51,7 @@ SCRIPT;
     /**
      * Show the TinyMCE shortcode generator arrangement form
      */
-    public static function showForm()
+    public static function showForm(): void
     {
         require_once(__DIR__ . '/../editor/form-package-availability.php');
     }

@@ -3,11 +3,11 @@ namespace Recras;
 
 class Gutenberg
 {
-    const ENDPOINT_NAMESPACE = 'recras';
-    const GUTENBERG_SCRIPT_VERSION = '4.7.10';
+    private const ENDPOINT_NAMESPACE = 'recras';
+    private const GUTENBERG_SCRIPT_VERSION = '4.7.10';
 
 
-    public static function addBlocks()
+    public static function addBlocks(): void
     {
         $globalScriptName = 'recras-gutenberg-global';
         $globalStyleName = 'recras-gutenberg';
@@ -23,9 +23,7 @@ class Gutenberg
             self::GUTENBERG_SCRIPT_VERSION,
             true
         );
-        if (function_exists('wp_set_script_translations')) {
-            wp_set_script_translations($globalScriptName, Plugin::TEXT_DOMAIN, plugin_dir_path(__DIR__) . 'lang');
-        }
+        wp_set_script_translations($globalScriptName, Plugin::TEXT_DOMAIN, plugin_dir_path(__DIR__) . 'lang');
         wp_localize_script($globalScriptName, 'recrasOptions', [
             'settingsPage' => admin_url('admin.php?page=' . Settings::OPTION_PAGE),
             'subdomain' => get_option('recras_subdomain'),
@@ -91,7 +89,7 @@ class Gutenberg
         }
     }
 
-    public static function addCategory($categories)
+    public static function addCategory(array $categories): array
     {
         $categories[] = [
             'slug' => 'recras',
@@ -100,7 +98,7 @@ class Gutenberg
         return $categories;
     }
 
-    public static function addEndpoints()
+    public static function addEndpoints(): void
     {
         $routes = [
             'bookprocesses' => 'getBookprocesses',

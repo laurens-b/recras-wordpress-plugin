@@ -3,14 +3,15 @@ namespace Recras;
 
 class Plugin
 {
-    const LIBRARY_VERSION = '2.0.0';
-    const TEXT_DOMAIN = 'recras';
+    private const LIBRARY_VERSION = '2.0.0';
+    public const TEXT_DOMAIN = 'recras';
 
-    const SHORTCODE_BOOK_PROCESS = 'recras-bookprocess';
-    const SHORTCODE_ONLINE_BOOKING = 'recras-booking';
-    const SHORTCODE_VOUCHER_SALES = 'recras-vouchers';
-    const SHORTCODE_VOUCHER_INFO = 'recras-voucher-info';
+    public const SHORTCODE_BOOK_PROCESS = 'recras-bookprocess';
+    public const SHORTCODE_ONLINE_BOOKING = 'recras-booking';
+    public const SHORTCODE_VOUCHER_SALES = 'recras-vouchers';
+    public const SHORTCODE_VOUCHER_INFO = 'recras-voucher-info';
 
+    /** @var string */
     public $baseUrl;
 
 
@@ -55,7 +56,7 @@ class Plugin
         register_uninstall_hook(__FILE__, [__CLASS__, 'uninstall']);
     }
 
-    private function addClassicEditorSubmenuPage($title, $slug, $callable)
+    private function addClassicEditorSubmenuPage(string $title, string $slug, callable $callable): void
     {
         add_submenu_page(
             null,
@@ -70,7 +71,7 @@ class Plugin
     /**
      * Add the menu items for our plugin
      */
-    public function addMenuItems()
+    public function addMenuItems(): void
     {
         $mainPage = current_user_can('manage_options') ? 'recras' : Settings::PAGE_CACHE;
         add_menu_page('Recras', 'Recras', 'edit_pages', $mainPage, '', plugin_dir_url(__DIR__) . 'logo.svg', 58);
@@ -124,7 +125,7 @@ class Plugin
     /**
      * Register our shortcodes
      */
-    public function addShortcodes()
+    public function addShortcodes(): void
     {
         add_shortcode('recras-availability', [Availability::class, 'renderAvailability']);
         add_shortcode($this::SHORTCODE_ONLINE_BOOKING, [OnlineBooking::class, 'renderOnlineBooking']);
@@ -137,7 +138,8 @@ class Plugin
     }
 
 
-    public static function clearCache()
+    //TODO: change to :never when we support only PHP 8.1+
+    public static function clearCache(): void
     {
         $errors = 0;
         $errors += Arrangement::clearCache();
@@ -154,9 +156,8 @@ class Plugin
 
     /**
      * Get error message if no subdomain has been entered yet
-     * @return string
      */
-    public static function getNoSubdomainError()
+    public static function getNoSubdomainError(): string
     {
         if (current_user_can('manage_options')) {
             return __('Error: you have not set your Recras name yet', Plugin::TEXT_DOMAIN);
@@ -165,13 +166,7 @@ class Plugin
         }
     }
 
-
-    /**
-     * @param int $errors
-     *
-     * @return string
-     */
-    public static function getStatusMessage($errors)
+    public static function getStatusMessage(int $errors): string
     {
         return ($errors === 0 ? 'success' : 'error');
     }
@@ -180,7 +175,7 @@ class Plugin
     /**
      * Load scripts for use in the WP admin
      */
-    public function loadAdminScripts()
+    public function loadAdminScripts(): void
     {
         wp_register_script('recras-admin', $this->baseUrl . '/js/admin.js', [], '4.0.0', true);
         wp_localize_script('recras-admin', 'recras_l10n', [
@@ -199,7 +194,7 @@ class Plugin
         wp_enqueue_script('wp-api');
     }
 
-    public static function changeScriptMarkup($tag, $handle)
+    public static function changeScriptMarkup(string $tag, string $handle): string
     {
         $deferHandles = ['recrasjspolyfill', 'recrasjslibrary'];
         if (in_array($handle, $deferHandles)) {
@@ -222,7 +217,7 @@ class Plugin
     /**
      * Load the general script and localisation
      */
-    public function loadScripts()
+    public function loadScripts(): void
     {
         $localisation = [
             'checkboxRequired' => __('At least one choice is required', $this::TEXT_DOMAIN),
@@ -303,12 +298,12 @@ class Plugin
     /**
      * Set plugin base dir
      */
-    public function setBaseUrl()
+    public function setBaseUrl(): void
     {
         $this->baseUrl = rtrim(plugins_url('', __DIR__), '/');
     }
 
-    public static function uninstall()
+    public static function uninstall(): void
     {
         delete_option('recras_currency');
         delete_option('recras_datetimepicker');

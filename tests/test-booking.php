@@ -3,25 +3,25 @@ namespace Recras;
 
 class OnlineBookingTest extends WordPressUnitTestCase
 {
-	function testShortcodeWithoutID()
+	function testShortcodeWithoutID(): void
 	{
 	    $content = $this->createPostAndGetContent('[recras-booking]');
         $this->assertNotFalse(strpos($content, '<iframe'), 'Booking without ID should work');
 	}
 
-	function testInvalidIDinShortcode()
+	function testInvalidIDinShortcode(): void
 	{
 	    $content = $this->createPostAndGetContent('[recras-booking id=foobar]');
         $this->assertEquals('Error: ID is not a number' . "\n", $content, 'Non-numeric ID should fail');
 	}
 
-    function testRegularBooking()
+    function testRegularBooking(): void
     {
         $content = $this->createPostAndGetContent('[recras-booking id=3]');
         $this->assertNotFalse(strpos($content, '<iframe'), 'Regular booking should include an iframe');
     }
 
-    function testAutoresize()
+    function testAutoresize(): void
     {
         $content = $this->createPostAndGetContent('[recras-booking id=3]');
         $this->assertNotFalse(strpos($content, "window.addEventListener('message'"), 'Should include event listener by default');
@@ -30,7 +30,7 @@ class OnlineBookingTest extends WordPressUnitTestCase
         $this->assertFalse(strpos($content, "window.addEventListener('message'"), 'Should not include event listener when autoresize is off');
     }
 
-    function testNewMethod()
+    function testNewMethod(): void
     {
         $content = $this->createPostAndGetContent('[recras-booking id=3 use_new_library=1]');
         $this->assertNotFalse(strpos($content, "document.addEventListener('DOMContentLoaded'"), 'Using new method should include an event listener');

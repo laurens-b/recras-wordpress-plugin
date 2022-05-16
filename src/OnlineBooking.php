@@ -5,12 +5,8 @@ class OnlineBooking
 {
     /**
      * Add the [recras-booking] shortcode
-     *
-     * @param array $attributes
-     *
-     * @return string
      */
-    public static function renderOnlineBooking($attributes)
+    public static function renderOnlineBooking(array $attributes): string
     {
         if (isset($attributes['id']) && !ctype_digit($attributes['id']) && !is_int($attributes['id'])) {
             return __('Error: ID is not a number', Plugin::TEXT_DOMAIN);
@@ -86,7 +82,7 @@ class OnlineBooking
     }
 
 
-    private static function generateBookingForm($subdomain, $arrangementID, $libraryOptions)
+    private static function generateBookingForm(string $subdomain, int $arrangementID = null, array $libraryOptions = []): string
     {
         $generatedDivID = uniqid('V');
         $extraOptions = [];
@@ -140,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return $html;
     }
 
-    private static function generateIframe($subdomain, $arrangementID, $enableResize)
+    private static function generateIframe(string $subdomain, int $arrangementID, bool $enableResize): string
     {
         $url = 'https://' . $subdomain . '.recras.nl/onlineboeking';
         if ($arrangementID) {
@@ -168,7 +164,7 @@ SCRIPT;
     /**
      * Show the TinyMCE shortcode generator contact form
      */
-    public static function showForm()
+    public static function showForm(): void
     {
         require_once(__DIR__ . '/../editor/form-booking.php');
     }

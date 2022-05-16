@@ -6,7 +6,7 @@ class Editor
     /**
      * Add the shortcode generator buttons to TinyMCE
      */
-    public static function addButtons()
+    public static function addButtons(): void
     {
         add_filter('mce_buttons', [__CLASS__, 'registerButtons'], 999, 2);
         add_filter('mce_external_plugins', [__CLASS__, 'addScripts'], 999);
@@ -16,12 +16,8 @@ class Editor
 
     /**
      * Load the script needed for TinyMCE
-     *
-     * @param array $plugins
-     *
-     * @return array
      */
-    public static function addScripts($plugins)
+    public static function addScripts(array $plugins): array
     {
         global $recrasPlugin;
 
@@ -33,13 +29,8 @@ class Editor
 
     /**
      * Register TinyMCE buttons
-     *
-     * @param array $buttons
-     * @param int $editorId
-     *
-     * @return array
      */
-    public static function registerButtons($buttons, $editorId)
+    public static function registerButtons(array $buttons, string $editorId): array
     {
         array_push(
             $buttons,

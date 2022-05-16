@@ -3,16 +3,12 @@ namespace Recras;
 
 class Products
 {
-    const SHOW_DEFAULT = 'title';
+    private const SHOW_DEFAULT = 'title';
 
     /**
      * Add the [recras-product] shortcode
-     *
-     * @param array $attributes
-     *
-     * @return string
      */
-    public static function renderProduct($attributes)
+    public static function renderProduct(array $attributes): string
     {
         if (!isset($attributes['id'])) {
             return __('Error: no ID set', Plugin::TEXT_DOMAIN);
@@ -71,7 +67,7 @@ class Products
     /**
      * Clear product cache (transients)
      */
-    public static function clearCache()
+    public static function clearCache(): int
     {
         global $recrasPlugin;
 
@@ -85,7 +81,7 @@ class Products
     }
 
 
-    private static function displayname($json)
+    private static function displayname(\stdClass $json): string
     {
         if ($json->weergavenaam) {
             return $json->weergavenaam;
@@ -96,12 +92,8 @@ class Products
 
     /**
      * Get duration of a product
-     *
-     * @param object $product
-     *
-     * @return string
      */
-    private static function getDuration($product)
+    private static function getDuration(\stdClass $product): string
     {
         if (!$product->duur) {
             return '';
@@ -120,11 +112,9 @@ class Products
     /**
      * Get products from the Recras API
      *
-     * @param string $subdomain
-     *
      * @return array|string
      */
-    public static function getProducts($subdomain)
+    public static function getProducts(string $subdomain)
     {
         global $recrasPlugin;
 
@@ -153,10 +143,8 @@ class Products
 
     /**
      * Get all valid options for the "show" argument
-     *
-     * @return array
      */
-    public static function getValidOptions()
+    public static function getValidOptions(): array
     {
         return ['description', 'description_long', 'duration', 'image_tag', 'image_url', 'minimum_amount', 'price_excl_vat', 'price_incl_vat', 'title'];
     }
@@ -165,7 +153,7 @@ class Products
     /**
      * Show the TinyMCE shortcode generator product form
      */
-    public static function showForm()
+    public static function showForm(): void
     {
         require_once(__DIR__ . '/../editor/form-product.php');
     }
