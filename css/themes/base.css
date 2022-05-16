@@ -1,0 +1,159 @@
+/* This file is used by all themes */
+
+/*** ONLINE BOOKING ***/
+.recras-contactform-required::after {
+    content: '*';
+    cursor: help;
+    margin-left: 0.125em;
+}
+
+.recras-onlinebooking button:not(:disabled) {
+    cursor: pointer;
+}
+.recras-onlinebooking button:disabled {
+    cursor: not-allowed;
+}
+.recras-price, .priceSubtotal {
+    text-align: right;
+}
+
+.recras-product-dependency, .maximum-amount, .minimum-amount, .booking-error {
+    color: #a00;
+    display: block;
+}
+input[type].recras-input-invalid {
+    border-color: #a00;
+}
+.error {
+    background: hsl(0, 100%, 96%);
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    color: hsl(0, 100%, 33%);
+}
+
+.price-information {
+    color: #666;
+    font-size: 0.9em;
+}
+
+@media (max-width: 640px) {
+    .recras-amountsform > div {
+        grid-template-columns: 1fr 7em;
+    }
+    .recras-amountsform > div > div:first-child {
+        grid-column: 1 / 3;
+    }
+    .recras-contactform > div,
+    .recras-discounts > div {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/*** BOOK PROCESSES ***/
+#bookprocess, #bookprocess * {
+    box-sizing: border-box;
+}
+#bookprocess {
+    max-width: 1400px;
+}
+
+#bookprocess table {
+    border-collapse: collapse;
+}
+
+/*** recap ***/
+#recapEle dt {
+    color: #666;
+}
+#bookprocess aside h2 {
+    background: var(--recras-color-recap-bg, #000);
+    color: var(--recras-color-recap-fg, #fff);
+}
+
+/*** programme and invoice tables ***/
+#programma tbody tr + tr td,
+#factuurRegels tbody tr + tr td {
+    border-top: 1px dotted #dedede;
+}
+#programma thead th,
+#factuurRegels thead th {
+    border-bottom: 2px solid #ccc;
+    font-weight: bold;
+}
+#factuurRegels tbody:empty + tfoot #totaalFactuur th,
+#factuurRegels tbody:empty + tfoot #totaalFactuur td {
+    /* If the table is empty, hide the footer border because the header also has a 2px border */
+    border-top: 0;
+}
+#teBetalen {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+#teBetalen th,
+#teBetalen td {
+    border-top: 2px solid #ccc;
+}
+#totaalFactuur th,
+#totaalFactuur td {
+    border-top: 2px solid #ccc;
+}
+#totaalFactuur + tr:not(#teBetalen) {
+    color: #666;
+    font-style: italic;
+}
+
+.recras-product_with_time .numberWrapper.disabled {
+    color: #ccc;
+}
+.recras-product_without_time .numberWrapper.disabled {
+    background-color: #aaa;
+}
+.numberWrapper.disabled button {
+    background-color: #ccc !important; /* Important to overwrite [value=""] */
+    color: #888 !important; /* Important to overwrite [value=""] */
+}
+.numberWrapper.disabled input {
+    border-color: #ccc !important; /* Important to overwrite [value=""] */
+}
+.numberWrapper > input:invalid {
+    background-color: #e0adad;
+    border: 0;
+}
+
+.recras-package .radioWrapper > label,
+.recras-product_without_time .checkboxWrapper > label {
+    background-color: var(--recras-color-plus-btn-bg, hsl(140, 0%, 80%));
+    border-radius: 50%;
+}
+.recras-product_with_time .checkboxWrapper > label {
+    background-color: var(--recras-color-plus-btn-bg, hsl(140, 0%, 80%));
+    border: 1px solid var(--recras-color-plus-btn-bg, hsl(140, 0%, 80%));
+}
+@media (pointer: fine) {
+    .recras-package .radioWrapper > label:hover,
+    .recras-product_with_time .checkboxWrapper > label:hover {
+        background-color: var(--recras-color-plus-btn-hover-bg, hsl(120, 0%, 40%));
+        color: #fff;
+    }
+}
+.recras-package :checked + label,
+.recras-product_with_time > div > div :checked + label,
+.recras-product_without_time > div :checked + label {
+    background-color: var(--recras-color-plus-btn-checked-bg, hsl(140, 0%, 30%));
+    color: #fff;
+}
+
+/*** discounts ***/
+input.discountInput[disabled] {
+    background: hsl(140, 0%, 75%);
+}
+.recras-discount button {
+    color: hsl(0, 58%, 58%);
+}
+
+/*** spinner ***/
+#bookprocess .spinner {
+    border: 8px solid var(--recras-color-spinner-base, hsl(140, 0%, 30%));
+    border-top-color: var(--recras-color-spinner-accent, hsl(140, 0%, 45%));
+}

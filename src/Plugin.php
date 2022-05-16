@@ -287,6 +287,7 @@ class Plugin
         if ($theme) {
             $allowedThemes = Settings::getThemes();
             if ($theme !== 'none' && array_key_exists($theme, $allowedThemes)) {
+                wp_enqueue_style('recras_theme_base', $this->baseUrl . '/css/themes/base.css', [], '5.0.0');
                 wp_enqueue_style('theme_' . $theme, $this->baseUrl . '/css/themes/' . $theme . '.css', [], $allowedThemes[$theme]['version']);
             }
         }
