@@ -134,17 +134,6 @@ No. "Must use" plugins don't appear in the update notifications nor show their u
 * The "Term for number of vouchers" is now used during voucher sales
 * Various bug fixes related to online bookings and contact forms
 
-= 4.4 =
-* Add option to hide voucher sale quantity (defaults to 1)
-* Add option to hide discount field during online booking
-* Seamless online booking integration: pressing Enter in the amounts form sometimes broke the form
-
-= 4.3 (highlights) =
-* Various bug fixes related to online bookings
-
-= 4.2 (highlights) =
-* Various bug fixes related to online bookings and contact forms
-
 = Older versions =
 See [the full changelog](https://github.com/Recras/recras-wordpress-plugin/blob/master/changelog.md) for older versions.
 
