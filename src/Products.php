@@ -49,6 +49,9 @@ class Products
                 }
                 return '<img src="' . $product->afbeelding_href . '" alt="' . htmlspecialchars(self::displayname($product)) . '">';
             case 'image_url':
+                if (!$product->afbeelding_href) {
+                    return '';
+                }
                 return $product->afbeelding_href;
             case 'minimum_amount':
                 return '<span class="recras-amount">' . $product->minimum_aantal . '</span>';
